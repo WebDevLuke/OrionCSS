@@ -1,0 +1,171 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// RESPONSIVE BREAKPOINTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Create media queries using breakpoints defined in `data/breakpoints.js`.
+
+Media queries are converted to EM to cover instances where users change font sizes, zoom in, base font size changed in html (https://zellwk.com/blog/media-query-units)
+*/
+
+
+// BASIC USAGE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Basic usage showing an element which is display block and then changes to display none once the "xlg" breakpoint has been hit.
+*/
+
+/*
+.myElement {
+	display:block;
+	@include bp(xlg) {
+		display:none;
+	}
+}
+*/
+
+
+/*
+Another usage showing an element which is set to display block once the "md" breakpoint has been hit and the screen orientation is portrait.
+This mixin can be placed within an element as above or elements can be placed within the mixin as below.
+*/
+
+/*
+@include bp(md, "orientation:portrait") {
+	.myElement {
+		display:block;
+	}
+}
+*/
+
+
+/*
+Other Variants include `bpMax` which desktop first media queries and `bpBetween` which lets you specify 2 breakpoints.
+*/
+
+/*
+.myElement {
+	display:block;
+	@include bpMax(xlg) {
+		display:none;
+	}
+}
+*/
+
+/*
+.myElement {
+	display:block;
+	@include bpBetween(md, xlg) {
+		display:none;
+	}
+}
+*/
+
+
+// SASS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Mobile first
+@mixin bp($breakpoint, $extras: false) {
+
+	// Set value var
+	$value: null;
+
+	// Retrieves the value from the key
+	@if map-has-key($breakpoints, $breakpoint) {
+		$value: map-get($breakpoints, $breakpoint);
+	}
+	@else {
+		@error "`#{$breakpoint}` doesn't exist in `data/breakpoints.js`";
+	}
+ 
+	// If the key exists in the map
+	@if $value != null {
+
+		// Convert value to EM
+		$value: $value / $global-font-size * 1em;
+
+		@if $extras {
+			@media (min-width: $value) and ($extras) {
+				@content;
+			}
+		}
+		@else {
+			@media (min-width: $value) {
+				@content;
+			}
+		}
+	}
+}
+
+// Desktop first
+@mixin bpMax($breakpoint, $extras: false) {
+
+	// Set value var
+	$value: null;
+
+	// Retrieves the value from the key
+	@if map-has-key($breakpoints, $breakpoint) {
+		$value: map-get($breakpoints, $breakpoint);
+	}
+	@else {
+		@error "`#{$breakpoint}` doesn't exist in `data/breakpoints.js`";
+	}
+ 
+	// If the key exists in the map
+	@if $value != null {
+
+		// Add 1px to cover overflow clashes with other min media queries
+		$value: $value - 1px;
+
+		// Convert value to EM
+		$value: $value / $global-font-size * 1em;
+
+		@if $extras {
+			@media (max-width: $value) and ($extras) {
+				@content;
+			}
+		}
+		@else {
+			@media (max-width: $value) {
+				@content;
+			}
+		}
+	}
+}
+
+// In between 2 breakpoints
+@mixin bpBetween($from, $to) {
+
+	// Set value var
+	$value: null;
+
+	// Retrieves the value from the key
+	@if map-has-key($breakpoints, $from) {
+		$from: map-get($breakpoints, $from); 
+	}
+	@else {
+		@error "`#{$from}` doesn't exist in `data/breakpoints.js`"; 
+	}
+
+	@if map-has-key($breakpoints, $to) {
+		$to: map-get($breakpoints, $to); 
+	}
+	@else {
+		@error "`#{$to}` doesn't exist in `data/breakpoints.js`";
+	}
+ 
+	// If the key exists in the map
+	@if $from and $to != null {
+
+		// Convert values to EM
+		$from: $from / $global-font-size * 1em;
+		$to: $to / $global-font-size * 1em;
+
+		// Prints a media query based on the value
+		@media (min-width: $from) and (max-width: $to)	{
+			@content;
+		}
+	}
+}

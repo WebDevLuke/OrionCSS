@@ -1,0 +1,100 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// COVER OBJECT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+An absolute positioned object which covers a selected space. Remember to set position:relative on containing
+element.
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-cover">
+	CONTENT
+</div>
+*/
+
+.o-cover {
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+
+
+// WIDTH MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-cover o-cover--quarter">
+	CONTENT
+</div>
+*/
+
+.o-cover--quarter {
+	width:25%;
+}
+
+.o-cover--half {
+	width:50%;
+}
+
+.o-cover--three-quarters {
+	width:75%;
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes width once breakpoint is hit
+// Example: o-cover--quarter@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-cover--quarter\@#{$bp-name} {
+			width:25%;
+		}
+
+		.o-cover--half\@#{$bp-name} {
+			width:50%;
+		}
+
+		.o-cover--three-quarters\@#{$bp-name} {
+			width:75%;
+		}
+	}
+}
+
+// Changes width until breakpoint is hit
+// Example: o-cover--quarter@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-cover--quarter\@max-#{$bp-name} {
+			width:25%;
+		}
+
+		.o-cover--half\@#{$bp-name} {
+			width:50%;
+		}
+
+		.o-cover--three-quarters\@#{$bp-name} {
+			width:75%;
+		}
+	}
+}
+
+
+// POSITION MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-cover o-cover--right">
+	CONTENT
+</div>
+*/
+
+.o-cover--right {
+	left:auto;
+	right:0;
+}

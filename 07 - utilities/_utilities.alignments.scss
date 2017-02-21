@@ -1,0 +1,141 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// ALIGNMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Basic utility classes for aligning elements horizontally or vertically.
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-align-left {
+	text-align:left !important;
+}
+
+.u-align-center {
+	text-align:center !important;
+}
+
+.u-align-right {
+	text-align:right !important;
+}
+
+.u-vertical-align-top {
+	vertical-align:top !important;
+}
+
+.u-vertical-align-middle {
+	vertical-align:middle !important;
+}
+
+.u-vertical-align-bottom {
+	vertical-align:bottom !important;
+}
+
+.u-align-center-block {
+	margin-left:auto !important;
+	margin-right:auto !important;
+}
+
+.u-align-center-absolute {
+	position:absolute !important;
+	top:0 !important;
+	bottom:0 !important;
+	left:0 !important;
+	right:0 !important;
+	margin:auto !important;
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes alignment when breakpoint is hit
+// Example: .u-align-left@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-align-left\@#{$bp-name} {
+			text-align:left !important;
+		}
+
+		.u-align-center\@#{$bp-name} {
+			text-align:center !important;
+		}
+
+		.u-align-right\@#{$bp-name} {
+			text-align:right !important;
+		}
+
+		.u-vertical-align-top\@#{$bp-name} {
+			vertical-align:top !important;
+		}
+
+		.u-vertical-align-middle\@#{$bp-name} {
+			vertical-align:middle !important;
+		}
+
+		.u-vertical-align-bottom\@#{$bp-name} {
+			vertical-align:bottom !important;
+		}
+
+		.u-align-center-block\@#{$bp-name} {
+			margin-left:auto !important;
+			margin-right:auto !important;
+		}
+
+		.u-align-center-absolute\@#{$bp-name} {
+			position:absolute !important;
+			top:0 !important;
+			bottom:0 !important;
+			left:0 !important;
+			right:0 !important;
+			margin:auto !important;
+		}		
+	}
+}
+
+// Changes alignment until breakpoint is hit
+// Example: .u-align-left@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-align-left\@max-#{$bp-name} {
+			text-align:left !important;
+		}
+
+		.u-align-center\@max-#{$bp-name} {
+			text-align:center !important;
+		}
+
+		.u-align-right\@max-#{$bp-name} {
+			text-align:right !important;
+		}
+
+		.u-vertical-align-top\@max-#{$bp-name} {
+			vertical-align:top !important;
+		}
+
+		.u-vertical-align-middle\@max-#{$bp-name} {
+			vertical-align:middle !important;
+		}
+
+		.u-vertical-align-bottom\@max-#{$bp-name} {
+			vertical-align:bottom !important;
+		}
+
+		.u-align-center-block\@max-#{$bp-name} {
+			margin-left:auto !important;
+			margin-right:auto !important;
+		}
+
+		.u-align-center-absolute\@max-#{$bp-name} {
+			position:absolute !important;
+			top:0 !important;
+			bottom:0 !important;
+			left:0 !important;
+			right:0 !important;
+			margin:auto !important;
+		}		
+	}
+}

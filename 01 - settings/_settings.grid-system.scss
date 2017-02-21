@@ -1,0 +1,24 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// GRID SETTINGS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Define default grid system attributes and any morphs which change the grid system as it hits the
+breakpoints defined in /data/breakpoints.json.
+*/
+
+$grid: (
+	"default": (
+		"max-width": 1170px,
+		"columns": 12,
+		"gutter": 30px,
+		"containerPadding": 30px
+	),
+	"morph": (
+		"lg2" : (
+			"max-width": 1600px,
+			"columns": 16,
+			"gutter": 30px
+		)
+	)
+);

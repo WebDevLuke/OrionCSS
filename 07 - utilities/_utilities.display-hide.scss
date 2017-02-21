@@ -1,0 +1,95 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// SHOWING / HIDING OVERRIDES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+These utility classes should only be used for showing or hiding elements. If you require an element to have
+a certain layout for any other purpose, build that display property into the component directly.
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-hide {
+	display:none !important;
+}
+
+.u-display-block {
+	display:block !important;
+}
+
+.u-display-inline-block {
+	display:inline-block !important;
+}
+
+.u-display-table {
+	display:table !important;
+	width:100% !important;
+}
+
+.u-display-table-cell {
+	display:table-cell !important;
+	width:100% !important;
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes display when breakpoint is hit
+// Example: .u-hide@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-hide\@#{$bp-name} {
+			display:none !important;
+		}
+
+		.u-display-block\@#{$bp-name} {
+			display:block !important;
+		}
+
+		.u-display-inline-block\@#{$bp-name} {
+			display:inline-block !important;
+		}
+
+		.u-display-table\@#{$bp-name} {
+			display:table !important;
+			width:100% !important;
+		}
+
+		.u-display-table-cell\@#{$bp-name} {
+			display:table-cell !important;
+			width:100% !important;
+		}
+	}
+}
+
+
+// Changes display until breakpoint is hit
+// Example: .u-hide@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-hide\@max-#{$bp-name} {
+			display:none !important;
+		}
+
+		.u-display-block\@max-#{$bp-name} {
+			display:block !important;
+		}
+
+		.u-display-inline-block\@max-#{$bp-name} {
+			display:inline-block !important;
+		}
+
+		.u-display-table\@max-#{$bp-name} {
+			display:table !important;
+			width:100% !important;
+		}
+
+		.u-display-table-cell\@max-#{$bp-name} {
+			display:table-cell !important;
+			width:100% !important;
+		}
+	}
+}

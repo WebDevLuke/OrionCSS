@@ -1,0 +1,63 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// POSITION UTILITY
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Simple utility classes to add position properties to elements
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-position-relative {
+	position:relative !important;
+}
+
+.u-position-absolute {
+	position:absolute !important;
+}
+
+.u-position-fixed {
+	position:fixed !important;
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes position when breakpoint is hit
+// Example: .u-position-relative@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-position-relative\@#{$bp-name} {
+			position:relative !important;
+		}
+
+		.u-position-absolute\@#{$bp-name} {
+			position:absolute !important;
+		}
+
+		.u-position-fixed\@#{$bp-name} {
+			position:fixed !important;
+		}
+	}
+}
+
+// Changes position until breakpoint is hit
+// Example: .u-position-relative@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-position-relative\@max-#{$bp-name} {
+			position:relative !important;
+		}
+
+		.u-position-absolute\@max-#{$bp-name} {
+			position:absolute !important;
+		}
+
+		.u-position-fixed\@max-#{$bp-name} {
+			position:fixed !important;
+		}
+	}
+}

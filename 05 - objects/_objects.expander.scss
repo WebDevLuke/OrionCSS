@@ -1,0 +1,152 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// EXPANDER OBJECT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Simple object which hides content which then slides down after a linked element is clicked. Utilises the
+js-active module.
+*/
+
+
+// BASE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-expander js-myexpander">
+	CONTENT
+</div>
+<a href="/" data-active="js-myexpander">TOGGLE LINK</a>
+*/
+
+.o-expander {
+	width:100%;
+	transition:max-height 0.5s;
+	max-height:0;
+	overflow:hidden;
+}
+
+
+// PARTIAL VISIBLE MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Modifiers to make a part of the hidden text visible, with the rest showing on is-active. This uses the
+global-line-height variable defined in settings.typography.
+*/
+
+.o-expander--partial-tiny {
+	max-height:calc(#{$global-line-height}em * 3);
+}
+
+.o-expander--partial-small {
+	max-height:calc(#{$global-line-height}em * 6);
+}
+
+.o-expander--partial-regular {
+	max-height:calc(#{$global-line-height}em * 9);
+}
+
+.o-expander--partial-large {
+	max-height:calc(#{$global-line-height}em * 12);
+}
+
+.o-expander--partial-huge {
+	max-height:calc(#{$global-line-height}em * 15);
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes amount of visible text once breakpoint is hit
+// Example: o-expander--partial-tiny@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-expander--partial-tiny\@#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 3);
+		}
+
+		.o-expander--partial-small\@#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 6);
+		}
+
+		.o-expander--partial-regular\@#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 9);
+		}
+
+		.o-expander--partial-large\@#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 12);
+		}
+
+		.o-expander--partial-huge\@#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 15);
+		}
+	}
+}
+
+// Changes amount of visible text until breakpoint is hit
+// Example: o-expander--partial-tiny@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-expander--partial-tiny\@max-#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 3);
+		}
+
+		.o-expander--partial-small\@max-#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 6);
+		}
+
+		.o-expander--partial-regular\@max-#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 9);
+		}
+
+		.o-expander--partial-large\@max-#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 12);
+		}
+
+		.o-expander--partial-huge\@max-#{$bp-name} {
+			max-height:calc(#{$global-line-height}em * 15);
+		}
+	}
+}
+
+
+// EXPANDER STATEFUL MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Controls behaviour once is-active class is added
+*/
+
+.o-expander.is-active {
+	max-height:1999px;
+}
+
+
+// ENABLE & DISABLE MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Disables the expander once a certain breakpoint has been hit.
+*/
+
+// Example: o-expander--disable@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-expander--disable\@#{$bp-name} {
+			max-height:none; 
+			overflow:visible;
+		}
+	}
+}
+
+/*
+Enables the expander once a certain breakpoint has been hit.
+*/
+
+// Example: o-expander--enable@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-expander--enable\@#{$bp-name} {
+			max-height:none;
+			overflow:visible;
+		}
+	}
+}

@@ -1,0 +1,73 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// BOX OBJECT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Boxes off content
+http://csswizardry.com/2011/10/the-island-object/
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-box">
+	CONTENT
+</div>
+*/
+
+/*
+[1] So we can apply the `.o-box` class to naturally-inline elements.
+*/
+
+.o-box {
+	@include clearfix();
+	display: block; /* [1] */
+}
+
+
+// SIZE MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Generates variants in padding size using data from settings.spacing
+*/
+
+/*
+<div class="o-box--tiny@md">
+	CONTENT
+</div>
+*/
+
+// Generate using settings.spacing
+@each $sp-name, $sp-value in $spacing {
+	.o-box--#{$sp-name} {
+		padding:rem($sp-value);
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes padding when breakpoint is hit
+// Example: o-box--tiny@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-box--#{$sp-name}\@#{$bp-name} {
+				padding:rem($sp-value);
+			}
+		}
+	}
+}
+
+// Changes padding until breakpoint is hit
+// Example: o-box--tiny@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-box--#{$sp-name}\@max#{$bp-name} {
+				padding:rem($sp-value);
+			}
+		}
+	}
+}

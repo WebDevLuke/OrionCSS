@@ -1,0 +1,145 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// INLINE LIST OBJECT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Simple inline list with content stacked left or right horizontally
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<ul class="o-list-inline">
+	<li class="o-list-inline__item">CONTENT</li>
+	<li class="o-list-inline__item">CONTENT</li>
+	<li class="o-list-inline__item">CONTENT</li>
+</ul>
+*/
+
+.o-list-inline {
+	list-style:none;
+	margin-left:0;
+}
+
+.o-list-inline__item {
+	display:inline-block;
+}
+
+
+// SPACING VARIANT MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Adds padding between each item. Can also be used in conjunction with delimited modifier
+*/
+
+/*
+<ul class="o-list-inline o-list-inline--spacing-huge@sm2">
+	<li class="o-list-inline__item">CONTENT</li>
+	<li class="o-list-inline__item">CONTENT</li>
+	<li class="o-list-inline__item">CONTENT</li>
+</ul>
+*/
+
+/*
+[1] Remove the last list items spacing.
+*/
+
+[class*="o-list-inline--spacing-"] {
+	.o-list-inline__item:after {
+		content:"";
+	}
+	.o-list-inline__item:last-child:after {
+		display:none; /* [1] */
+	}
+}
+
+// Generate using settings.spacing
+// Example: o-list-inline--spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-list-inline--spacing-#{$sp-name} {
+		.o-list-inline__item:after {
+			padding:0 rem($sp-value);
+		}
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes padding once breakpoint is hit
+// Example o-list-inline--spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-list-inline--spacing-#{$sp-name}\@#{$bp-name} {
+				.o-list-inline__item:after {
+					padding:0 rem($sp-value);
+				}
+			}
+		}
+	}
+}
+
+// Changes padding until breakpoint is hit
+// Example o-list-inline--spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-list-inline--spacing-#{$sp-name}\@max-#{$bp-name} {
+				.o-list-inline__item:after {
+					padding:0 rem($sp-value);
+				}
+			}
+		}
+	}
+}
+
+
+// DELIMITED MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Seperate individual list items with a specific character
+*/
+
+/*
+<ul class="o-list-inline o-list-inline--delimited-pipe">
+	<li class="o-list-inline__item">CONTENT</li>
+	<li class="o-list-inline__item">CONTENT</li>
+	<li class="o-list-inline__item">CONTENT</li>
+</ul>
+*/
+
+/*
+[1] Remove the default arbitory whitespace between text and delimiter.
+[2] Remove the last list items delimiter.
+*/
+
+[class*="o-list-inline--delimited-"] {
+	font-size: 0; /* [1] */
+	.o-list-inline__item {
+		font-size: 1rem; /* [1] */
+	}
+	.o-list-inline__item:last-child:after {
+		display:none; /* [2] */
+	}
+}
+
+.o-list-inline--delimited-pipe {
+	.o-list-inline__item:after {
+		content: "|";
+	}
+}
+
+.o-list-inline--delimited-comma {
+	.o-list-inline__item:after {
+		content: ",";
+	}
+}
+
+.o-list-inline--delimited-dash {
+	.o-list-inline__item:after {
+		content: "-";
+	}
+}

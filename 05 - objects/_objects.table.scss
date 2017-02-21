@@ -1,0 +1,403 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// TABLE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+A simple object for manipulating table element
+*/
+
+.o-table {
+	width:100%;
+}
+
+// EQUAL-WIDTH CELL MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Modifier to make all cells have the same width
+*/
+
+.o-table--fixed {
+	table-layout:fixed;
+}
+
+
+// SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Adds some spacing between cells
+*/
+
+// Generate using settings.spacing
+// Example: o-table--spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--spacing-#{$sp-name} {
+		td, th {
+			padding:rem($sp-value);
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// HORIZONTAL SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Adds some horizontal spacing between cells
+*/
+
+// Generate using settings.spacing
+// Example: o-table--horizontal-spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--horizontal-spacing-#{$sp-name} {
+		td, th {
+			padding-left:rem($sp-value);
+			padding-right:rem($sp-value);
+			&:last-child {
+				padding:0;
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--horizontal-spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--horizontal-spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding-left:rem($sp-value);
+					padding-right:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--horizontal-spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--horizontal-spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding-left:rem($sp-value);
+					padding-right:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// VERTICAL SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Generate using settings.spacing
+// Example: o-table--vertical-spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--vertical-spacing-#{$sp-name} {
+		td, th {
+			padding-top:rem($sp-value);
+			padding-bottom:rem($sp-value);
+			&:last-child {
+				padding:0;
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--vertical-spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--vertical-spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding-top:rem($sp-value);
+					padding-bottom:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--vertical-spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--vertical-spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding-top:rem($sp-value);
+					padding-bottom:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// RIGHT SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Generate using settings.spacing
+// Example: o-table--right-spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--right-spacing-#{$sp-name} {
+		td, th {
+			padding-right:rem($sp-value);
+			&:last-child {
+				padding:0;
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--right-spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--right-spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding-right:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--right-spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--right-spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding-right:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// LEFT SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Generate using settings.spacing
+// Example: o-table--left-spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--left-spacing-#{$sp-name} {
+		td, th {
+			padding-left:rem($sp-value);
+			&:last-child {
+				padding:0;
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--left-spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--left-spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding-left:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--left-spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--left-spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding-left:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// TOP SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Generate using settings.spacing
+// Example: o-table--top-spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--top-spacing-#{$sp-name} {
+		td, th {
+			padding-top:rem($sp-value);
+			&:last-child {
+				padding:0;
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--top-spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--top-spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding-top:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--top-spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--top-spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding-top:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// BOTTOM SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Generate using settings.spacing
+// Example: o-table--bottom-spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-table--bottom-spacing-#{$sp-name} {
+		td, th {
+			padding-bottom:rem($sp-value);
+			&:last-child {
+				padding:0;
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing when breakpoint is hit
+// Example: o-table--bottom-spacing-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--bottom-spacing-#{$sp-name}\@#{$bp-name} {
+				td, th {
+					padding-bottom:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Generate using settings.spacing
+// Change spacing until breakpoint is hit
+// Example: o-table--bottom-spacing-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-table--bottom-spacing-#{$sp-name}\@max-#{$bp-name} {
+				td, th {
+					padding-bottom:rem($sp-value);
+					&:last-child {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}

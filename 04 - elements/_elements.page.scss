@@ -1,0 +1,21 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// HTML STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Set basic styles for HTML top level element.
+*/
+
+/*
+[1] Set the default `font-size` and `line-height` for the entire project, sourced from our default variables. 
+     The `font-size` is calculated to exist in ems so the user's browser font-size is respected if changed.
+     The `line-height` is calculated to exist unitlessly.
+*/
+
+
+html {
+	font-size: ($global-font-size / 16px) * 1em; /* [1] */
+	line-height: $global-line-height / $global-font-size; /* [1] */
+	overflow-y: scroll;
+	min-height: 100%;
+}

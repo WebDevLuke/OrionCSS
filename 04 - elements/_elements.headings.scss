@@ -1,0 +1,15 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// HEADERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Keep headers blank and apply styles via component classes avoiding the trap of semantically requiring a
+specific header and then having to override styles because cosmetics aren't appropriate.
+
+http://csswizardry.com/2016/02/managing-typography-on-large-apps/
+*/
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1.25rem;
+}

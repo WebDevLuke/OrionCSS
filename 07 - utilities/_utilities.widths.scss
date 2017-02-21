@@ -1,0 +1,44 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// FULL WIDTH OVERRIDE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Utility class used to override max width to 100%.
+Typically this would be attached to a grid container to make it full width
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-full-width {
+	width:100% !important;
+	max-width:100% !important;
+}
+
+.u-max-width {
+	max-width:100% !important;
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Example: .u-full-width@xlg
+*/
+
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+
+		.u-full-width\@#{$bp-name} {
+			width:100% !important;
+			max-width:100% !important;
+		}
+
+		.u-max-width\@#{$bp-name} {
+			max-width:100% !important;
+		}
+
+	}
+}

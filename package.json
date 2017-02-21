@@ -1,0 +1,19 @@
+{
+  "name": "orioncss",
+  "version": "0.0.1",
+  "description": "OrionCSS is a scalable, Sass-based, OOCSS framework. Can be used alone or as part of the larger Orion Framework.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDevLuke/OrionCSS.git"
+  },
+  "author": "Luke Harrison",
+  "homepage": "http://www.lukeharrison.net",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WebDevLuke/OrionCSS/issues"
+  },
+  "homepage": "https://github.com/WebDevLuke/OrionCSS#readme",
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  }
+}

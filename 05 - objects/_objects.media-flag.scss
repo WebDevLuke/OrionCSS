@@ -1,0 +1,287 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// FLAG MEDIA OBJECT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Abstraction of media object to support vertical alignment for either image or text.
+http://csswizardry.com/2013/05/the-flag-object/
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-flag">
+	<div class="o-flag__image">
+		<img src="" alt="">
+	</div>
+	<div class="o-flag__body">
+		CONTENT
+	</div>
+</div>
+*/
+
+/*
+[1] Make the image take as little space as possible
+*/
+
+.o-flag {
+	display: table;
+	box-sizing:border-box;
+}
+
+.o-flag__body {
+	width: auto;
+}
+
+.o-flag__image, .o-flag__body {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.o-flag__image {
+	width:rem(1px); /* [1] */
+	img {
+		display: block;
+		max-width: none;
+	}
+}
+
+
+// REVERSE ORDER MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Reverse the padding for the image. Requires you to manually switch position of inner elements.
+*/
+
+/*
+<div class="o-flag o-flag--reverse">
+	<div class="o-flag__body">
+		CONTENT
+	</div>
+	<div class="o-flag__image">
+		<img src="" alt="">
+	</div>
+</div>
+*/
+
+
+// FLAG ALIGNMENT MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Change the vertical alignment of flag contents. Default: middle.
+*/
+
+/*
+<div class="o-flag o-flag--bottom">
+	<div class="o-flag__body">
+		CONTENT
+	</div>
+	<div class="o-flag__image">
+		<img src="" alt="">
+	</div>
+</div>
+*/
+
+.o-flag--top {
+	> .o-flag__image,
+	> .o-flag__body {
+		vertical-align: top;
+	}
+}
+
+.o-flag--middle {
+	> .o-flag__image,
+	> .o-flag__body {
+		vertical-align: middle;
+	}
+}
+
+.o-flag--bottom {
+	> .o-flag__image,
+	> .o-flag__body {
+		vertical-align: bottom;
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes vertical alignment once breakpoint is hit
+// Example: o-flag--top@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-flag--top\@#{$bp-name} {
+			> .o-flag__image,
+			> .o-flag__body {
+				vertical-align: top;
+			}
+		}
+		.o-flag--middle\@#{$bp-name} {
+			> .o-flag__image,
+			> .o-flag__body {
+				vertical-align: middle;
+			}
+		}
+		.o-flag--bottom\@#{$bp-name} {
+			> .o-flag__image,
+			> .o-flag__body {
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+// Changes vertical alignment until breakpoint is hit
+// Example: o-flag--top@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-flag--top\@max-#{$bp-name} {
+			> .o-flag__image,
+			> .o-flag__body {
+				vertical-align: top;
+			}
+		}
+		.o-flag--middle\@max-#{$bp-name} {
+			> .o-flag__image,
+			> .o-flag__body {
+				vertical-align: middle;
+			}
+		}
+		.o-flag--bottom\@max-#{$bp-name} {
+			> .o-flag__image,
+			> .o-flag__body {
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+
+// FIXED WIDTH IMAGE MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Adds a fixed width to the image element. Useful if you have multiple stacked flags with different width icons
+and everything needs to stack up
+*/
+
+/*
+<div class="o-flag o-flag--fixed-image-small@md">
+	<div class="o-flag__body">
+		CONTENT
+	</div>
+	<div class="o-flag__image">
+		<img src="" alt="">
+	</div>
+</div>
+*/
+
+// Generate using settings.spacing
+// Example: o-flag--fixed-image-small
+@each $sp-name, $sp-value in $spacing {
+	.o-flag--fixed-image-#{$sp-name} .o-flag__image {
+		width:rem($sp-value);
+		max-width:rem($sp-value);
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes width and max width when breakpoint is hit
+// Example: o-flag--fixed-image-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-flag--fixed-image-#{$sp-name}\@#{$bp-name} .o-flag__image {
+				width:rem($sp-value);
+				max-width:rem($sp-value);
+			}
+		}
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes width and max width until breakpoint is hit
+// Example: o-flag--fixed-image-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-flag--fixed-image-#{$sp-name}\@-max#{$bp-name} .o-flag__image {
+				width:rem($sp-value);
+				max-width:rem($sp-value);
+			}
+		}
+	}
+}
+
+
+// SPACING VARIANT MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Alter the spacing in between image and text
+*/
+
+/*
+<div class="o-flag o-flag--spacing-tiny@md">
+	<div class="o-flag__image">
+		<img src="" alt="">
+	</div>
+	<div class="o-flag__body">
+		CONTENT
+	</div>
+</div>
+*/
+
+// Generate using settings.spacing
+// Example o-flag--spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-flag--spacing-#{$sp-name} {
+		& > .o-flag__image {
+			padding-right:rem($sp-value);
+		}
+		&.o-flag--reverse > .o-flag__image {
+			padding-left:rem($sp-value);
+			padding-right:0;
+		}
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes padding once breakpoint is hit
+// Example o-flag--spacing@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-flag--spacing-#{$sp-name}\@#{$bp-name} {
+				& > .o-flag__image {
+					padding-right:rem($sp-value);
+				}
+				&.o-flag--reverse > .o-flag__image {
+					padding-left:rem($sp-value);
+					padding-right:0;
+				}
+			}
+		}
+	}
+}
+
+// Create responsive variants using data/breakpoints.json
+// Changes padding until breakpoint is hit
+// Example o-flag--spacing@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-flag--spacing-#{$sp-name}\@max-#{$bp-name} {
+				& > .o-flag__image {
+					padding-right:rem($sp-value);
+				}
+				&.o-flag--reverse > .o-flag__image {
+					padding-left:rem($sp-value);
+					padding-right:0;
+				}
+			}
+		}
+	}
+}

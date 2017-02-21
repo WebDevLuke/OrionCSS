@@ -1,0 +1,68 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// ALIGNMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Basic utility classes for typography.
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-bold {
+	font-weight:bold !important;
+}
+
+.u-nowrap {
+	white-space:nowrap !important;
+}
+
+/* Slightly increase text size and make bold to make stand out */
+.u-strong {
+	font-size:1.111em !important;
+	font-weight:bold !important;
+}
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes type properties when breakpoint is hit
+// Example: .u-bold@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-bold\@#{$bp-name} {
+			font-weight:bold !important;
+		}
+
+		.u-nowrap\@#{$bp-name} {
+			white-space:nowrap !important;
+		}
+
+		/* Slightly increase text size and make bold to make stand out */
+		.u-strong\@#{$bp-name} {
+			font-size:1.111em !important;
+			font-weight:bold !important;
+		}
+	}
+}
+
+// Changes type properties until breakpoint is hit
+// Example: .u-bold@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-bold\@max-#{$bp-name} {
+			font-weight:bold !important;
+		}
+
+		.u-nowrap\@max-#{$bp-name} {
+			white-space:nowrap !important;
+		}
+
+		/* Slightly increase text size and make bold to make stand out */
+		.u-strong\@max-#{$bp-name} {
+			font-size:1.111em !important;
+			font-weight:bold !important;
+		}
+	}
+}

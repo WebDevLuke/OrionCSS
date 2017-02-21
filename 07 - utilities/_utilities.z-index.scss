@@ -1,0 +1,95 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// Z-INDEX UTILITY CLASSES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Simple utility classes to tweak z-index
+*/
+
+.u-z-index-hidden {
+	z-index:-1 !important;
+}
+
+.u-z-index-tiny {
+	z-index:1 !important;
+}
+
+.u-z-index-small {
+	z-index:5 !important;
+}
+
+.u-z-index-regular {
+	z-index:10 !important;
+}
+
+.u-z-index-large {
+	z-index:20 !important;
+}
+
+.u-z-index-huge {
+	z-index:50 !important;
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes z-index when breakpoint is hit
+// Example: .u-z-index-tiny@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-z-index-hidden\@#{$bp-name} {
+			z-index:-1 !important;
+		}
+
+		.u-z-index-tiny\@#{$bp-name} {
+			z-index:1 !important;
+		}
+
+		.u-z-index-small\@#{$bp-name} {
+			z-index:5 !important;
+		}
+
+		.u-z-index-regular\@#{$bp-name} {
+			z-index:10 !important;
+		}
+
+		.u-z-index-large\@#{$bp-name} {
+			z-index:20 !important;
+		}
+
+		.u-z-index-huge\@#{$bp-name} {
+			z-index:50 !important;
+		}
+	}
+}
+
+// Changes z-index until breakpoint is hit
+// Example: .u-z-index-tiny@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-z-index-hidden\@max-#{$bp-name} {
+			z-index:-1 !important;
+		}
+
+		.u-z-index-tiny\@max-#{$bp-name} {
+			z-index:1 !important;
+		}
+
+		.u-z-index-small\@max-#{$bp-name} {
+			z-index:5 !important;
+		}
+
+		.u-z-index-regular\@max-#{$bp-name} {
+			z-index:10 !important;
+		}
+
+		.u-z-index-large\@max-#{$bp-name} {
+			z-index:20 !important;
+		}
+
+		.u-z-index-huge\@max-#{$bp-name} {
+			z-index:50 !important;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// SPACING UNITS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Here we define spacing variants. We don't use variables featuring xs, sm, md, lg etc as to not confuse with responsive breakpoints.
+These are used to generate sizing variants of many object and utility classes to give you a range to choose from. We can create as many
+as we want without fear of bloating our compiled CSS file as UNCSS filters out unused css classes.
+*/
+
+// Set spacing variants
+$spacing: (
+	"none": 0px,
+	"atomic": 2px,
+	"micro": 5px,
+	"tiny": 10px,
+	"small": 15px,
+	"reduced": 20px,
+	"regular": 25px,
+	"increased": 30px,
+	"large": 35px,
+	"huge": 40px,
+	"giant": 50px,
+	"mega": 60px,
+	"giga": 70px,
+	"terra": 80px
+);
