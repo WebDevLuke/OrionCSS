@@ -25,10 +25,60 @@ Email: luke@lukeharrison.net
 // IMPORT ITCSS LAYERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-@import "01 - settings/*";
-@import "02 - tools/*";
-@import "03 - generic/*";
-@import "04 - elements/*";
-@import "05 - objects/*";
-@import "06 - components/*";
-@import "07 - utilities/*";
+// Settings
+@import "01 - settings/settings.breakpoints";
+@import "01 - settings/settings.grid-system";
+@import "01 - settings/settings.spacing";
+@import "01 - settings/settings.typography";
+
+// Tools
+@import "02 - tools/tools.clearfix";
+@import "02 - tools/tools.rem";
+@import "02 - tools/tools.responsive-breakpoints";
+
+// Generic
+@import "03 - generic/tools.normalize";
+@import "03 - generic/tools.reset";
+@import "03 - generic/tools.box-sizing";
+
+// Elements
+@import "04 - elements/tools.address";
+@import "04 - elements/tools.button";
+@import "04 - elements/tools.headings";
+@import "04 - elements/tools.images";
+@import "04 - elements/tools.inputs";
+@import "04 - elements/tools.links";
+@import "04 - elements/tools.lists";
+@import "04 - elements/tools.page";
+
+// Objects
+@import "05 - objects/objects.box";
+@import "05 - objects/objects.cover";
+@import "05 - objects/objects.expander";
+@import "05 - objects/objects.grid-system";
+@import "05 - objects/objects.list-bare";
+@import "05 - objects/objects.list-inline";
+@import "05 - objects/objects.media-flag";
+@import "05 - objects/objects.media";
+@import "05 - objects/objects.pack";
+@import "05 - objects/objects.table";
+
+// Components
+@import "06 - components/components.sample";
+
+// Utilities
+@import "07 - utilities/utilities.alignments";
+@import "07 - utilities/utilities.cursor";
+@import "07 - utilities/utilities.display-hide";
+@import "07 - utilities/utilities.floats";
+@import "07 - utilities/utilities.heights";
+@import "07 - utilities/utilities.hidden-visually";
+@import "07 - utilities/utilities.margins";
+@import "07 - utilities/utilities.nudges";
+@import "07 - utilities/utilities.position";
+@import "07 - utilities/utilities.remove-padding";
+@import "07 - utilities/utilities.truncate";
+@import "07 - utilities/utilities.typograpghy";
+@import "07 - utilities/utilities.user-select";
+@import "07 - utilities/utilities.widths";
+@import "07 - utilities/utilities.z-index";
