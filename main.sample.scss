@@ -2,7 +2,7 @@
 Orion Framework 
 Author: Luke Harrison
 Web: www.lukeharrison.net
-Github: https://github.com/WebDevLuke/OrionCSS
+Github: https://github.com/WebDevLuke/Orion-Framework
 Email: luke@lukeharrison.net
 */
 
@@ -22,63 +22,79 @@ Email: luke@lukeharrison.net
 */
 
 
-// IMPORT ITCSS LAYERS
+// IMPORT ORIONCSS & PROJECT ITCSS LAYERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-// Settings
-@import "01 - settings/settings.breakpoints";
-@import "01 - settings/settings.grid-system";
-@import "01 - settings/settings.spacing";
-@import "01 - settings/settings.typography";
+// Imports OrionCSS
+// Then imports project files from /dev/sass/
+
+/*
+If you need to modifier OrionCSS, you can either do one of the following:
+
+[1] Move the files you want to modify to your project SASS directory and delete its import here
+[2] If you're modifiying settings, you could also redefine any variables in this file after the import.
+*/
+
+@import "../../node_modules/orioncss/01 - settings/settings.breakpoints";
+@import "../../node_modules/orioncss/01 - settings/settings.grid-system";
+@import "../../node_modules/orioncss/01 - settings/settings.spacing";
+@import "../../node_modules/orioncss/01 - settings/settings.typography";
+@import "01 - settings/*";
 
 // Tools
-@import "02 - tools/tools.clearfix";
-@import "02 - tools/tools.rem";
-@import "02 - tools/tools.responsive-breakpoints";
+@import "../../node_modules/orioncss/02 - tools/tools.clearfix";
+@import "../../node_modules/orioncss/02 - tools/tools.rem";
+@import "../../node_modules/orioncss/02 - tools/tools.responsive-breakpoints";
+@import "02 - tools/*";
 
 // Generic
-@import "03 - generic/tools.normalize";
-@import "03 - generic/tools.reset";
-@import "03 - generic/tools.box-sizing";
+@import "../../node_modules/orioncss/03 - generic/generic.normalize";
+@import "../../node_modules/orioncss/03 - generic/generic.reset";
+@import "../../node_modules/orioncss/03 - generic/generic.box-sizing";
+@import "03 - generic/*";
 
 // Elements
-@import "04 - elements/tools.address";
-@import "04 - elements/tools.button";
-@import "04 - elements/tools.headings";
-@import "04 - elements/tools.images";
-@import "04 - elements/tools.inputs";
-@import "04 - elements/tools.links";
-@import "04 - elements/tools.lists";
-@import "04 - elements/tools.page";
+@import "../../node_modules/orioncss/04 - elements/elements.address";
+@import "../../node_modules/orioncss/04 - elements/elements.button";
+@import "../../node_modules/orioncss/04 - elements/elements.headings";
+@import "../../node_modules/orioncss/04 - elements/elements.images";
+@import "../../node_modules/orioncss/04 - elements/elements.inputs";
+@import "../../node_modules/orioncss/04 - elements/elements.links";
+@import "../../node_modules/orioncss/04 - elements/elements.lists";
+@import "../../node_modules/orioncss/04 - elements/elements.page";
+@import "04 - elements/*";
 
 // Objects
-@import "05 - objects/objects.box";
-@import "05 - objects/objects.cover";
-@import "05 - objects/objects.expander";
-@import "05 - objects/objects.grid-system";
-@import "05 - objects/objects.list-bare";
-@import "05 - objects/objects.list-inline";
-@import "05 - objects/objects.media-flag";
-@import "05 - objects/objects.media";
-@import "05 - objects/objects.pack";
-@import "05 - objects/objects.table";
+@import "../../node_modules/orioncss/05 - objects/objects.box";
+@import "../../node_modules/orioncss/05 - objects/objects.cover";
+@import "../../node_modules/orioncss/05 - objects/objects.expander";
+@import "../../node_modules/orioncss/05 - objects/objects.grid-system";
+@import "../../node_modules/orioncss/05 - objects/objects.list-bare";
+@import "../../node_modules/orioncss/05 - objects/objects.list-inline";
+@import "../../node_modules/orioncss/05 - objects/objects.media-flag";
+@import "../../node_modules/orioncss/05 - objects/objects.media";
+@import "../../node_modules/orioncss/05 - objects/objects.pack";
+@import "../../node_modules/orioncss/05 - objects/objects.table";
+@import "05 - objects/*";
 
 // Components
-@import "06 - components/components.sample";
+// Sample component can be found in /node_modules/orioncss/06 - components/
+@import "06 - components/*";
 
 // Utilities
-@import "07 - utilities/utilities.alignments";
-@import "07 - utilities/utilities.cursor";
-@import "07 - utilities/utilities.display-hide";
-@import "07 - utilities/utilities.floats";
-@import "07 - utilities/utilities.heights";
-@import "07 - utilities/utilities.hidden-visually";
-@import "07 - utilities/utilities.margins";
-@import "07 - utilities/utilities.nudges";
-@import "07 - utilities/utilities.position";
-@import "07 - utilities/utilities.remove-padding";
-@import "07 - utilities/utilities.truncate";
-@import "07 - utilities/utilities.typograpghy";
-@import "07 - utilities/utilities.user-select";
-@import "07 - utilities/utilities.widths";
-@import "07 - utilities/utilities.z-index";
+@import "../../node_modules/orioncss/07 - utilities/utilities.alignments";
+@import "../../node_modules/orioncss/07 - utilities/utilities.cursor";
+@import "../../node_modules/orioncss/07 - utilities/utilities.display-hide";
+@import "../../node_modules/orioncss/07 - utilities/utilities.floats";
+@import "../../node_modules/orioncss/07 - utilities/utilities.heights";
+@import "../../node_modules/orioncss/07 - utilities/utilities.hidden-visually";
+@import "../../node_modules/orioncss/07 - utilities/utilities.margins";
+@import "../../node_modules/orioncss/07 - utilities/utilities.nudges";
+@import "../../node_modules/orioncss/07 - utilities/utilities.position";
+@import "../../node_modules/orioncss/07 - utilities/utilities.remove-padding";
+@import "../../node_modules/orioncss/07 - utilities/utilities.truncate";
+@import "../../node_modules/orioncss/07 - utilities/utilities.typography";
+@import "../../node_modules/orioncss/07 - utilities/utilities.user-select";
+@import "../../node_modules/orioncss/07 - utilities/utilities.widths";
+@import "../../node_modules/orioncss/07 - utilities/utilities.z-index";
+@import "07 - utilities/*";
