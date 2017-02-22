@@ -36,6 +36,7 @@ If you need to modifier OrionCSS, you can either do one of the following:
 [2] If you're modifiying settings, you could also redefine any variables in this file after the import.
 */
 
+// Settings
 @import "../../node_modules/orioncss/01 - settings/settings.breakpoints";
 @import "../../node_modules/orioncss/01 - settings/settings.grid-system";
 @import "../../node_modules/orioncss/01 - settings/settings.spacing";
