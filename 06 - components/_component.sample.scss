@@ -43,9 +43,10 @@ This is an example of a regular component modifier as per BEM naming convention
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-An example of a BEM mix. Useful for when nesting components within others. For example, if we want to introduce 
-new styles to our c-icon component when its nested within our button component instead of tampering with our original icon
-component we create a brand new element for our button component with a name which is a "mix" of our 2 components.
+An example of a BEM mix. Useful for when nesting components within others. For example, if we want to
+introduce new styles to our c-icon component when its nested within our button component instead of
+tampering with our original icon component we create a brand new element for our button component
+with a name which is a "mix" of our 2 components.
 
 Quoting the below:
 "This avoids the question of where things live, it reduces the specificity by avoiding nesting, and also prevents mutation 

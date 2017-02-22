@@ -3,9 +3,10 @@
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Create media queries using breakpoints defined in `data/breakpoints.js`.
+Create media queries using breakpoints defined in 'settings.breakpoints'.
 
-Media queries are converted to EM to cover instances where users change font sizes, zoom in, base font size changed in html (https://zellwk.com/blog/media-query-units)
+Media queries are converted to EM to cover instances where users change font sizes, zoom in, base font
+size changed in html (https://zellwk.com/blog/media-query-units)
 */
 
 
@@ -13,7 +14,8 @@ Media queries are converted to EM to cover instances where users change font siz
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Basic usage showing an element which is display block and then changes to display none once the "xlg" breakpoint has been hit.
+Basic usage showing an element which is display block and then changes to display none once the
+"xlg" breakpoint has been hit.
 */
 
 /*
@@ -27,8 +29,9 @@ Basic usage showing an element which is display block and then changes to displa
 
 
 /*
-Another usage showing an element which is set to display block once the "md" breakpoint has been hit and the screen orientation is portrait.
-This mixin can be placed within an element as above or elements can be placed within the mixin as below.
+Another usage showing an element which is set to display block once the "md" breakpoint has been hit 
+and the screen orientation is portrait. This mixin can be placed within an element as above or elements
+can be placed within the mixin as below.
 */
 
 /*
@@ -41,7 +44,8 @@ This mixin can be placed within an element as above or elements can be placed wi
 
 
 /*
-Other Variants include `bpMax` which desktop first media queries and `bpBetween` which lets you specify 2 breakpoints.
+Other Variants include `bpMax` which desktop first media queries and `bpBetween` which lets
+you specify 2 breakpoints.
 */
 
 /*

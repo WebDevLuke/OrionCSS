@@ -6,10 +6,11 @@ Github: https://github.com/WebDevLuke/Orion-Framework
 Email: luke@lukeharrison.net
 */
 
-// Implements ITCSS (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture)
-// Takes good ideas from inuitcss (https://github.com/inuitcss/inuitcss)
-// Implements BEM (http://getbem.com) and BEMIT (http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further), OOCSS namespacing (http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces)
-// Uses UNCSS to filter out unused css classes from compiled stylesheets, so this allows us to have unlimited utility classes without fear of bloating our css
+/*
+- Implements ITCSS (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture)
+- Takes good ideas from inuitcss (https://github.com/inuitcss/inuitcss)
+- Implements BEM (http://getbem.com) and BEMIT (http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further), OOCSS namespacing (http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces)
+*/
 
 /*
 [1] Settings – used with preprocessors and contain font, colors definitions, etc.
