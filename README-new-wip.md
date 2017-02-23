@@ -62,7 +62,7 @@ To give you a useful starting point for building your own components, a sample c
 
 ### Class Namespaces
 
-OrionCSS uses appropriate class namespaces to link them with their parent ITCSS layer. These are:
+OrionCSS uses appropriate namespaces to link classes with their parent ITCSS layer. These are:
 
 - `.o-`: Objects
 - `.c-`: Components
@@ -86,7 +86,7 @@ To define the framework breakpoints copy `/node_modules/orioncss/01 - settings/_
   "lg3": "1440px"
 }
 ```
-These breakpoints can be used independantly using OrionCSS's [media query mixins] or as part of auto-generated classes for the many object and utility classes included with OrionCSS, including the grid system documented next.
+These breakpoints can be used independantly using OrionCSS's [Breakpoint Mixin Tools](#breakpoint-mixins) or as part of auto-generated classes for the many object and utility classes included with OrionCSS, including the grid system documented next.
 
 
 ### Grid System
@@ -173,25 +173,145 @@ Here we introduce breakpoint classes which have been automatically created by SA
 ```
 Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. 
 
+### Breakpoint Mixins
+When writing SASS, you also have access to breakpoint mixins which allow you to generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`. Like with breakpoint classes, these are automatically generated on compile.
+
+##### HTML
+```sh
+<div class="o-container">
+  <div class="o-row">
+    <div class="o-col-4"></div>
+    <div class="o-col-4"></div>
+    <div class="o-col-4"></div>
+  </div>
+</div>
+```
+
+##### SASS
+```sh
+.o-container div {
+  &:before {
+    content:"default";
+  }
+  @include bp(sm){
+    &:before{
+      content:"sm";
+    }
+  }
+  @include bp(md){
+    &:before{
+      content:"md";
+    }
+  }
+  @include bp(lg){
+    &:before{
+      content:"lg";
+    }
+  }
+  @include bp(lg){
+    &:before{
+      content:"lg";
+    }
+  }
+}
+```
+In the above, we give each div within the container a pseudo element and then change its content at different breakpoints. Like in the example above you can group these breakpoint mixins within the element they're modifying or you can define them seperately like in the next example.
 
 
+###### HTML
+```sh
+<div class="o-container">
+  <div class="o-row">
+    <div class="o-col-4@sm o-col-12@md o-col-4@lg o-col-6@lg"></div>
+    <div class="u-col-offset-4@sm o-col-4@sm o-col-6@md u-col-offset-4@lg o-col-4@lg o-col-6@lg"></div>
+    <div class="u-hide@sm u-display-block@md o-col-6@md u-col-offset-8@lg o-col-4@lg o-col-16@lg"></div>
+  </div>
+</div>
+```
+
+###### SASS
+```sh
+.o-container div {
+  &:before {
+    content:"default";
+  }
+}
+
+@include bp(sm) {
+  .o-container div:before {
+    content:"sm";
+  }
+}
+
+@include bp(md) {
+  .o-container div:before {
+    content:"md";
+  }
+}
+
+@include bp(lg) {
+  .o-container div:before {
+    content:"lg";
+  }
+}
+
+@include bp(lg) {
+  .o-container div:before {
+    content:"lg";
+  }
+}
+```
+Here we have seperated the breakpoint mixins from the element they're modifying. This is useful if a breakpoint needs to effect multiple elements on your page as you now have one use of a breakpoint mixin effecting many elements rather then many uses of the same breakpoint mixin. On large projects with lots of SASS this method is preferred as it allows better tracking of what elements are being changed at which breakpoints.
 
 
+#### List of breakpoint mixins
 
-- Using OrionCSS
-	- Namespaces
-	- Breakpoints
-		- Editing
-		- How are these used?
-	- Grid system
-		- Editing
-		- How to use
-	- Spacing
-	- Everything else
-		- Mention the codebase is heavily documented so every item has instructions
+- Create a min-width mobile-first breakpoint: `@include bp($bp)` *Example: @include bp(sm)*
+
+- Create a max-width desktop-first breakpoint: `@include bpMax($bp)` *Example: @include bpMax(sm)*
+
+- Create a breakpoint which only triggers inbetween 2 breakpoints: `@include bpBetween($from, $to)` *Example: @include bpBetween(sm, md)*
 
 
+### Spacing Modifiers
 
+Many objects and utility classes within OrionCSS have spacing modifiers which are automatically generated on build. To modify these, first copy `/node_modules/orioncss/01 - settings/_settings.spacing.scss` into your own `sass/01 - settings/` directory. The default variants can be found below:-
+
+```sh
+$spacing: (
+  "none": 0px,
+  "atomic": 2px,
+  "micro": 5px,
+  "tiny": 10px,
+  "small": 15px,
+  "reduced": 20px,
+  "regular": 25px,
+  "increased": 30px,
+  "large": 35px,
+  "huge": 40px,
+  "giant": 50px,
+  "mega": 60px,
+  "giga": 70px,
+  "terra": 80px
+);
+```
+
+```sh
+@include bp(#{$bp-name}) {
+  @each $sp-name, $sp-value in $spacing {
+    .u-margin-bottom-#{$sp-name}\@#{$bp-name} {
+      margin-bottom:rem($sp-value) !important;
+    }
+  }
+}
+```
+
+With the default spacing map, 14 variants of each linked object or utility class will be generated on build from the code above (For example: `u-margin-bottom-small`). Often a responsive variant based on the data in `/dev/data/breakpoints.json` will also be generated (For example: `u-margin-bottom-small@lg`).
+
+To prevent bloat, I recommend using [UNCSS](https://github.com/giakki/uncss). This scans your HTML and filters out unused classes, meaning only the classes referenced in your HTML are included in your compiled CSS. UNCSS is included in the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework), where OrionCSS is a dependency.
+
+### Everything Else
+The codebase is heavily documented so for a more indepth explanation of component of OrionCSS that's the place to look.
 
 
 ## Using with Orion Framework
