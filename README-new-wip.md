@@ -7,12 +7,12 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
 - **Easily Configurable Grid System** - Enter the max width, number of columns, gutter and padding of a grid system of your choice and SASS will automatically generate all the CSS classes and media query mixins for you.
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
-- **Usuable with Orion Framework** - Use as a dependency of the [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) to access specifically built Gulp tasks to compile and optimise your SASS.
+- **Usuable with Orion Framework** - Use as a dependency of the [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) to access specifically built Gulp tasks to compile and optimise your SASS. [(More Info)](#using-with-orion-framework)
 
 ## Getting Started
 
 ### Installation
-The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](using-with-orion-framework)
+The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](#using-with-orion-framework)
 
 You can also use OrionCSS on it's own as a part of your own framework. To install it as a depedency using NPM, run the following command:
 
@@ -53,16 +53,133 @@ As you work on your project, you will want to add any new scss partials you crea
 @import "/06 - components/components.icons";
 @import "/06 - components/components.type";
 ```
-
-**NOTE:** One advantage of using OrionCSS as a part of [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) is that [gulp-sass-glob](https://github.com/mikevercoelen/gulp-sass-glob) is used to automatically import any new partials, so won't need to edit `main.scss` at all. For more advantages, [click here](#using-with-orion-framework).
+You may need to edit the paths to `node_modules` to resemble your own project directory structure.
 
 To give you a useful starting point for building your own components, a sample component can be found at `/node_modules/orioncss/06 - components/_sample.component.mycomponent.scss`.
 
+
 ## Using OrionCSS
+
+### Class Namespaces
+
+OrionCSS uses appropriate class namespaces to link them with their parent ITCSS layer. These are:
+
+- `.o-`: Objects
+- `.c-`: Components
+- `.u-`: Utilities
+
+It would be a good idea to follow this convention in your own code. Not only for consistency, but [because it's a good idea](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/).
+
+### Breakpoints
+To define the framework breakpoints copy `/node_modules/orioncss/01 - settings/_settings.breakpoints.scss` into your own `sass/01 - settings/` directory and edit the config object.
+
+```sh
+{
+  "sm": "370px",
+  "sm2": "425px",
+  "sm3": "500px",
+  "md": "768px",
+  "md2": "840px",
+  "md3": "925px",
+  "lg": "1024px",
+  "lg2": "1280px",
+  "lg3": "1440px"
+}
+```
+These breakpoints can be used independantly using OrionCSS's [media query mixins] or as part of auto-generated classes for the many object and utility classes included with OrionCSS, including the grid system documented next.
+
+
+### Grid System
+
+#### Configuration
+OrionCSS allows you to define a grid system of your choice. On compile SASS then generates all the required CSS classes and media query mixins automatically. 
+
+Copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
+
+```sh
+$grid: (
+  "default": (
+    "max-width": 1170px,
+    "columns": 12,
+    "gutter": 30px,
+    "containerPadding": 30px
+  )
+);
+```
+
+Here you set the variables which will create your grid system. By default this is set to a **1170px 12 column grid system**.
+
+You can also reshape the grid at any of your defined breakpoints by creating entries within the `morph` property.
+
+```sh
+$grid: (
+  "default": (
+    "max-width": 1170px,
+    "columns": 12,
+    "gutter": 30px,
+    "containerPadding": 30px
+  ),
+  'morph': (
+    "lg" : (
+      "max-width": 1600px,
+      "columns": 16
+    )
+  )
+);
+```
+
+The above example defines a **1170px 12 column grid system** which morphs into a **1600px 16 column grid system** once the `lg` breakpoint defined in `/01 - settings/_settings.breakpoints.scss` has been hit.
+
+#### Usage
+
+On compile SASS auto generates all the required classes you will need to construct grids to your specification as per `/01 - settings/_settings.breakpoints.scss`. Below are a few practical examples using the grid outlined in [Configuration](#configuration). If you've used bootstrap, the syntax here is almost identical.
+
+##### Basic grid
+
+```sh
+<div class="o-container">
+  <div class="o-row">
+    <div class="o-col-4"></div>
+    <div class="o-col-4"></div>
+    <div class="o-col-4"></div>
+  </div>
+</div>
+```
+This is a basic 4/4/4 grid which doesn't change.
+
+##### Basic grid w. breakpoint classes
+
+```sh
+<div class="o-container">
+  <div class="o-row">
+    <div class="o-col-4 o-col-1@md"></div>
+    <div class="o-col-4 o-col-5@md"></div>
+    <div class="o-col-4 o-col-6@md"></div>
+  </div>
+</div>
+```
+Here we introduce breakpoint classes which have been automatically created by SASS using the data entered in `/01 - settings/_settings.breakpoints.scss`. As this is a mobile-first framework, we start off with a basic 4/4/4 grid and as we scale up and hit the med breakpoint at 640px it will change to 1/5/6.
+
+##### Advanced grid w. breakpoint classes
+
+```sh
+<div class="o-container">
+  <div class="o-row">
+    <div class="o-col-4@sm o-col-12@md o-col-4@lg o-col-6@lg"></div>
+    <div class="u-col-offset-4@sm o-col-4@sm o-col-6@md u-col-offset-4@lg o-col-4@lg o-col-6@lg"></div>
+    <div class="u-hide@sm u-display-block@md o-col-6@md u-col-offset-8@lg o-col-4@lg o-col-16@lg"></div>
+  </div>
+</div>
+```
+Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. 
+
+
+
 
 
 
 - Using OrionCSS
+	- Namespaces
 	- Breakpoints
 		- Editing
 		- How are these used?
