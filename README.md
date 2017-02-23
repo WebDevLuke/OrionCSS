@@ -9,6 +9,21 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
 - **Usuable with Orion Framework** - Use as a dependency of the [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) to access specifically built Gulp tasks to compile and optimise your SASS. [(More Info)](#using-with-orion-framework)
 
+## Table of contents
+
+* [Getting Started](#getting-started)
+  * [Installation](#installation)
+* [Using OrionCSS](#using-orioncss)
+  * [Class Namespaces](#class-namespaces)
+  * [Breakpoints](#breakpoints)
+  * [Grid System](#grid-system)
+  * [Breakpoint Mixins](#breakpoint-mixins)
+  * [Spacing Modifiers](#spacing-modifiers)
+  * [Further Documentation](#further-documentation)
+* [Using with Orion Framework](#using-with-orion-framework)
+* [About the developer](#about-the-developer)
+
+
 ## Getting Started
 
 ### Installation
@@ -94,7 +109,7 @@ These breakpoints can be used independantly using OrionCSS's [breakpoint mixin t
 #### Configuration
 OrionCSS allows you to define a grid system of your choice. On compile SASS then generates all the required CSS classes automatically. 
 
-By default a **1170px 12 column grid system** is used. If you wish to modifiy this copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
+By default a **1170px 12 column grid system** is used. If you wish to modify this copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
 
 Here you set the variables which will create your grid system:-
 
@@ -215,7 +230,7 @@ When writing SASS, you also have access to breakpoint mixins which allow you to 
   }
 }
 ```
-In the above, we give each div within the container a pseudo element and then change its content at different breakpoints. Like in the example above you can group these breakpoint mixins within the element they're modifying or you can define them seperately like in the next example.
+In the above, we give each div within the container a pseudo element and then change its content at different breakpoints. You can group these breakpoint mixins within the element they're modifying or you can define them seperately like in the next example.
 
 
 ###### HTML
@@ -346,8 +361,8 @@ And include responsive variants similar to:-
 
 To prevent bloat, I recommend using [UNCSS](https://github.com/giakki/uncss). This scans your HTML and filters out unused classes, meaning only the classes referenced in your HTML are included in your compiled CSS. UNCSS is included in the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework), where OrionCSS is a dependency.
 
-### Everything Else
-OrionCSS features heavy documentation within its codebase so that's the first place to look if you have a question about a specific feature or included partial.
+### Further Documentation
+OrionCSS features heavy documentation within its codebase so that's the first place to look if you have any questions about a specific feature or included partial.
 
 
 ## Using with Orion Framework
