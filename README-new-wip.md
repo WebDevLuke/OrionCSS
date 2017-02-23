@@ -1,9 +1,9 @@
-<p>
+<h1>
 	 <img height="84" width="429" src="https://cdn.rawgit.com/WebDevLuke/OrionCSS/master/misc/orion-logo.svg">
 	<p>A simple SASS-based OOCSS framework</p>
-</p>
+</h1>
 
-# What is OrionCSS?
+## What is OrionCSS?
 OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS base from which to build your project.
 
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
@@ -11,9 +11,9 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
 - **Usuable with Orion Framework** - Use as a dependency of the [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) to access specifically built Gulp tasks to compile and optimise your SASS.
 
-# Getting Started
+## Getting Started
 
-## Installation
+### Installation
 The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](https://github.com/WebDevLuke/Orion-Framework)
 
 You can also use OrionCSS on it's own as a part of your own framework. To install it as a depedency using NPM, run the following command:
@@ -77,5 +77,5 @@ To give you a useful starting point for building your own components, a sample c
 - About the developer
 
 
-# About the developer
+## About the developer
 I'm Luke Harrison, a Sheffield-based Web Designer &amp; Developer from the UK, currently working at [Evolution Funding](https://github.com/EvolutionFunding). Read more about me at [lukeharrison.net](http://www.lukeharrison.net) and/or follow me on twitter at [@WebDevLuke](https://twitter.com/WebDevLuke).
