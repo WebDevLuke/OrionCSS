@@ -233,7 +233,7 @@ When writing SASS, you also have access to breakpoint mixins which allow you to 
 In the above, we give each div within the container a pseudo element and then change its content at different breakpoints. You can group these breakpoint mixins within the element they're modifying or you can define them seperately like in the next example.
 
 
-###### HTML
+##### HTML
 ```sh
 <div class="o-container">
   <div class="o-row">
@@ -244,7 +244,7 @@ In the above, we give each div within the container a pseudo element and then ch
 </div>
 ```
 
-###### SASS
+##### SASS
 ```sh
 .o-container div {
   &:before {
