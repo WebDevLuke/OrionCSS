@@ -2,7 +2,7 @@
 	 <img height="84" width="429" src="https://cdn.rawgit.com/WebDevLuke/OrionCSS/master/misc/orion-logo.svg">
 </h1>
 
-OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS base from which to build your project.
+OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.
 
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
 - **Easily Configurable Grid System** - Enter the max width, number of columns, gutter and padding of a grid system of your choice and SASS will automatically generate all the CSS classes and media query mixins for you.
@@ -12,7 +12,7 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 ## Getting Started
 
 ### Installation
-The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](https://github.com/WebDevLuke/Orion-Framework)
+The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](using-with-orion-framework)
 
 You can also use OrionCSS on it's own as a part of your own framework. To install it as a depedency using NPM, run the following command:
 
@@ -54,11 +54,11 @@ As you work on your project, you will want to add any new scss partials you crea
 @import "/06 - components/components.type";
 ```
 
+**NOTE:** One advantage of using OrionCSS as a part of [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) is that [gulp-sass-glob](https://github.com/mikevercoelen/gulp-sass-glob) is used to automatically import any new partials, so won't need to edit `main.scss` at all. For more advantages, [click here](#using-with-orion-framework).
+
 To give you a useful starting point for building your own components, a sample component can be found at `/node_modules/orioncss/06 - components/_sample.component.mycomponent.scss`.
 
-
-**NOTE:** One advantage of using OrionCSS as a part of [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) is that [gulp-sass-glob](https://github.com/mikevercoelen/gulp-sass-glob) is used to automatically import any new partials, so won't need to edit `main.scss` at all.
-
+## Using OrionCSS
 
 
 
@@ -72,7 +72,21 @@ To give you a useful starting point for building your own components, a sample c
 	- Spacing
 	- Everything else
 		- Mention the codebase is heavily documented so every item has instructions
-- About the developer
+
+
+
+
+
+## Using with Orion Framework
+When you use OrionCSS as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework), you access specifically built Gulp tasks to compile and optimise your SASS. These include:
+
+- A setup task which creates all the directories and files you need to get you up and running as quickly as possible.
+- `Build` and `Watch` tasks to easily compile your SASS.
+- [gulp-sass-glob](https://github.com/mikevercoelen/gulp-sass-glob) is used to automatically import any new partials, so won't need to edit `main.scss` at all.
+- [UNCSS](https://github.com/giakki/uncss) is used to remove any unused CSS classes from your stylesheet, so you don't have to worry about bloated CSS.
+- [Autoprefixer](https://github.com/postcss/autoprefixer) is automatically applied where applicable.
+
+Please refer to [Orion Framework](https://github.com/WebDevLuke/Orion-Framework)'s github repository for more information.
 
 
 ## About the developer
