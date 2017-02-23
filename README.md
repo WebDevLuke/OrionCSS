@@ -94,7 +94,7 @@ These breakpoints can be used independantly using OrionCSS's [breakpoint mixin t
 #### Configuration
 OrionCSS allows you to define a grid system of your choice. On compile SASS then generates all the required CSS classes automatically. 
 
-By default this is set to a **1170px 12 column grid system**. If you wish to modifiy this copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
+By default a **1170px 12 column grid system** is used. If you wish to modifiy this copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
 
 Here you set the variables which will create your grid system:-
 
