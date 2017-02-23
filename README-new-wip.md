@@ -1,6 +1,5 @@
 <h1>
 	 <img height="84" width="429" src="https://cdn.rawgit.com/WebDevLuke/OrionCSS/master/misc/orion-logo.svg">
-	<p>A simple SASS-based OOCSS framework</p>
 </h1>
 
 ## What is OrionCSS?
