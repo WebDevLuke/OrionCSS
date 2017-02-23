@@ -2,7 +2,6 @@
 	 <img height="84" width="429" src="https://cdn.rawgit.com/WebDevLuke/OrionCSS/master/misc/orion-logo.svg">
 </h1>
 
-## What is OrionCSS?
 OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS base from which to build your project.
 
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
