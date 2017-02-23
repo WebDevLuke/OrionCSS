@@ -1,0 +1,89 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// CONTAINER OBJECT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Constrains the content within the width of a page. Typically used with o-layout and width utilities to
+form a grid system.
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<div class="o-container">
+	<div class="o-layout">
+		<div class="o-layout__item u-1/2">CONTENT</div>
+		<div class="o-layout__item u-1/2">CONTENT</div>
+	</div>
+</div>
+*/
+
+.o-container {
+	@include clearfix();
+	box-sizing:content-box;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: rem(1170px);
+	padding-left: rem(15px);
+	padding-right: rem(15px);
+}
+
+
+// OUTER PADDING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Modifiers to tweak the containers outer padding.
+*/
+
+// Generate using settings.spacing
+// Example: o-container-padding-small
+@each $sp-name, $sp-value in $spacing {
+	.o-container--padding-#{$sp-name} { 
+		padding-left:rem($sp-value); 
+		padding-right:rem($sp-value);
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes outer padding when breakpoint is hit
+// Example: o-container-padding-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-container--padding-#{$sp-name}\@#{$bp-name} {
+				padding-left:rem($sp-value);
+				padding-right:rem($sp-value);
+			}
+		}
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes outer padding until breakpoint is hit
+// Example: o-container-padding-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-container--padding-#{$sp-name}\@max-#{$bp-name} {
+				padding-left:rem($sp-value);
+				padding-right:rem($sp-value);
+			}
+		}
+	}
+}
+
+
+// NON-RESPONSIVE CONTAINER MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Makes the container non-responsive by swapping max-width for width.
+*/
+
+.o-container--fixed {
+	max-width:none;
+	width:rem(1170px);
+}

@@ -20,6 +20,7 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 * [Further Documentation](#further-documentation)
 * [Using with Orion Framework](#using-with-orion-framework)
 * [About the Developer](#about-the-developer)
+* [Special Thanks](#special-thanks)
 
 
 ## Getting Started
@@ -371,6 +372,8 @@ When you use OrionCSS as part of the larger [Orion Framework](https://github.com
 
 Please refer to [Orion Framework](https://github.com/WebDevLuke/Orion-Framework)'s github repository for more information.
 
-
 ## About the Developer
 I'm Luke Harrison, a Sheffield-based Web Designer &amp; Developer from the UK, currently working at [Evolution Funding](https://github.com/EvolutionFunding). Read more about me at [lukeharrison.net](http://www.lukeharrison.net) and/or follow me on twitter at [@WebDevLuke](https://twitter.com/WebDevLuke).
+
+## Special Thanks
+Special thanks to [Harry Roberts](https://github.com/csswizardry) of [CSSWizardry](https://csswizardry.com/) for his wonderful ITCSS methodody and framework [inuitcss](https://github.com/inuitcss/inuitcss). Both have been a great source of inspiration and good ideas for this little side project of mine.
