@@ -12,21 +12,18 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 ## Table of contents
 
 * [Getting Started](#getting-started)
-  * [Installation](#installation)
-* [Using OrionCSS](#using-orioncss)
-  * [Class Namespaces](#class-namespaces)
-  * [Breakpoints](#breakpoints)
-  * [Grid System](#grid-system)
-  * [Breakpoint Mixins](#breakpoint-mixins)
-  * [Spacing Modifiers](#spacing-modifiers)
-  * [Further Documentation](#further-documentation)
+* [Class Namespaces](#class-namespaces)
+* [Breakpoints](#breakpoints)
+* [Grid System](#grid-system)
+* [Breakpoint Mixins](#breakpoint-mixins)
+* [Spacing Modifiers](#spacing-modifiers)
+* [Further Documentation](#further-documentation)
 * [Using with Orion Framework](#using-with-orion-framework)
 * [About the Developer](#about-the-developer)
 
 
 ## Getting Started
 
-### Installation
 The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](#using-with-orion-framework)
 
 You can also use OrionCSS on it's own as a part of your own framework. To install it as a depedency using NPM, run the following command:
@@ -73,9 +70,7 @@ You may need to edit the paths referencing `node_modules` to resemble your own p
 To give you a useful starting point for building your own components, a sample component can be found at `/node_modules/orioncss/06 - components/_sample.component.mycomponent.scss`.
 
 
-## Using OrionCSS
-
-### Class Namespaces
+## Class Namespaces
 
 OrionCSS uses appropriate namespaces to link classes with their parent ITCSS layer. These are:
 
@@ -85,7 +80,7 @@ OrionCSS uses appropriate namespaces to link classes with their parent ITCSS lay
 
 It would be a good idea to follow this convention in your own code. Not only for consistency, but [because it's a good idea](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/).
 
-### Breakpoints
+## Breakpoints
 To define the framework breakpoints copy `/node_modules/orioncss/01 - settings/_settings.breakpoints.scss` into your own `sass/01 - settings/` directory and edit the config object.
 
 ```sh
@@ -104,9 +99,9 @@ To define the framework breakpoints copy `/node_modules/orioncss/01 - settings/_
 These breakpoints can be used independantly using OrionCSS's [breakpoint mixin tools](#breakpoint-mixins) or as part of auto-generated breakpoint classes for the many object and utility classes included with OrionCSS, including the grid system documented next.
 
 
-### Grid System
+## Grid System
 
-#### Configuration
+### Configuration
 OrionCSS allows you to define a grid system of your choice. On compile SASS then generates all the required CSS classes automatically. 
 
 By default a **1170px 12 column grid system** is used. If you wish to modify this copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
@@ -145,7 +140,7 @@ $grid: (
 
 The above example defines a **1170px 12 column grid system** which morphs into a **1600px 16 column grid system** once the `lg` breakpoint defined in `/01 - settings/_settings.breakpoints.scss` has been hit.
 
-#### Usage
+### Usage
 
 Below are a few practical examples using the grid outlined in [Configuration](#configuration). If you've used bootstrap, the syntax here is almost identical.
 
@@ -188,7 +183,7 @@ Here we introduce breakpoint classes which have been automatically created by SA
 ```
 Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. 
 
-### Breakpoint Mixins
+## Breakpoint Mixins
 When writing SASS, you also have access to breakpoint mixins which allow you to generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`. Like with breakpoint classes, these are automatically generated on compile.
 
 ##### HTML
@@ -279,7 +274,7 @@ In the above, we give each div within the container a pseudo element and then ch
 Here we have seperated the breakpoint mixins from the element they're modifying. This is useful if a breakpoint needs to effect multiple elements on your page as you now have one use of a breakpoint mixin effecting many elements rather then many uses of the same breakpoint mixin. On large projects with lots of SASS this method is preferred as it allows better tracking of what elements are being changed at which breakpoints.
 
 
-#### List of breakpoint mixins
+### List of breakpoint mixins
 
 - Create a min-width mobile-first breakpoint: `@include bp($bp)` *Example: @include bp(sm)*
 
@@ -288,7 +283,7 @@ Here we have seperated the breakpoint mixins from the element they're modifying.
 - Create a breakpoint which only triggers inbetween 2 breakpoints: `@include bpBetween($from, $to)` *Example: @include bpBetween(sm, md)*
 
 
-### Spacing Modifiers
+## Spacing Modifiers
 
 Many object and utility classes in OrionCSS have spacing modifiers which are automatically generated on build using pre-defined values. To modify these values, copy `/node_modules/orioncss/01 - settings/_settings.spacing.scss` into your own `sass/01 - settings/` directory and then edit as you will. The default spacing values can be found below:-
 
@@ -361,7 +356,7 @@ And include responsive variants similar to:-
 
 To prevent bloat, I recommend using [UNCSS](https://github.com/giakki/uncss). This scans your HTML and filters out unused classes, meaning only the classes referenced in your HTML are included in your compiled CSS. UNCSS is included in the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework), where OrionCSS is a dependency.
 
-### Further Documentation
+## Further Documentation
 OrionCSS features heavy documentation within its codebase so that's the first place to look if you have any questions about a specific feature or included partial.
 
 
