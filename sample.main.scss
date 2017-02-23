@@ -1,0 +1,101 @@
+/*
+Orion Framework 
+Author: Luke Harrison
+Web: www.lukeharrison.net
+Github: https://github.com/WebDevLuke/Orion-Framework
+Email: luke@lukeharrison.net
+*/
+
+//--------------------------------------------------------------------------------------------------------------------------------------
+// STANDARD TEMPLATE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+This is the manifest file where all the different components of OrionCSS are brought together. Remember to append 
+@import declarations to the correct layer as you create new partials otherwise your code won't be included.
+*/
+
+
+// ITCSS LAYER SUMMARY
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+[1] Settings – used with preprocessors and contain font, colors definitions, etc.
+[2] Tools – globally used mixins and functions. It’s important not to output any CSS in the first 2 layers.
+[3] Generic – reset and/or normalize styles, box-sizing definition, etc. This is the first layer which generates actual CSS.
+[4] Elements – styling for bare HTML elements. These come with default styling from the browser so we can redefine them here.
+[5] Objects – class-based selectors which define undecorated design patterns, for example media object known from OOCSS.
+[6] Components – specific UI components. This is where majority of our work takes place and our UI components are often composed of Objects and Components.
+[7] Utilities – utilities and helper classes with the ability to override anything which goes before in the triangle. Should primarily be used for positional and minor cosmetic styling (eg bold, no-wrap, text-alignments etc). Every other kind of cosmetic styling should be done in the components layer.
+*/
+
+// Visit https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/ for more info on ITCSS methodology.
+
+
+// IMPORTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Settings
+@import "../../node_modules/orioncss/01 - settings/settings.breakpoints";
+@import "../../node_modules/orioncss/01 - settings/settings.grid-system";
+@import "../../node_modules/orioncss/01 - settings/settings.spacing";
+@import "../../node_modules/orioncss/01 - settings/settings.typography";
+// @import "/01 - settings/settings.mysettings";
+
+// Tools
+@import "../../node_modules/orioncss/02 - tools/tools.clearfix";
+@import "../../node_modules/orioncss/02 - tools/tools.rem";
+@import "../../node_modules/orioncss/02 - tools/tools.responsive-breakpoints";
+// @import "/02 - tools/tools.mytool";
+
+// Import  Framework Generic
+@import "../../node_modules/orioncss/03 - generic/generic.normalize";
+@import "../../node_modules/orioncss/03 - generic/generic.reset";
+@import "../../node_modules/orioncss/03 - generic/generic.box-sizing";
+// @import "/03 - generic/generic.mygeneric";
+
+// Elements
+@import "../../node_modules/orioncss/04 - elements/elements.address";
+@import "../../node_modules/orioncss/04 - elements/elements.button";
+@import "../../node_modules/orioncss/04 - elements/elements.headings";
+@import "../../node_modules/orioncss/04 - elements/elements.images";
+@import "../../node_modules/orioncss/04 - elements/elements.inputs";
+@import "../../node_modules/orioncss/04 - elements/elements.links";
+@import "../../node_modules/orioncss/04 - elements/elements.lists";
+@import "../../node_modules/orioncss/04 - elements/elements.page";
+// @import "/04 - elements/elements.myelement";
+
+// Objects
+@import "../../node_modules/orioncss/05 - objects/objects.box";
+@import "../../node_modules/orioncss/05 - objects/objects.cover";
+@import "../../node_modules/orioncss/05 - objects/objects.expander";
+@import "../../node_modules/orioncss/05 - objects/objects.grid-system";
+@import "../../node_modules/orioncss/05 - objects/objects.list-bare";
+@import "../../node_modules/orioncss/05 - objects/objects.list-inline";
+@import "../../node_modules/orioncss/05 - objects/objects.media-flag";
+@import "../../node_modules/orioncss/05 - objects/objects.media";
+@import "../../node_modules/orioncss/05 - objects/objects.pack";
+@import "../../node_modules/orioncss/05 - objects/objects.table";
+// @import "/05 - objects/objects.myobject";
+
+// Components
+// Sample component can be found in /node_modules/orioncss/06 - components/
+// @import "/06 - components/components.mycomponent";
+
+// Utilities
+@import "../../node_modules/orioncss/07 - utilities/utilities.alignments";
+@import "../../node_modules/orioncss/07 - utilities/utilities.cursor";
+@import "../../node_modules/orioncss/07 - utilities/utilities.display-hide";
+@import "../../node_modules/orioncss/07 - utilities/utilities.floats";
+@import "../../node_modules/orioncss/07 - utilities/utilities.heights";
+@import "../../node_modules/orioncss/07 - utilities/utilities.hidden-visually";
+@import "../../node_modules/orioncss/07 - utilities/utilities.margins";
+@import "../../node_modules/orioncss/07 - utilities/utilities.nudges";
+@import "../../node_modules/orioncss/07 - utilities/utilities.position";
+@import "../../node_modules/orioncss/07 - utilities/utilities.remove-padding";
+@import "../../node_modules/orioncss/07 - utilities/utilities.truncate";
+@import "../../node_modules/orioncss/07 - utilities/utilities.typography";
+@import "../../node_modules/orioncss/07 - utilities/utilities.user-select";
+@import "../../node_modules/orioncss/07 - utilities/utilities.widths";
+@import "../../node_modules/orioncss/07 - utilities/utilities.z-index";
+// @import "/07 - utilities/utilities.myutility";

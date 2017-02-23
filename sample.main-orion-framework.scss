@@ -1,16 +1,23 @@
 /*
-Orion Framework 
+OrionCSS 
 Author: Luke Harrison
 Web: www.lukeharrison.net
-Github: https://github.com/WebDevLuke/Orion-Framework
+Github: https://github.com/WebDevLuke/OrionCSS
 Email: luke@lukeharrison.net
 */
 
+//--------------------------------------------------------------------------------------------------------------------------------------
+// ORION FRAMEWORK TEMPLATE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
 /*
-- Implements ITCSS (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture)
-- Takes good ideas from inuitcss (https://github.com/inuitcss/inuitcss)
-- Implements BEM (http://getbem.com) and BEMIT (http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further), OOCSS namespacing (http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces)
+This is the manifest file used when OrionCSS is being used as a part of Orion Framework. If you're not using
+OrionCSS in this way, you should use the 'sample.main.scss' file instead. 
 */
+
+
+// ITCSS LAYER SUMMARY
+//--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
 [1] Settings – used with preprocessors and contain font, colors definitions, etc.
@@ -22,19 +29,11 @@ Email: luke@lukeharrison.net
 [7] Utilities – utilities and helper classes with the ability to override anything which goes before in the triangle. Should primarily be used for positional and minor cosmetic styling (eg bold, no-wrap, text-alignments etc). Every other kind of cosmetic styling should be done in the components layer.
 */
 
+// Visit https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/ for more info on ITCSS methodology.
 
-// IMPORT ORIONCSS & PROJECT ITCSS LAYERS
+
+// IMPORTS
 //--------------------------------------------------------------------------------------------------------------------------------------
-
-// Imports OrionCSS
-// Then imports project files from /dev/sass/
-
-/*
-If you need to modifier OrionCSS, you can either do one of the following:
-
-[1] Move the files you want to modify to your project SASS directory and delete its import here
-[2] If you're modifiying settings, you could also redefine any variables in this file after the import.
-*/
 
 // Settings
 @import "../../node_modules/orioncss/01 - settings/settings.breakpoints";
