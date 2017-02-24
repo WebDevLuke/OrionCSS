@@ -3,13 +3,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-The layout object is used to construct a grid-like layout system.
+The layout object is used to construct a grid-like layout system, with each layout__item representing an
+individual column. Typically used with container object and width utilities to form a grid system.
 */
-
 
 // OPTIONS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
+// Define default gutter width
 $gutter: 30px;
 
 
@@ -17,16 +18,105 @@ $gutter: 30px;
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-<div class="o-container">
-	<div class="o-layout">
-		<div class="o-layout__item u-1/2">CONTENT</div>
-		<div class="o-layout__item u-1/2">CONTENT</div>
-	</div>
+<div class="o-layout">
+	<div class="o-layout__item u-1/2">CONTENT</div>
+	<div class="o-layout__item u-1/2">CONTENT</div>
 </div>
 */
 
+/*
+[1] Allows us to use the layout object on any type of element.
+[2] We need to defensively reset any box-model properties.
+[3] Absorb amount equal to 15px on either side to account for their spacing
+[4] Set font-size to 0 to remove any spacing between individual inline-block columns
+*/
+
 .o-layout {
-	display:block;
-	padding:0;
-	margin:0;
+	display:block; /* [1] */
+	padding:0; /* [2] */
+	margin:0; /* [2] */
+	margin-left:rem(-$gutter / 2); /* [3] */
+	margin-right:rem(-$gutter / 2); /* [3] */
+	font-size:0; /* [4] */
+}
+
+/*
+[1] Required in order to combine fluid widths with fixed gutters.
+[2] Allows us to manipulate grids vertically, with text-level properties, etc...
+[3] Default item alignment is with the tops of each other, like most traditional grid/layout systems.
+[4] Restore proper font size, whilst still removing spacing between individual inline-block comments
+*/
+
+.o-layout__item { 
+	box-sizing:border-box; /* [1] */
+	display:inline-block; /* [2] */
+	vertical-align: top; /* [3] */
+	width:100%;
+	padding-left:rem($gutter / 2);
+	padding-right:rem($gutter / 2);
+	font-size: 1rem; /* [4] */
+}
+
+
+// SPACING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Tweak the spacing between individual columns
+*/ 
+
+/*
+<div class="o-layout o-layout--spacing-small">
+	<div class="o-layout__item u-1/2">CONTENT</div>
+	<div class="o-layout__item u-1/2">CONTENT</div>
+</div>
+*/
+
+// Generate using settings.spacing
+// Example o-layout--spacing-small
+@each $sp-name, $sp-value in $spacing {
+	.o-layout--spacing-#{$sp-name} {
+		margin-left:rem(-$sp-value / 2);
+		margin-right:rem(-$sp-value / 2);
+		& > .o-layout__item {
+			padding-left:rem($sp-value / 2);
+			padding-right:rem($sp-value / 2);
+		}
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes padding once breakpoint is hit
+// Example o-layout--spacing@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-layout--spacing-#{$sp-name}\@#{$bp-name} {
+				margin-left:rem(-$sp-value / 2);
+				margin-right:rem(-$sp-value / 2);
+				& > .o-layout__item {
+					padding-left:rem($sp-value / 2);
+					padding-right:rem($sp-value / 2);
+				}
+			}
+		}
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes padding until breakpoint is hit
+// Example o-layout--spacing@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-layout--spacing-#{$sp-name}\@max-#{$bp-name} {
+				margin-left:rem(-$sp-value / 2);
+				margin-right:rem(-$sp-value / 2);
+				& > .o-layout__item {
+					padding-left:rem($sp-value / 2);
+					padding-right:rem($sp-value / 2);
+				}
+			}
+		}
+	}
 }

@@ -66,7 +66,7 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes padding once breakpoint is hit
 // Example o-list-inline--spacing-small@md
 @each $bp-name, $bp-value in $breakpoints {

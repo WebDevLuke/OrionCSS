@@ -5,7 +5,7 @@
 OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.
 
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
-- **Easily Configurable Grid System** - Enter the max width, number of columns, gutter and padding of a grid system of your choice and SASS will automatically generate all the CSS classes and media query mixins for you.
+- **Powerful Grid System** - OrionCSS includes a flexible and easy to use grid system which can be adapted for any size or scenario. 
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
 - **Usuable with Orion Framework** - Use as a dependency of the [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) to access specifically built Gulp tasks to compile and optimise your SASS. [(More Info)](#using-with-orion-framework)
 
@@ -45,7 +45,7 @@ Next, you need to create the following directory structure in your project `sass
 
 Now you've set up your directories, copy `/node_modules/orioncss/sample.main.scss` into your `sass` directory and rename it `main.scss`. This is where everything is imported and is the place which tells your favourite SASS build tool what to include in the compiled `main.css` stylesheet.
 
-As you work on your project, you will want to add any new scss partials you create to `main.scss` as otherwise they won't be imported. Typically, a more developed `main.scss` may resemble the following:
+As you work on your project, you will need to add any new scss partials you create to `main.scss` as otherwise they won't be imported. Typically, a more developed `main.scss` may resemble the following:
 
 ```
 // Objects
@@ -102,186 +102,114 @@ These breakpoints can be used independantly using OrionCSS's [breakpoint mixin t
 
 ## Grid System
 
-### Configuration
-OrionCSS allows you to define a grid system of your choice. On compile SASS then generates all the required CSS classes automatically. 
+OrionCSS includes object and utility classes which together form a very flexible and easy to use grid system. These classes are:-
 
-By default a **1170px 12 column grid system** is used. If you wish to modify this copy `/node_modules/orioncss/01 - settings/_settings.grid-system.scss` into your own `sass/01 - settings/` directory to get started.
+- `o-container` -  Constrains the content within the width of a page. The default container width is `1170px`.
+- `o-layout` - Used to construct a grid-like layout system, with each layout__item representing an
+individual column.
+- `u-1/12` - Example width-set utility class which allows you to define each column width in fractions.
 
-Here you set the variables which will create your grid system:-
+For width-sets, the default classes generated are halves, thirds, fourths, fifths and twelves are generated, with the last to mimic a 12 column grid system.
 
-```sh
-$grid: (
-  "default": (
-    "max-width": 1170px,
-    "columns": 12,
-    "gutter": 30px,
-    "containerPadding": 30px
-  )
-);
+```
+$width-sets: 2, 3, 4, 5, 12 !default; 
 ```
 
-You can also reshape the grid at any of your defined breakpoints by creating entries within the `morph` property:-
+To modify these copy `/node_modules/orioncss/01 - settings/_settings.widths.scss` into your own `sass/01 - settings/` directory and edit the config object.
 
-```sh
-$grid: (
-  "default": (
-    "max-width": 1170px,
-    "columns": 12,
-    "gutter": 30px,
-    "containerPadding": 30px
-  ),
-  'morph': (
-    "lg" : (
-      "max-width": 1600px,
-      "columns": 16
-    )
-  )
-);
-```
 
-The above example defines a **1170px 12 column grid system** which morphs into a **1600px 16 column grid system** once the `lg` breakpoint defined in `/01 - settings/_settings.breakpoints.scss` has been hit.
-
-### Usage
-
-Below are a few practical examples using the grid outlined in [Configuration](#configuration). If you've used bootstrap, the syntax here is almost identical.
-
-##### Basic grid
+#### Basic grid
 
 ```sh
 <div class="o-container">
-  <div class="o-row">
-    <div class="o-col-4"></div>
-    <div class="o-col-4"></div>
-    <div class="o-col-4"></div>
+  <div class="o-layout">
+    <div class="o-layout__item u-1/3"></div>
+    <div class="o-layout__item u-1/3"></div>
+    <div class="o-layout__item u-1/3"></div>
   </div>
 </div>
 ```
-This is a basic 4/4/4 grid which doesn't change.
+This is a basic 3 column grid.
 
-##### Basic grid w. breakpoint classes
+#### Basic grid w. breakpoint classes
 
 ```sh
 <div class="o-container">
-  <div class="o-row">
-    <div class="o-col-4 o-col-1@md"></div>
-    <div class="o-col-4 o-col-5@md"></div>
-    <div class="o-col-4 o-col-6@md"></div>
+  <div class="o-layout">
+    <div class="o-layout__item u-1/3 u-1/12@md"></div>
+    <div class="o-layout__item u-1/3 u-5/12@md"></div>
+    <div class="o-layout__item u-1/3 u-6/12@md"></div>
   </div>
 </div>
 ```
-Here we introduce breakpoint classes which have been automatically created by SASS using the data entered in `/01 - settings/_settings.breakpoints.scss`. As this is a mobile-first framework, we start off with a basic 4/4/4 grid and as we scale up and hit the med breakpoint at 640px it will change to 1/5/6.
+Here we introduce breakpoint classes which have been automatically created by SASS using the data entered in `/01 - settings/_settings.breakpoints.scss`. As this is a mobile-first framework, we start off with a basic 3 column grid and as we scale up and hit the med breakpoint at 768px it will changes to a more advanced grid, 1-5-6 using a traditional 12 column grid.
 
-##### Advanced grid w. breakpoint classes
+#### Advanced grid w. breakpoint classes & offsets
 
 ```sh
 <div class="o-container">
-  <div class="o-row">
-    <div class="o-col-4@sm o-col-12@md o-col-4@lg o-col-6@lg"></div>
-    <div class="u-col-offset-4@sm o-col-4@sm o-col-6@md u-col-offset-4@lg o-col-4@lg o-col-6@lg"></div>
-    <div class="u-hide@sm u-display-block@md o-col-6@md u-col-offset-8@lg o-col-4@lg o-col-16@lg"></div>
+  <div class="o-layout">
+    <div class="o-layout__item u-1/2 u-5/12@md u-offset-2/12@md"></div>
+    <div class="o-layout__item u-1/2 u-hide@md"></div>
+    <div class="o-layout__item u-hide@max-md u-5/12@md"></div>
   </div>
 </div>
 ```
-Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. 
+Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. We also introduce offset classes which can push a column across a container and a basic hide utility class.
 
 ## Breakpoint Mixins
-When writing SASS, you also have access to breakpoint mixins which allow you to generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`. Like with breakpoint classes, these are automatically generated on compile.
+When writing SASS, you also have access to breakpoint mixins which allow you to generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`.
 
-##### HTML
-```sh
-<div class="o-container">
-  <div class="o-row">
-    <div class="o-col-4"></div>
-    <div class="o-col-4"></div>
-    <div class="o-col-4"></div>
-  </div>
-</div>
+Create a min-width mobile-first breakpoint:-
+
 ```
-
-##### SASS
-```sh
-.o-container div {
-  &:before {
-    content:"default";
-  }
-  @include bp(sm){
-    &:before{
-      content:"sm";
-    }
-  }
-  @include bp(md){
-    &:before{
-      content:"md";
-    }
-  }
-  @include bp(lg){
-    &:before{
-      content:"lg";
-    }
-  }
-  @include bp(lg){
-    &:before{
-      content:"lg";
-    }
-  }
-}
-```
-In the above, we give each div within the container a pseudo element and then change its content at different breakpoints. You can group these breakpoint mixins within the element they're modifying or you can define them seperately like in the next example.
-
-
-##### HTML
-```sh
-<div class="o-container">
-  <div class="o-row">
-    <div class="o-col-4@sm o-col-12@md o-col-4@lg o-col-6@lg"></div>
-    <div class="u-col-offset-4@sm o-col-4@sm o-col-6@md u-col-offset-4@lg o-col-4@lg o-col-6@lg"></div>
-    <div class="u-hide@sm u-display-block@md o-col-6@md u-col-offset-8@lg o-col-4@lg o-col-16@lg"></div>
-  </div>
-</div>
-```
-
-##### SASS
-```sh
-.o-container div {
-  &:before {
-    content:"default";
-  }
-}
-
-@include bp(sm) {
-  .o-container div:before {
-    content:"sm";
-  }
-}
-
 @include bp(md) {
-  .o-container div:before {
-    content:"md";
+  .myelement {
+    property:value;
   }
 }
 
-@include bp(lg) {
-  .o-container div:before {
-    content:"lg";
-  }
-}
-
-@include bp(lg) {
-  .o-container div:before {
-    content:"lg";
+.myelement {
+  property:value;
+  @include bp(md) {
+    property:value;
   }
 }
 ```
-Here we have seperated the breakpoint mixins from the element they're modifying. This is useful if a breakpoint needs to effect multiple elements on your page as you now have one use of a breakpoint mixin effecting many elements rather then many uses of the same breakpoint mixin. On large projects with lots of SASS this method is preferred as it allows better tracking of what elements are being changed at which breakpoints.
 
+Create a max-width desktop-first breakpoint:-
 
-### List of breakpoint mixins
+```
+@include bpMax(md) {
+  .myelement {
+    property:value;
+  }
+}
 
-- Create a min-width mobile-first breakpoint: `@include bp($bp)` *Example: @include bp(sm)*
+.myelement {
+  property:value;
+  @include bpMax(md) {
+    property:value;
+  }
+}
+```
 
-- Create a max-width desktop-first breakpoint: `@include bpMax($bp)` *Example: @include bpMax(sm)*
+Create a breakpoint which only triggers inbetween 2 breakpoints:-
 
-- Create a breakpoint which only triggers inbetween 2 breakpoints: `@include bpBetween($from, $to)` *Example: @include bpBetween(sm, md)*
+```
+@include bpBetween(md, lg) {
+  .myelement {
+    property:value;
+  }
+}
+
+.myelement {
+  property:value;
+  @include bpBetween(md, lg) {
+    property:value;
+  }
+}
+```
 
 
 ## Spacing Modifiers

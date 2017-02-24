@@ -90,7 +90,7 @@ absorb outer margin and align.
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes spacing when breakpoint is hit
 // Example o-pack--spacing-small@md
 @each $bp-name, $bp-value in $breakpoints {
@@ -107,7 +107,7 @@ absorb outer margin and align.
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes spacing until breakpoint is hit
 // Example o-pack--spacing-small@max-md
 @each $bp-name, $bp-value in $breakpoints {

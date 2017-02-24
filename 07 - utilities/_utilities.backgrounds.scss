@@ -1,0 +1,46 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// BACKGROUND UTILITIES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Background utility classes. These are auto-generated based on data given in settings.colors.
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Example: u-background-red
+@each $color-name, $color-value in $colors {
+	.u-background-#{$color-name} {
+		background-color:$color-value !important;
+	}
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes background-color when breakpoint is hit
+// Example: u-background-red@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $color-name, $color-value in $colors {
+			.u-background-#{$color-name}\@#{$bp-name} {
+				background-color:$color-value !important;
+			}
+		}
+	}
+}
+
+// Changes background-color until breakpoint is hit
+// Example: u-background-red@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $color-name, $color-value in $colors {
+			.u-background-#{$color-name}\@max-#{$bp-name} {
+				background-color:$color-value !important;
+			}
+		}
+	}
+}

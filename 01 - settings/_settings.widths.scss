@@ -1,0 +1,12 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// WIDTH-SETS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+A comma seperated list of width-set utility class you wish to generate. By default halves, thirds, fourths, fifths and 
+twelves are generated, with the last to mimic a 12 column grid system.
+
+For example: .u-1/2, .u-3/12, u-2/5 etc...
+*/
+
+$width-sets: 2, 3, 4, 5, 12 !default; 

@@ -1,44 +1,62 @@
 //--------------------------------------------------------------------------------------------------------------------------------------
-// FULL WIDTH OVERRIDE
+// WIDTHS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Utility class used to override max width to 100%. Typically this would be attached to a grid container to
-make it full width
+Utility classes to provide fluid widths to whichever element they're applied to. Most commonly used in
+conjunction with the grid system object 'o-layout', but can be used with anything.
 */
-
-
-// STANDARD
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-.u-full-width {
-	width:100% !important;
-	max-width:100% !important;
-}
-
-.u-max-width {
-	max-width:100% !important;
-}
-
-
-// RESPONSIVE
-//--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Example: .u-full-width@xlg
+<div class="o-layout__item u-1/2">CONTENT</div>
 */
+
+
+// WIDTHS MIXIN
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+@mixin create-widths($width-sets, $breakpoint-suffix: null) {
+	@each $denominator in $width-sets {
+		@for $numerator from 1 through $denominator {
+
+			// Width class, eg 'u-1/2'
+			.u-#{$numerator}\/#{$denominator}#{$breakpoint-suffix} {
+				width:($numerator / $denominator) * 100% !important;
+			}
+
+			// Offset class, eg 'u-offset-1/2'
+			.u-offset-#{$numerator}\/#{$denominator}#{$breakpoint-suffix} {
+				margin-left:($numerator / $denominator) * 100% !important;
+			}
+		}
+	}
+}
+
+// GENERATE STANDARD WIDTHS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+@include create-widths($width-sets);
+
+
+// GENERATE RESPONSIVE WIDTHS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Create responsive variants using settings.breakpoints
+// Changes width when breakpoint is hit
+// Example: .u-1/3@md
 
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
+		@include create-widths($width-sets, \@#{$bp-name});
+	}
+}
 
-		.u-full-width\@#{$bp-name} {
-			width:100% !important;
-			max-width:100% !important;
-		}
+// Create responsive variants using settings.breakpoints
+// Changes width until breakpoint is hit
+// Example: .u-1/3@max-md
 
-		.u-max-width\@#{$bp-name} {
-			max-width:100% !important;
-		}
-
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@include create-widths($width-sets, \@max-#{$bp-name});
 	}
 }

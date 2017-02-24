@@ -47,7 +47,7 @@ Generates variants in padding size using data from settings.spacing
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes padding when breakpoint is hit
 // Example: o-box--tiny@md
 @each $bp-name, $bp-value in $breakpoints {

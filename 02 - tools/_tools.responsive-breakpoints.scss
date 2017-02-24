@@ -81,7 +81,7 @@ you specify 2 breakpoints.
 		$value: map-get($breakpoints, $breakpoint);
 	}
 	@else {
-		@error "`#{$breakpoint}` doesn't exist in `data/breakpoints.js`";
+		@error "`#{$breakpoint}` doesn't exist in 'settings.breakpoints.js'";
 	}
  
 	// If the key exists in the map
@@ -114,7 +114,7 @@ you specify 2 breakpoints.
 		$value: map-get($breakpoints, $breakpoint);
 	}
 	@else {
-		@error "`#{$breakpoint}` doesn't exist in `data/breakpoints.js`";
+		@error "`#{$breakpoint}` doesn't exist in 'settings.breakpoints.js'";
 	}
  
 	// If the key exists in the map
@@ -150,14 +150,14 @@ you specify 2 breakpoints.
 		$from: map-get($breakpoints, $from); 
 	}
 	@else {
-		@error "`#{$from}` doesn't exist in `data/breakpoints.js`"; 
+		@error "`#{$from}` doesn't exist in 'settings.breakpoints.js'"; 
 	}
 
 	@if map-has-key($breakpoints, $to) {
 		$to: map-get($breakpoints, $to); 
 	}
 	@else {
-		@error "`#{$to}` doesn't exist in `data/breakpoints.js`";
+		@error "`#{$to}` doesn't exist in 'settings.breakpoints.js'";
 	}
  
 	// If the key exists in the map

@@ -107,7 +107,7 @@ Change the vertical alignment of flag contents. Default: middle.
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes vertical alignment once breakpoint is hit
 // Example: o-flag--top@md
 @each $bp-name, $bp-value in $breakpoints {
@@ -187,7 +187,7 @@ and everything needs to stack up
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes width and max width when breakpoint is hit
 // Example: o-flag--fixed-image-small@md
 @each $bp-name, $bp-value in $breakpoints {
@@ -201,7 +201,7 @@ and everything needs to stack up
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes width and max width until breakpoint is hit
 // Example: o-flag--fixed-image-small@max-md
 @each $bp-name, $bp-value in $breakpoints {
@@ -248,7 +248,7 @@ Alter the spacing in between image and text
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes padding once breakpoint is hit
 // Example o-flag--spacing@md
 @each $bp-name, $bp-value in $breakpoints {
@@ -267,7 +267,7 @@ Alter the spacing in between image and text
 	}
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes padding until breakpoint is hit
 // Example o-flag--spacing@max-md
 @each $bp-name, $bp-value in $breakpoints {

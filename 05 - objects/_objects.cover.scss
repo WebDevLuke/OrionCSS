@@ -47,7 +47,7 @@ element.
 	width:75%;
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes width once breakpoint is hit
 // Example: o-cover--quarter@md
 @each $bp-name, $bp-value in $breakpoints {

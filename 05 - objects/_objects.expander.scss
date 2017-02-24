@@ -54,7 +54,7 @@ global-line-height variable defined in settings.typography.
 	max-height:calc(#{$global-line-height}em * 15);
 }
 
-// Create responsive variants using data/breakpoints.json
+// Create responsive variants using settings.breakpoints
 // Changes amount of visible text once breakpoint is hit
 // Example: o-expander--partial-tiny@md
 @each $bp-name, $bp-value in $breakpoints {
