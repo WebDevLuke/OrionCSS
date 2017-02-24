@@ -50,9 +50,10 @@ As you work on your project, you will need to add any new scss partials you crea
 ```
 // Objects
 @import "../../node_modules/orioncss/05 - objects/objects.box";
+@import "../../node_modules/orioncss/05 - objects/objects.container";
 @import "../../node_modules/orioncss/05 - objects/objects.cover";
 @import "../../node_modules/orioncss/05 - objects/objects.expander";
-@import "../../node_modules/orioncss/05 - objects/objects.grid-system";
+@import "../../node_modules/orioncss/05 - objects/objects.layout";
 @import "../../node_modules/orioncss/05 - objects/objects.list-bare";
 @import "../../node_modules/orioncss/05 - objects/objects.list-inline";
 @import "../../node_modules/orioncss/05 - objects/objects.media-flag";
@@ -109,7 +110,7 @@ OrionCSS includes object and utility classes which together form a very flexible
 individual column.
 - `u-1/12` - Example width-set utility class which allows you to define each column width in fractions.
 
-For width-sets, the default classes generated are halves, thirds, fourths, fifths and twelves are generated, with the last to mimic a 12 column grid system.
+For width-sets, the default classes generated are halves, thirds, fourths, fifths and twelves, with the last to mimic a 12 column grid system.
 
 ```
 $width-sets: 2, 3, 4, 5, 12 !default; 
