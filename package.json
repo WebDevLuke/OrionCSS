@@ -1,7 +1,7 @@
 {
   "name": "orioncss",
   "version": "1.0.0",
-  "description": "OrionCSS is a SASS-based OOCSS framework. It's a simple, easy to use and quick way of getting your responsive web project off the ground. It can be used alone in your own project or as a dependency of the larger Orion Framework",
+  "description": "OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebDevLuke/OrionCSS.git"
