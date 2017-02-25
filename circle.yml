@@ -1,0 +1,4 @@
+test:
+  override:
+    - gulp build
+    - gulp sass-lint
