@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 6.9.1
+dependencies:
+  pre:
+    - npm install npm -g
+    - npm install
+test:
+  override:
+    - gulp build
+    - gulp sass-lint
