@@ -1,5 +1,5 @@
 <h1>
-	 <img height="84" width="429" src="https://cdn.rawgit.com/WebDevLuke/OrionCSS/master/misc/orion-logo.svg">
+	 <img height="67" width="429" src="https://cdn.rawgit.com/WebDevLuke/OrionCSS/master/misc/orion-logo.svg">
 </h1>
 
 OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.
@@ -7,7 +7,7 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
 - **Powerful Grid System** - OrionCSS includes a flexible and easy to use grid system which can be adapted for any size or scenario. 
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
-- **Usuable with Orion Framework** - Use as a dependency of the [Orion Framework](https://github.com/WebDevLuke/Orion-Framework) to access specifically built Gulp tasks to compile and optimise your SASS. [(More Info)](#using-with-orion-framework)
+- **Complimented by OrionBP** - Use with [OrionBP](https://github.com/WebDevLuke/Orion-Framework), a simple front-end boilerplate for projects using OrionCSS. It includes a suite of powerful Gulp tasks allowing you to compile, compress and concatenate your SASS, JS and image assets. [(More Info)](#using-with-orion-framework)
 
 ## Table of contents
 
@@ -25,7 +25,7 @@ OrionCSS is a SASS framework which is simple, easy to use and scalable. It provi
 
 ## Getting Started
 
-The best way to use OrionCSS is as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework). [(More Info)](#using-with-orion-framework)
+The best way to use OrionCSS is via [OrionBP](https://github.com/WebDevLuke/Orion-Framework), a simple front-end boilerplate designed to compliment this framework. [(More Info)](#using-with-orionbp)
 
 You can also use OrionCSS on it's own as a part of your own framework. To install it as a depedency using NPM, run the following command:
 
@@ -76,9 +76,9 @@ To give you a useful starting point for building your own components, a sample c
 
 OrionCSS uses appropriate namespaces to link classes with their parent ITCSS layer. These are:
 
-- `.o-`: Objects
-- `.c-`: Components
-- `.u-`: Utilities
+- `.o-` - Objects
+- `.c-` - Components
+- `.u-` - Utilities
 
 It would be a good idea to follow this convention in your own code. Not only for consistency, but [because it's a good idea](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/).
 
@@ -159,7 +159,7 @@ Here we introduce breakpoint classes which have been automatically created by SA
 Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. We also introduce offset classes which can push a column across a container and a basic hide utility class.
 
 ## Breakpoint Mixins
-When writing SASS, you also have access to breakpoint mixins which allow you to generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`.
+When writing SASS, you also have access to breakpoint mixins which allow you to easily generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`.
 
 Create a min-width mobile-first breakpoint:-
 
@@ -284,22 +284,22 @@ And include responsive variants similar to:-
 /* And so on */
 ```
 
-To prevent bloat, I recommend using [UNCSS](https://github.com/giakki/uncss). This scans your HTML and filters out unused classes, meaning only the classes referenced in your HTML are included in your compiled CSS. UNCSS is included in the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework), where OrionCSS is a dependency.
+To prevent bloat, I recommend using [UNCSS](https://github.com/giakki/uncss). This scans your HTML and filters out unused classes, meaning only the classes referenced in your HTML are included in your compiled CSS. UNCSS is included in [OrionBP](https://github.com/WebDevLuke/Orion-Framework).
 
 ## Further Documentation
 OrionCSS features heavy documentation within its codebase so that's the first place to look if you have any questions about a specific feature or included partial.
 
 
-## Using with Orion Framework
-When you use OrionCSS as part of the larger [Orion Framework](https://github.com/WebDevLuke/Orion-Framework), you gain access to specifically built Gulp tasks to compile and optimise your SASS. These include:
+## Using with OrionBP
+When you use OrionCSS via the front-end boilerplate [OrionBP](https://github.com/WebDevLuke/Orion-Framework), you gain access to specifically built Gulp tasks to compile and optimise your SASS. These SASS tasks include:
 
-- A setup task which creates all the directories and files you need to get you up and running as quickly as possible.
+- A setup task which automates the setup process by creating all the directories and files you need to get you up and running as quickly as possible.
 - `Build` and `Watch` tasks to easily compile your SASS.
 - [gulp-sass-glob](https://github.com/mikevercoelen/gulp-sass-glob) is used to automatically import any new partials, so you won't need to edit `main.scss` at all.
 - [UNCSS](https://github.com/giakki/uncss) is used to remove any unused CSS classes from your stylesheet, so you don't have to worry about bloated CSS.
 - [Autoprefixer](https://github.com/postcss/autoprefixer) is automatically applied where applicable.
 
-Please refer to [Orion Framework](https://github.com/WebDevLuke/Orion-Framework)'s github repository for more information.
+Please refer to [OrionBP](https://github.com/WebDevLuke/Orion-Framework)'s github repository for more information.
 
 ## About the Developer
 I'm Luke Harrison, a Sheffield-based Web Designer &amp; Developer from the UK, currently working at [Evolution Funding](https://github.com/EvolutionFunding). Read more about me at [lukeharrison.net](http://www.lukeharrison.net) and/or follow me on twitter at [@WebDevLuke](https://twitter.com/WebDevLuke).
