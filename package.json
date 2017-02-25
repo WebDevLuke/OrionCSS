@@ -1,6 +1,6 @@
 {
   "name": "orioncss",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.",
   "repository": {
     "type": "git",
