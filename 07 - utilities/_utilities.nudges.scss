@@ -6,164 +6,32 @@
 Utility classes to add simple direction styles. Use to nudge and fine tune elements positions.
 
 Generates standard and responsive variants using spacing map located in settings.spacing and
-responsive breakpoints located in dev/data/breakpoints
+responsive breakpoints located in settings.breakpoints.
 */
 
-// MARGIN TOP
+// NUDGE TOP
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 // Example: u-nudge-top-small
+// Example: u-nudge-top-small-negative
 @each $sp-name, $sp-value in $spacing {
 	.u-nudge-top-#{$sp-name} {
 		top:rem($sp-value) !important;
+	}
+	.u-nudge-top-#{$sp-name}-negative {
+		top:rem(-$sp-value) !important;
 	}
 }
 
 // Changes top when breakpoint is hit
 // Example: u-nudge-top-small@md
+// Example: u-nudge-top-small-negative@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-top-#{$sp-name}\@#{$bp-name} {
 				top:rem($sp-value) !important;
 			}
-		}
-	}
-}
-
-// Changes top until breakpoint is hit
-// Example: u-nudge-top-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-top-#{$sp-name}\@max-#{$bp-name} {
-				top:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-
-// MARGIN RIGHT
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-// Example: u-nudge-right-small
-@each $sp-name, $sp-value in $spacing {
-	.u-nudge-right-#{$sp-name} {
-		right:rem($sp-value) !important;
-	}
-}
-
-// Changes right when breakpoint is hit
-// Example: u-nudge-right-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-right-#{$sp-name}\@#{$bp-name} {
-				right:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-// Changes right until breakpoint is hit
-// Example: u-nudge-right-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-right-#{$sp-name}\@max-#{$bp-name} {
-				right:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-
-// MARGIN BOTTOM
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-// Example: u-nudge-bottom-small
-@each $sp-name, $sp-value in $spacing {
-	.u-nudge-bottom-#{$sp-name} {
-		bottom:rem($sp-value) !important;
-	}
-}
-
-// Changes bottom when breakpoint is hit
-// Example: u-nudge-bottom-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-bottom-#{$sp-name}\@#{$bp-name} {
-				bottom:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-// Changes bottom until breakpoint is hit
-// Example: u-nudge-bottom-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-bottom-#{$sp-name}\@max-#{$bp-name} {
-				bottom:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-
-// MARGIN LEFT
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-// Example: u-nudge-left-small
-@each $sp-name, $sp-value in $spacing {
-	.u-nudge-left-#{$sp-name} {
-		left:rem($sp-value) !important;
-	}
-}
-
-// Changes left when breakpoint is hit
-// Example: u-nudge-left-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-left-#{$sp-name}\@#{$bp-name} {
-				left:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-// Changes left until breakpoint is hit
-// Example: u-nudge-left-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
-			.u-nudge-left-#{$sp-name}\@max-#{$bp-name} {
-				left:rem($sp-value) !important;
-			}
-		}
-	}
-}
-
-
-// NEGATIVE MARGIN TOP
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-// Example: u-nudge-top-small-negative
-@each $sp-name, $sp-value in $spacing {
-	.u-nudge-top-#{$sp-name}-negative {
-		top:rem(-$sp-value) !important;
-	}
-}
-
-// Changes negative top when breakpoint is hit
-// Example: u-nudge-top-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
-		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-top-#{$sp-name}-negative\@#{$bp-name} {
 				top:rem(-$sp-value) !important;
 			}
@@ -171,11 +39,15 @@ responsive breakpoints located in dev/data/breakpoints
 	}
 }
 
-// Changes negative top until breakpoint is hit
+// Changes top until breakpoint is hit
+// Example: u-nudge-top-small@max-md
 // Example: u-nudge-top-small-negative@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-top-#{$sp-name}\@max-#{$bp-name} {
+				top:rem($sp-value) !important;
+			}
 			.u-nudge-top-#{$sp-name}-negative\@max-#{$bp-name} {
 				top:rem(-$sp-value) !important;
 			}
@@ -184,21 +56,29 @@ responsive breakpoints located in dev/data/breakpoints
 }
 
 
-// NEGATIVE MARGIN RIGHT
+// NUDGE RIGHT
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-// Example: u-nudge-right-small-negative
+// Example: u-nudge-right-small
+// Example: u-nudge-right-small-negative@md
 @each $sp-name, $sp-value in $spacing {
+	.u-nudge-right-#{$sp-name} {
+		right:rem($sp-value) !important;
+	}
 	.u-nudge-right-#{$sp-name}-negative {
 		right:rem(-$sp-value) !important;
 	}
 }
 
-// Changes negative right when breakpoint is hit
+// Changes right when breakpoint is hit
+// Example: u-nudge-right-small@md
 // Example: u-nudge-right-small-negative@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-right-#{$sp-name}\@#{$bp-name} {
+				right:rem($sp-value) !important;
+			}
 			.u-nudge-right-#{$sp-name}-negative\@#{$bp-name} {
 				right:rem(-$sp-value) !important;
 			}
@@ -206,11 +86,15 @@ responsive breakpoints located in dev/data/breakpoints
 	}
 }
 
-// Changes negative right until breakpoint is hit
+// Changes right until breakpoint is hit
+// Example: u-nudge-right-small@max-md
 // Example: u-nudge-right-small-negative@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-right-#{$sp-name}\@max-#{$bp-name} {
+				right:rem($sp-value) !important;
+			}
 			.u-nudge-right-#{$sp-name}-negative\@max-#{$bp-name} {
 				right:rem(-$sp-value) !important;
 			}
@@ -219,21 +103,29 @@ responsive breakpoints located in dev/data/breakpoints
 }
 
 
-// NEGATIVE MARGIN BOTTOM
+// NUDGE BOTTOM
 //--------------------------------------------------------------------------------------------------------------------------------------
 
+// Example: u-nudge-bottom-small
 // Example: u-nudge-bottom-small-negative
 @each $sp-name, $sp-value in $spacing {
+	.u-nudge-bottom-#{$sp-name} {
+		bottom:rem($sp-value) !important;
+	}
 	.u-nudge-bottom-#{$sp-name}-negative {
 		bottom:rem(-$sp-value) !important;
 	}
 }
 
-// Changes negative bottom when breakpoint is hit
+// Changes bottom when breakpoint is hit
+// Example: u-nudge-bottom-small@md
 // Example: u-nudge-bottom-small-negative@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-bottom-#{$sp-name}\@#{$bp-name} {
+				bottom:rem($sp-value) !important;
+			}
 			.u-nudge-bottom-#{$sp-name}-negative\@#{$bp-name} {
 				bottom:rem(-$sp-value) !important;
 			}
@@ -241,11 +133,15 @@ responsive breakpoints located in dev/data/breakpoints
 	}
 }
 
-// Changes negative bottom until breakpoint is hit
+// Changes bottom until breakpoint is hit
+// Example: u-nudge-bottom-small@max-md
 // Example: u-nudge-bottom-small-negative@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-bottom-#{$sp-name}\@max-#{$bp-name} {
+				bottom:rem($sp-value) !important;
+			}
 			.u-nudge-bottom-#{$sp-name}-negative\@max-#{$bp-name} {
 				bottom:rem(-$sp-value) !important;
 			}
@@ -254,21 +150,29 @@ responsive breakpoints located in dev/data/breakpoints
 }
 
 
-// NEGATIVE MARGIN LEFT
+// NUDGE LEFT
 //--------------------------------------------------------------------------------------------------------------------------------------
 
+// Example: u-nudge-left-small
 // Example: u-nudge-left-small-negative
 @each $sp-name, $sp-value in $spacing {
+	.u-nudge-left-#{$sp-name} {
+		left:rem($sp-value) !important;
+	}
 	.u-nudge-left-#{$sp-name}-negative {
 		left:rem(-$sp-value) !important;
 	}
 }
 
-// Changes negative left when breakpoint is hit
+// Changes left when breakpoint is hit
+// Example: u-nudge-left-small@md
 // Example: u-nudge-left-small-negative@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-left-#{$sp-name}\@#{$bp-name} {
+				left:rem($sp-value) !important;
+			}
 			.u-nudge-left-#{$sp-name}-negative\@#{$bp-name} {
 				left:rem(-$sp-value) !important;
 			}
@@ -276,11 +180,15 @@ responsive breakpoints located in dev/data/breakpoints
 	}
 }
 
-// Changes negative left until breakpoint is hit
+// Changes left until breakpoint is hit
+// Example: u-nudge-left-small@max-md
 // Example: u-nudge-left-small-negative@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
+			.u-nudge-left-#{$sp-name}\@max-#{$bp-name} {
+				left:rem($sp-value) !important;
+			}
 			.u-nudge-left-#{$sp-name}-negative\@max-#{$bp-name} {
 				left:rem(-$sp-value) !important;
 			}
