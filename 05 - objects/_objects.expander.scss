@@ -3,8 +3,8 @@
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Simple object which hides content which then slides down after a linked element is clicked. Utilises the
-js-active module.
+Simple object which hides content which then slides down after a linked element is clicked. Use javascript
+to add is-active stateful class under desired circumstances.
 */
 
 
@@ -12,10 +12,10 @@ js-active module.
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-<div class="o-expander js-myexpander">
+<div class="o-expander">
 	CONTENT
 </div>
-<a href="/" data-active="js-myexpander">TOGGLE LINK</a>
+<a href="/">TOGGLE LINK</a>
 */
 
 .o-expander {

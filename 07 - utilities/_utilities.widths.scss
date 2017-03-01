@@ -19,9 +19,14 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 	@each $denominator in $width-sets {
 		@for $numerator from 1 through $denominator {
 
+			/*
+			[1] Reset margin-left to disabled any previous offsets
+			*/
+
 			// Width class, eg 'u-1/2'
 			.u-#{$numerator}\/#{$denominator}#{$breakpoint-suffix} {
 				width:($numerator / $denominator) * 100% !important;
+				margin-left:0 !important;
 			}
 
 			// Offset class, eg 'u-offset-1/2'
