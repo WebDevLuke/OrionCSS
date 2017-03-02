@@ -35,23 +35,23 @@ global-line-height variable defined in settings.typography.
 */
 
 .o-expander--partial-tiny {
-	max-height:calc(#{$global-line-height}em * 3);
+	max-height:$global-line-height * 3em;
 }
 
 .o-expander--partial-small {
-	max-height:calc(#{$global-line-height}em * 6);
+	max-height:$global-line-height * 6em;
 }
 
 .o-expander--partial-regular {
-	max-height:calc(#{$global-line-height}em * 9);
+	max-height:$global-line-height * 9em;
 }
 
 .o-expander--partial-large {
-	max-height:calc(#{$global-line-height}em * 12);
+	max-height:$global-line-height * 12em;
 }
 
 .o-expander--partial-huge {
-	max-height:calc(#{$global-line-height}em * 15);
+	max-height:$global-line-height * 15em;
 }
 
 // Create responsive variants using settings.breakpoints
@@ -60,23 +60,23 @@ global-line-height variable defined in settings.typography.
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		.o-expander--partial-tiny\@#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 3);
+			max-height:$global-line-height * 3em;
 		}
 
 		.o-expander--partial-small\@#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 6);
+			max-height:$global-line-height * 6em;
 		}
 
 		.o-expander--partial-regular\@#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 9);
+			max-height:$global-line-height * 9em;
 		}
 
 		.o-expander--partial-large\@#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 12);
+			max-height:$global-line-height * 12em;
 		}
 
 		.o-expander--partial-huge\@#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 15);
+			max-height:$global-line-height * 15em;
 		}
 	}
 }
@@ -86,37 +86,60 @@ global-line-height variable defined in settings.typography.
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		.o-expander--partial-tiny\@max-#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 3);
+			max-height:$global-line-height * 3em;
 		}
 
 		.o-expander--partial-small\@max-#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 6);
+			max-height:$global-line-height * 6em;
 		}
 
 		.o-expander--partial-regular\@max-#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 9);
+			max-height:$global-line-height * 9em;
 		}
 
 		.o-expander--partial-large\@max-#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 12);
+			max-height:$global-line-height * 12em;
 		}
 
 		.o-expander--partial-huge\@max-#{$bp-name} {
-			max-height:calc(#{$global-line-height}em * 15);
+			max-height:$global-line-height * 15em;
 		}
 	}
 }
 
 
-// EXPANDER STATEFUL MODIFIER
+// SIZE MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Controls behaviour once is-active class is added
+Size modifiers to increase or reduce max-height of expander. Generally the more content you have
+in an expander, the bigger you set it to.
 */
 
+// Set default
 .o-expander.is-active {
-	max-height:1999px;
+	max-height:125em;
+}
+
+// Create modifiers
+.o-expander--tiny.is-active {
+	max-height:30em;
+}
+
+.o-expander--small.is-active {
+	max-height:60em;
+}
+
+.o-expander--large.is-active {
+	max-height:185em;
+}
+
+.o-expander--huge.is-active {
+	max-height:250em;
+}
+
+.o-expander--giant.is-active {
+	max-height:300em;
 }
 
 

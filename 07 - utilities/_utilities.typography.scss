@@ -18,10 +18,19 @@ Basic utility classes for typography.
 	white-space:nowrap !important;
 }
 
-/* Slightly increase text size and make bold to make stand out */
+// Slightly increase text size and make bold to make stand out
 .u-strong {
 	font-size:1.111em !important;
 	font-weight:bold !important;
+}
+
+// Utility classes for type color
+// These are auto-generated based on data given in settings.colors.
+// Example: u-type-red 
+@each $color-name, $color-value in $colors {
+	.u-type-#{$color-name} {
+		color:$color-value !important;
+	}
 }
 
 // RESPONSIVE
@@ -44,6 +53,15 @@ Basic utility classes for typography.
 			font-size:1.111em !important;
 			font-weight:bold !important;
 		}
+
+		// Utility classes for type color
+		// These are auto-generated based on data given in settings.colors.
+		// Example: u-type-red@md
+		@each $color-name, $color-value in $colors {
+			.u-type-#{$color-name}\@#{$bp-name}  {
+				color:$color-value !important;
+			}
+		}
 	}
 }
 
@@ -63,6 +81,15 @@ Basic utility classes for typography.
 		.u-strong\@max-#{$bp-name} {
 			font-size:1.111em !important;
 			font-weight:bold !important;
+		}
+
+		// Utility classes for type color
+		// These are auto-generated based on data given in settings.colors.
+		// Example: u-type-red@max-md
+		@each $color-name, $color-value in $colors {
+			.u-type-#{$color-name}\@max-#{$bp-name}  {
+				color:$color-value !important;
+			}
 		}
 	}
 }
