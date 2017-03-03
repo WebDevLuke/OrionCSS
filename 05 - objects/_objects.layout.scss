@@ -358,3 +358,44 @@ Modifiers to change the vertical alignment of the layout as a whole or individua
 		}
 	}
 }
+
+
+// ORDERING MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Modifers which allow you to specify an order different from the load order
+
+// Define max order number to generate
+$orders: 10;
+
+// Changes order
+// Example: .o-layout__item--1
+@for $order from 1 through $orders {
+	.o-layout__item--#{$order} {
+		order:$order;
+	}
+}
+
+// Changes order when breakpoint is hit
+// Example: .o-layout__item--1@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@for $order from 1 through $orders {
+			.o-layout__item--#{$order}\@#{$bp-name}  {
+				order:$order;
+			}
+		}
+	}
+}
+
+// Changes order until breakpoint is hit
+// Example: .o-layout__item--1@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@for $order from 1 through $orders {
+			.o-layout__item--#{$order}\@max-#{$bp-name}  {
+				order:$order;
+			}
+		}
+	}
+}
