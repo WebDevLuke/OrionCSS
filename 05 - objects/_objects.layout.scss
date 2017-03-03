@@ -198,7 +198,7 @@ of items.
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Makes each column have an equal height. Also modifiers for individual columns.
+Makes each column have an equal height. Also includes modifiers for individual columns.
 */
 
 .o-layout--fit-height {
@@ -240,7 +240,7 @@ Makes each column have an equal height. Also modifiers for individual columns.
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Modifiers to change the vertical alignment of the layout as a whole or individual columns
+Modifiers to change the vertical alignment of the whole layout or just individual columns
 */
 
 // Default vertical alignment
@@ -363,7 +363,7 @@ Modifiers to change the vertical alignment of the layout as a whole or individua
 // ORDERING MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-// Modifers which allow you to specify an order different from the load order
+// Modifiers which allow you to specify an order different from the load order
 
 // Define max order number to generate
 $orders: 10;
