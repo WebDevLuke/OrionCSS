@@ -134,6 +134,7 @@ Seperate individual list items with a specific character
 
 .o-list-inline--delimited-comma {
 	.o-list-inline__item:after {
+		padding-left:0;
 		content: ",";
 	}
 }
