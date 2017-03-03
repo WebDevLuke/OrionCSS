@@ -26,65 +26,6 @@ element.
 }
 
 
-// WIDTH MODIFIERS
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-/*
-<div class="o-cover o-cover--quarter">
-	CONTENT
-</div>
-*/
-
-.o-cover--quarter {
-	width:25%;
-}
-
-.o-cover--half {
-	width:50%;
-}
-
-.o-cover--three-quarters {
-	width:75%;
-}
-
-// Create responsive variants using settings.breakpoints
-// Changes width once breakpoint is hit
-// Example: o-cover--quarter@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
-		.o-cover--quarter\@#{$bp-name} {
-			width:25%;
-		}
-
-		.o-cover--half\@#{$bp-name} {
-			width:50%;
-		}
-
-		.o-cover--three-quarters\@#{$bp-name} {
-			width:75%;
-		}
-	}
-}
-
-// Changes width until breakpoint is hit
-// Example: o-cover--quarter@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
-		.o-cover--quarter\@max-#{$bp-name} {
-			width:25%;
-		}
-
-		.o-cover--half\@#{$bp-name} {
-			width:50%;
-		}
-
-		.o-cover--three-quarters\@#{$bp-name} {
-			width:75%;
-		}
-	}
-}
-
-
 // POSITION MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 

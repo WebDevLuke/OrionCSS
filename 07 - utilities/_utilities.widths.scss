@@ -28,6 +28,16 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 				width:($numerator / $denominator) * 100% !important;
 				margin-left:0 !important;
 			}
+		}
+	}
+}
+
+// OFFSETS MIXIN
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+@mixin create-offsets($width-sets, $breakpoint-suffix: null) {
+	@each $denominator in $width-sets {
+		@for $numerator from 1 through $denominator {
 
 			// Offset class, eg 'u-offset-1/2'
 			.u-offset-#{$numerator}\/#{$denominator}#{$breakpoint-suffix} {
@@ -41,6 +51,7 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 @include create-widths($width-sets);
+@include create-offsets($width-sets);
 
 
 // GENERATE RESPONSIVE WIDTHS
@@ -53,6 +64,7 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@include create-widths($width-sets, \@#{$bp-name});
+		@include create-offsets($width-sets, \@#{$bp-name});
 	}
 }
 
@@ -63,5 +75,6 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@include create-widths($width-sets, \@max-#{$bp-name});
+		@include create-offsets($width-sets, \@#{$bp-name});
 	}
 }

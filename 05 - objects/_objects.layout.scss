@@ -32,7 +32,10 @@ $gutter: 30px;
 */
 
 .o-layout {
-	display:block; /* [1] */
+	display:flex; /* [1] */
+	flex-wrap:wrap;
+	flex-direction:row;
+	align-items:flex-start;
 	padding:0; /* [2] */
 	margin:0; /* [2] */
 	margin-left:rem(-$gutter / 2); /* [3] */
@@ -117,6 +120,255 @@ Tweak the spacing between individual columns
 					padding-right:rem($sp-value / 2);
 				}
 			}
+		}
+	}
+}
+
+
+// FLUSH MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Flush removes the gutter between layout items.
+*/ 
+
+/*
+<div class="o-layout o-layout--flush">
+	<div class="o-layout__item u-1/2">CONTENT</div>
+	<div class="o-layout__item u-1/2">CONTENT</div>
+</div>
+*/
+
+/*
+[1] Remove negative margins as we no longer have to absorb any paddings from columns
+*/
+
+.o-layout--flush {
+	margin-left:0; /* [1] */
+	margin-right:0; /* [1] */
+	& > .o-layout__item {
+		padding-left:0;
+		padding-right:0;
+	}
+}
+
+// Changes position when breakpoint is hit
+// Example: .o-layout--flush@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-layout--flush\@#{$bp-name} > .o-layout__item {
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+}
+
+// Changes position until breakpoint is hit
+// Example: .o-layout--flush@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-layout--flush\@max-#{$bp-name} > .o-layout__item {
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+}
+
+
+// FIT MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Allows each layout item to size itself automatically by dividing the space equally between the total number
+of items. This is achieving the same effect as the pack object, but is subject to flexbox browser support.
+*/
+
+.o-layout--fit {
+	flex-wrap:nowrap;
+}
+
+// Makes columns fit when breakpoint is hit
+// Example: .o-layout--fit@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-layout--fit\@#{$bp-name} {
+			flex-wrap:nowrap;
+		}
+	}
+}
+
+// Makes columns fit until breakpoint is hit
+// Example: .o-layout--fit@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-layout--fit\@max-#{$bp-name} {
+			flex-wrap:nowrap;
+		}
+	}
+}
+
+
+// EQUAL HEIGHT MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Makes each column have an equal height. Also modifiers for individual columnss.
+*/
+
+.o-layout--fit-height {
+	align-items:stretch;
+}
+
+.o-layout__item--fit-height {
+	align-self:stretch;
+}
+
+// Changes height when breakpoint is hit
+// Example: .o-layout--equal@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-layout--fit-height\@#{$bp-name} {
+			align-items:stretch;
+		}
+		.o-layout__item--fit-height\@#{$bp-name} {
+			align-self:stretch;
+		}
+	}
+}
+
+// Changes height until breakpoint is hit
+// Example: .o-layout--equal@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-layout--fit-height\@max-#{$bp-name} {
+			align-items:stretch;
+		}
+		.o-layout__item--fit-height\@max-#{$bp-name} {
+			align-self:stretch;
+		}
+	}
+}
+
+
+// VERTICAL ALIGNMENT MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Modifiers to change the vertical alignment of the layout as a whole or individual columns
+*/
+
+// Default vertical alignment
+.o-layout--top {
+	align-items:flex-start;
+}
+
+.o-layout__item--top {
+	align-self:flex-start;
+} 
+
+.o-layout--bottom {
+	align-items:flex-end;
+}
+
+.o-layout__item--bottom {
+	align-self:flex-end;
+}
+
+.o-layout--middle {
+	align-items:center;
+}
+
+.o-layout__item--middel {
+	align-self:center;
+}
+
+// Columns are align to match their baseline 
+.o-layout--baseline {
+	align-items:baseline;
+}
+
+.o-layout__item--baseline {
+	align-self:baseline;
+}
+
+// Changes vertical-alignment when breakpoint is hit
+// Example: .o-layout--center@md
+// Example: .o-layout__item--center@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		// Default vertical alignment
+		.o-layout--top\@#{$bp-name} {
+			align-items:flex-start;
+		}
+
+		.o-layout__item--top\@#{$bp-name} {
+			align-self:flex-start;
+		}
+
+		.o-layout--bottom\@#{$bp-name} {
+			align-items:flex-end;
+		}
+
+		.o-layout__item--bottom\@#{$bp-name} {
+			align-self:flex-end;
+		}
+
+		.o-layout--middle\@#{$bp-name} {
+			align-items:center;
+		}
+
+		.o-layout__item--middle\@#{$bp-name} {
+			align-self:center;
+		}
+
+		// Columns are align to match their baseline 
+		.o-layout--baseline\@#{$bp-name} {
+			align-items:baseline;
+		}
+
+		.o-layout__item--baseline\@#{$bp-name} {
+			align-self:baseline;
+		}
+	}
+}
+
+// Changes vertical-alignment until breakpoint is hit
+// Example: .o-layout--center@max-md
+// Example: .o-layout__item--center@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		// Default vertical alignment
+		.o-layout--top\@max-#{$bp-name} {
+			align-items:flex-start;
+		}
+
+		.o-layout__item--top\@max-#{$bp-name} {
+			align-self:flex-start;
+		}
+
+		.o-layout--bottom\@max-#{$bp-name} {
+			align-items:flex-end;
+		}
+
+		.o-layout__item--bottom\@max-#{$bp-name} {
+			align-self:flex-end;
+		}
+
+		.o-layout--middle\@max-#{$bp-name} {
+			align-items:center;
+		}
+
+		.o-layout__item--middle\@max-#{$bp-name} {
+			align-self:center;
+		}
+
+		// Columns are align to match their baseline 
+		.o-layout--baseline\@max-#{$bp-name} {
+			align-items:baseline;
+		}
+
+		.o-layout__item--baseline\@max-#{$bp-name} {
+			align-self:baseline;
 		}
 	}
 }
