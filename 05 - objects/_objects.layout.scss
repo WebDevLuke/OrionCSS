@@ -68,13 +68,6 @@ $gutter: 30px;
 Tweak the spacing between individual columns
 */ 
 
-/*
-<div class="o-layout o-layout--spacing-small">
-	<div class="o-layout__item u-1/2">CONTENT</div>
-	<div class="o-layout__item u-1/2">CONTENT</div>
-</div>
-*/
-
 // Generate using settings.spacing
 // Example o-layout--spacing-small
 @each $sp-name, $sp-value in $spacing {
@@ -131,13 +124,6 @@ Tweak the spacing between individual columns
 /*
 Flush removes the gutter between layout items.
 */ 
-
-/*
-<div class="o-layout o-layout--flush">
-	<div class="o-layout__item u-1/2">CONTENT</div>
-	<div class="o-layout__item u-1/2">CONTENT</div>
-</div>
-*/
 
 /*
 [1] Remove negative margins as we no longer have to absorb any paddings from columns
@@ -212,7 +198,7 @@ of items. This is achieving the same effect as the pack object, but is subject t
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Makes each column have an equal height. Also modifiers for individual columnss.
+Makes each column have an equal height. Also modifiers for individual columns.
 */
 
 .o-layout--fit-height {
@@ -278,7 +264,7 @@ Modifiers to change the vertical alignment of the layout as a whole or individua
 	align-items:center;
 }
 
-.o-layout__item--middel {
+.o-layout__item--middle {
 	align-self:center;
 }
 

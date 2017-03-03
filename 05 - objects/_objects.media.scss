@@ -1,10 +1,10 @@
 //--------------------------------------------------------------------------------------------------------------------------------------
-// MEDIA OBJECT
+// FLAG MEDIA OBJECT
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Classic media object for layouts with image on one side and text on other.
-http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+Abstraction of media object to support vertical alignment for either image or text.
+http://csswizardry.com/2013/05/the-flag-object/
 */
 
 
@@ -13,73 +13,166 @@ http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-o
 
 /*
 <div class="o-media">
-	<img src="" alt="" class="o-media__image">
-	<p class="o-media__body">
+	<div class="o-media__image">
+		<img src="" alt="">
+	</div>
+	<div class="o-media__body">
 		CONTENT
-	</p>
+	</div>
 </div>
+*/
+
+/*
+[1] Make the image take as little space as possible
 */
 
 .o-media {
-	@include clearfix();
+	display: table;
 	box-sizing:border-box;
 }
 
-.o-media__image {
-	float:left;
+.o-media__body {
+	width: auto;
+}
 
+.o-media__image, .o-media__body {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.o-media__image {
+	width:rem(1px); /* [1] */
 	img {
-		display:block;
+		display: block;
+		max-width: none;
 	}
 }
 
-.o-media__body {
-	@include clearfix(); 
-	overflow:hidden;
-	float:left;
-}
 
-
-// REVERSE ORDER MODIFIER
+// FLAG ALIGNMENT MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Reverse the position of text and image
+Change the vertical alignment of flag contents. Default: middle.
 */
 
-/*
-<div class="o-media o-media--reverse">
-	<img src="" alt="" class="o-media__image">
-	<p class="o-media__body">
-		CONTENT
-	</p>
-</div>
-*/
+.o-media--top {
+	> .o-media__image,
+	> .o-media__body {
+		vertical-align: top;
+	}
+}
 
-.o-media--reverse > .o-media__image {
-	float:right;
-	margin-right:0;
+.o-media--middle {
+	> .o-media__image,
+	> .o-media__body {
+		vertical-align: middle;
+	}
+}
+
+.o-media--bottom {
+	> .o-media__image,
+	> .o-media__body {
+		vertical-align: bottom;
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes vertical alignment once breakpoint is hit
+// Example: o-media--top@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-media--top\@#{$bp-name} {
+			> .o-media__image,
+			> .o-media__body {
+				vertical-align: top;
+			}
+		}
+		.o-media--middle\@#{$bp-name} {
+			> .o-media__image,
+			> .o-media__body {
+				vertical-align: middle;
+			}
+		}
+		.o-media--bottom\@#{$bp-name} {
+			> .o-media__image,
+			> .o-media__body {
+				vertical-align: bottom;
+			}
+		}
+	}
+}
+
+// Changes vertical alignment until breakpoint is hit
+// Example: o-media--top@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-media--top\@max-#{$bp-name} {
+			> .o-media__image,
+			> .o-media__body {
+				vertical-align: top;
+			}
+		}
+		.o-media--middle\@max-#{$bp-name} {
+			> .o-media__image,
+			> .o-media__body {
+				vertical-align: middle;
+			}
+		}
+		.o-media--bottom\@max-#{$bp-name} {
+			> .o-media__image,
+			> .o-media__body {
+				vertical-align: bottom;
+			}
+		}
+	}
 }
 
 
-// TEXT WRAP MODIFIER
+// FIXED WIDTH IMAGE MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Wrap the text around the image
+Adds a fixed width to the image element. Useful if you have multiple stacked flags with different width icons
+and everything needs to stack up
 */
 
-/*
-<div class="o-media o-media--wrap">
-	<img src="" alt="" class="o-media__image">
-	<p class="o-media__body">
-		CONTENT
-	</p>
-</div>
-*/
 
-.o-media--wrap > .o-media__body {
-	overflow:visible;
+// Generate using settings.spacing
+// Example: o-media--fixed-image-small
+@each $sp-name, $sp-value in $spacing {
+	.o-media--fixed-image-#{$sp-name} .o-media__image {
+		width:rem($sp-value);
+		max-width:rem($sp-value);
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes width and max width when breakpoint is hit
+// Example: o-media--fixed-image-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-media--fixed-image-#{$sp-name}\@#{$bp-name} .o-media__image {
+				width:rem($sp-value);
+				max-width:rem($sp-value);
+			}
+		}
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes width and max width until breakpoint is hit
+// Example: o-media--fixed-image-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-media--fixed-image-#{$sp-name}\@-max#{$bp-name} .o-media__image {
+				width:rem($sp-value);
+				max-width:rem($sp-value);
+			}
+		}
+	}
 }
 
 
@@ -90,61 +183,52 @@ Wrap the text around the image
 Alter the spacing in between image and text
 */
 
-/*
-<div class="o-media o-media--spacing-small">
-	<img src="" alt="" class="o-media__image">
-	<p class="o-media__body">
-		CONTENT
-	</p>
-</div>
-*/
-
 // Generate using settings.spacing
-// Example: o-media--spacing-small
+// Example o-media--spacing-small
 @each $sp-name, $sp-value in $spacing {
 	.o-media--spacing-#{$sp-name} {
 		& > .o-media__image {
-			margin-right:rem($sp-value);
+			padding-right:rem($sp-value);
 		}
-
 		&.o-media--reverse > .o-media__image {
-			margin-left:rem($sp-value);
+			padding-left:rem($sp-value);
+			padding-right:0;
 		}
 	}
 }
 
-// Generate using settings.spacing
-// Change spacing when breakpoint is hit
-// Example: o-media--spacing-small@md
+// Create responsive variants using settings.breakpoints
+// Changes padding once breakpoint is hit
+// Example o-media--spacing@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-media--spacing-#{$sp-name}\@#{$bp-name}  {
+			.o-media--spacing-#{$sp-name}\@#{$bp-name} {
 				& > .o-media__image {
-					margin-right:rem($sp-value);
+					padding-right:rem($sp-value);
 				}
-
 				&.o-media--reverse > .o-media__image {
-					margin-left:rem($sp-value);
+					padding-left:rem($sp-value);
+					padding-right:0;
 				}
 			}
 		}
 	}
 }
 
-// Generate using settings.spacing
-// Change spacing until breakpoint is hit
-// Example: o-media--spacing-small@max-md
+// Create responsive variants using settings.breakpoints
+// Changes padding until breakpoint is hit
+// Example o-media--spacing@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-media--spacing-#{$sp-name}\@max-#{$bp-name}  {
+			.o-media--spacing-#{$sp-name}\@max-#{$bp-name} {
 				& > .o-media__image {
-					margin-right:rem($sp-value);
+					padding-right:rem($sp-value);
 				}
-
 				&.o-media--reverse > .o-media__image {
-					margin-left:rem($sp-value);
+					padding-left:rem($sp-value);
+					padding-right:0;
 				}
 			}
 		}

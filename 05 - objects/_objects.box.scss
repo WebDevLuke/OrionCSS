@@ -34,12 +34,6 @@ http://csswizardry.com/2011/10/the-island-object/
 Generates variants in padding size using data from settings.spacing
 */
 
-/*
-<div class="o-box--tiny@md">
-	CONTENT
-</div>
-*/
-
 // Generate using settings.spacing
 @each $sp-name, $sp-value in $spacing {
 	.o-box--#{$sp-name} {
