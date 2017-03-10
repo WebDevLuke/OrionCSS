@@ -1,0 +1,19 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// GRID SYSTEM
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Here we can define settings which alter the default state of the grid system - represented by the o-container
+and o-layout objects.
+*/
+
+
+// DEFAULT GUTTER SIZE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+This defines default gutter size for o-container and o-layout. Additional sizings can be added via their
+spacing modifiers
+*/
+
+$gutter: 20px;

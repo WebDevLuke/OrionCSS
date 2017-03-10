@@ -22,12 +22,11 @@ form a grid system.
 
 .o-container {
 	@include clearfix();
-	box-sizing:content-box;
 	margin-right: auto;
 	margin-left: auto;
 	max-width: rem(1170px);
-	padding-left: rem(15px);
-	padding-right: rem(15px);
+	padding-left: rem($gutter);
+	padding-right: rem($gutter);
 }
 
 
@@ -35,25 +34,25 @@ form a grid system.
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-Modifiers to tweak the containers outer padding.
+Modifiers to tweak the containers outer spacing.
 */
 
 // Generate using settings.spacing
-// Example: o-container-padding-small
+// Example: o-container-spacing-small
 @each $sp-name, $sp-value in $spacing {
-	.o-container--padding-#{$sp-name} { 
+	.o-container--spacing-#{$sp-name} { 
 		padding-left:rem($sp-value); 
 		padding-right:rem($sp-value);
 	}
 }
 
 // Create responsive variants using settings.breakpoints
-// Changes outer padding when breakpoint is hit
-// Example: o-container-padding-small@md
+// Changes outer spacing when breakpoint is hit
+// Example: o-container-spacing-small@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-container--padding-#{$sp-name}\@#{$bp-name} {
+			.o-container--spacing-#{$sp-name}\@#{$bp-name} {
 				padding-left:rem($sp-value);
 				padding-right:rem($sp-value);
 			}
@@ -62,12 +61,12 @@ Modifiers to tweak the containers outer padding.
 }
 
 // Create responsive variants using settings.breakpoints
-// Changes outer padding until breakpoint is hit
-// Example: o-container-padding-small@max-md
+// Changes outer spacing until breakpoint is hit
+// Example: o-container-spacing-small@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-container--padding-#{$sp-name}\@max-#{$bp-name} {
+			.o-container--spacing-#{$sp-name}\@max-#{$bp-name} {
 				padding-left:rem($sp-value);
 				padding-right:rem($sp-value);
 			}
