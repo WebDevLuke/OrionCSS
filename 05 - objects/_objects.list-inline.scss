@@ -18,13 +18,19 @@ Simple inline list with content stacked left or right horizontally
 </ul>
 */
 
+/*
+[1] Remove whitespace between items
+*/
+
 .o-list-inline {
 	list-style:none;
 	margin-left:0;
+	font-size:0; /* [1] */
 }
 
 .o-list-inline__item {
 	display:inline-block;
+	font-size:1rem; /* [1] */
 }
 
 
