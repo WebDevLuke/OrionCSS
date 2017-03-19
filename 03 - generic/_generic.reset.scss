@@ -51,7 +51,8 @@ table {
 Remove focus outline for inputs and buttons
 */
 
-button:focus, input:focus {
+button:focus,
+input:focus {
 	outline:0;
 }
 
@@ -60,9 +61,11 @@ button:focus, input:focus {
 [2] Removes outline on IE, Edge
 */
 
-input:invalid, select:invalid, textarea:invalid {
+input:invalid,
+select:invalid,
+textarea:invalid {
 	box-shadow:none; /* [1] */
-	outline:none; /* [2
+	outline:none; /* [2] */
 }
 
 /*
