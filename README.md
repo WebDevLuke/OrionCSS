@@ -6,7 +6,7 @@
 
 OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.
 
-- **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) to organise its SASS and includes many useful object and utility classes out of the box. 
+- **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) to organise its SASS and includes many useful object and utility classes out of the box. 
 - **Powerful Grid System** - OrionCSS includes a flexible and easy to use grid system which can be adapted for any size or scenario. 
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
 - **Complimented by OrionBP** - Use with [OrionBP](https://github.com/WebDevLuke/Orion-Framework), a simple front-end boilerplate for projects using OrionCSS. It includes a suite of powerful Gulp tasks allowing you to compile, compress and concatenate your SASS, JS and image assets. [(More Info)](#using-with-orion-framework)
@@ -35,7 +35,7 @@ You can also use OrionCSS on it's own as a part of your own framework. To instal
 npm install orioncss --save
 ```
 
-Next, you need to create the following directory structure in your project `sass` directory. This is where all your project's [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture) layer files will sit.
+Next, you need to create the following directory structure in your project `sass` directory. This is where all your project's [ITCSS](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) layer files will sit.
 
 - `/01 - settings` - Used with preprocessors and contain font, colors definitions, etc.
 - `/02 - tools` - Globally used mixins and functions. It’s important not to output any CSS in the first 2 layers.
