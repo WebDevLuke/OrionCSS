@@ -27,7 +27,7 @@ A function to return a specific color from the map in settings.colors
 		$color: map-get($colors, $value);
 	}
 	@else {
-		@error "`#{$color}` doesn't exist in 'settings.colors'";
+		@error "'#{$value}' doesn't exist in 'settings.colors'";
 	}
 
 	@return $color;

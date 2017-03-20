@@ -25,11 +25,11 @@ Sourced from inuitcss (https://github.com/inuitcss/inuitcss)
 
 	@if (type-of($value) == number) {
 		@if (unit($value) != "px") {
-			@error "`#{$value}` needs to be a pixel value.";
+			@error "'#{$value}' needs to be a pixel value.";
 		}
 	} 
 	@else {
-		@error "`#{$value}` needs to be a number.";
+		@error "'#{$value}' needs to be a number.";
 	}
 
 	@return $value / $global-font-size * 1rem;

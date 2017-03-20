@@ -27,7 +27,7 @@ A function to return a specific spacing value from the map in settings.spacing
 		$chosen-spacing: map-get($spacing, $value);
 	}
 	@else {
-		@error "`#{$chosen-spacing}` doesn't exist in 'settings.colors'";
+		@error "'#{$value}' doesn't exist in 'settings.spacing'";
 	}
 
 	@return $chosen-spacing;
