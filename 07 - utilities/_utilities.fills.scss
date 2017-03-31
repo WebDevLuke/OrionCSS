@@ -1,0 +1,47 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// FILL UTILITIES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Fill utility classes. These are auto-generated fill styles to be used with SVG's based on data given in 
+settings.colors.
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Example: u-fill-red
+@each $color-name, $color-value in $colors {
+	.u-fill-#{$color-name} {
+		fill:$color-value !important;
+	}
+}
+
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Changes fill when breakpoint is hit
+// Example: u-fill-red@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $color-name, $color-value in $colors {
+			.u-fill-#{$color-name}\@#{$bp-name} {
+				fill:$color-value !important;
+			}
+		}
+	}
+}
+
+// Changes fill until breakpoint is hit
+// Example: u-fill-red@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $color-name, $color-value in $colors {
+			.u-fill-#{$color-name}\@max-#{$bp-name} {
+				fill:$color-value !important;
+			}
+		}
+	}
+}

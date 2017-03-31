@@ -21,6 +21,14 @@ Utility class for floats
 	clear: both !important;
 }
 
+.u-clear-left {
+	clear: left !important;
+}
+
+.u-clear-right {
+	clear: right !important;
+}
+
 
 // RESPONSIVE
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -39,7 +47,15 @@ Utility class for floats
 
 		.u-clear\@#{$bp-name} {
 			clear: both !important;
-		}		
+		}	
+
+		.u-clear-left\@#{$bp-name} {
+			clear: left !important;
+		}
+
+		.u-clear-right\@#{$bp-name} {
+			clear: right !important;
+		}
 	}
 }
 
@@ -57,6 +73,14 @@ Utility class for floats
 
 		.u-clear\@max-#{$bp-name} {
 			clear: both !important;
+		}
+
+		.u-clear-left\@max-#{$bp-name} {
+			clear: left !important;
+		}
+
+		.u-clear-right\@max-#{$bp-name} {
+			clear: right !important;
 		}		
 	}
 }
