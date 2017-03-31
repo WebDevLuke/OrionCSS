@@ -73,6 +73,21 @@ You may need to edit the paths referencing `node_modules` to resemble your own p
 
 To give you a useful starting point for building your own components, a sample component can be found at `/node_modules/orioncss/06 - components/_sample.component.mycomponent.scss`.
 
+You can modify any default variables found in the settings layer of OrionCSS by either copying the relevant settings partial to your own settings layer (Remember to remove the `!default` flag from your new file) and updating the path in your `main.scss`, or by redefining the variable directly in your `main.scss` like below:
+
+```
+// Settings
+@import "../../node_modules/orioncss/01 - settings/settings.colors";
+
+// Redefine colors
+$colors: (
+  "blue": #EFEFEF,
+  "green": #84BC44,
+  "red": #F05D4A,
+  "purple": #C37CBD;
+);
+
+```
 
 ## Class Namespaces
 
@@ -85,7 +100,6 @@ OrionCSS uses appropriate namespaces to link classes with their parent ITCSS lay
 It would be a good idea to follow this convention in your own code. Not only for consistency, but [because it's a good idea](https://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/).
 
 ## Breakpoints
-To define the framework breakpoints copy `/node_modules/orioncss/01 - settings/_settings.breakpoints.scss` into your own `sass/01 - settings/` directory and edit the config object.
 
 ```sh
 {
@@ -101,6 +115,8 @@ To define the framework breakpoints copy `/node_modules/orioncss/01 - settings/_
 }
 ```
 These breakpoints can be used independantly using OrionCSS's [breakpoint mixin tools](#breakpoint-mixins) or as part of auto-generated breakpoint classes for the many object and utility classes included with OrionCSS, including the grid system documented next.
+
+By default, framework breakpoints can be found in `/node_modules/orioncss/01 - settings/_settings.breakpoints.scss`.
 
 
 ## Grid System
@@ -118,7 +134,7 @@ For width-sets, the default classes generated are halves, thirds, fourths, fifth
 $width-sets: 2, 3, 4, 5, 12 !default; 
 ```
 
-To modify these copy `/node_modules/orioncss/01 - settings/_settings.widths.scss` into your own `sass/01 - settings/` directory and edit the config object.
+By default, these settings can be found in `/node_modules/orioncss/01 - settings/_settings.widths.scss`.
 
 
 #### Basic grid
@@ -217,7 +233,7 @@ Create a breakpoint which only triggers inbetween 2 breakpoints:-
 
 ## Spacing Modifiers
 
-Many object and utility classes in OrionCSS have spacing modifiers which are automatically generated on build using pre-defined values. To modify these values, copy `/node_modules/orioncss/01 - settings/_settings.spacing.scss` into your own `sass/01 - settings/` directory and then edit as you will. The default spacing values can be found below:-
+Many object and utility classes in OrionCSS have spacing modifiers which are automatically generated on build using pre-defined values. By default, these can be found in `/node_modules/orioncss/01 - settings/_settings.spacing.scss`. The default spacing values can be found below:-
 
 ```sh
 $spacing: (

@@ -6,5 +6,5 @@
 Set the base font size and line-height for this project.
 */
 
-$global-font-size: 16px;
-$global-line-height: 1.5; 
+$global-font-size: 16px !default;
+$global-line-height: 1.5 !default; 
