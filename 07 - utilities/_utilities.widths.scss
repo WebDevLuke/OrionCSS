@@ -78,3 +78,36 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 		@include create-offsets($width-sets, \@#{$bp-name});
 	}
 }
+
+
+// FULL WIDTH UTILITY
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+A more semantic full width utility for use with things like images etc
+*/
+
+.u-full-width {
+	width:100% !important;
+	max-width:100% !important;
+}
+
+// Example: u-full-width@xlg
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-full-width\@#{$bp-name} {
+			width:100% !important;
+			max-width:100% !important;
+		}
+	}
+}
+
+// Example: u-full-width@max-xlg
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-full-width\@max-#{$bp-name} {
+			width:100% !important;
+			max-width:100% !important;
+		}
+	}
+}

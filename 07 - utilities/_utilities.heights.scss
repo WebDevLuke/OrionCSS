@@ -19,13 +19,20 @@ Utility classes for heights
 // RESPONSIVE
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-/*
-Example: .u-full-height@xlg
-*/
-
+// Example: u-full-height@xlg
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		.u-full-height\@#{$bp-name} {
+			height:100% !important;
+			max-height:100% !important;
+		}
+	}
+}
+
+// Example: u-full-height@max-xlg
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-full-height\@max-#{$bp-name} {
 			height:100% !important;
 			max-height:100% !important;
 		}

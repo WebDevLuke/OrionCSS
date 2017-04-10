@@ -43,16 +43,3 @@ gulp.task('sass-lint', function lintCssTask() {
 		}]
 	}));
 });
-
-
-//--------------------------------------------------------------------------------------------------------------------------------------
-// CIRCLECI TESTING
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-// Function to build all sample stylesheets
-gulp.task('build', function () {
-	return gulp.src('test/test.main.scss')
-	.pipe(sassGlob())
-	.pipe(sass({outputStyle: 'expanded', precision: 8}).on('error', sass.logError))
-	.pipe(gulp.dest('test/'))
-});
