@@ -35,19 +35,20 @@ Generates variants in padding size using data from settings.spacing
 */
 
 // Generate using settings.spacing
+// Example: o-box--spacing-tiny
 @each $sp-name, $sp-value in $spacing {
-	.o-box--#{$sp-name} {
+	.o-box--spacing-#{$sp-name} {
 		padding:rem($sp-value);
 	}
 }
 
 // Create responsive variants using settings.breakpoints
 // Changes padding when breakpoint is hit
-// Example: o-box--tiny@md
+// Example: o-box--spacing-tiny@md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-box--#{$sp-name}\@#{$bp-name} {
+			.o-box--spacing-#{$sp-name}\@#{$bp-name} {
 				padding:rem($sp-value);
 			}
 		}
@@ -55,11 +56,11 @@ Generates variants in padding size using data from settings.spacing
 }
 
 // Changes padding until breakpoint is hit
-// Example: o-box--tiny@max-md
+// Example: o-box--spacing-tiny@max-md
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-box--#{$sp-name}\@max#{$bp-name} {
+			.o-box--spacing-#{$sp-name}\@max#{$bp-name} {
 				padding:rem($sp-value);
 			}
 		}

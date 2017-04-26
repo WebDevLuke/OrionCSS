@@ -14,6 +14,10 @@ Basic utility classes for typography.
 	font-weight:bold !important;
 }
 
+
+.u-underline {
+	text-decoration:underline !important;
+}
 .u-nowrap {
 	white-space:nowrap !important;
 }
@@ -42,6 +46,10 @@ Basic utility classes for typography.
 	@include bp(#{$bp-name}) {
 		.u-bold\@#{$bp-name} {
 			font-weight:bold !important;
+		}
+
+		.u-underline\@#{$bp-name} {
+			text-decoration:underline !important;
 		}
 
 		.u-nowrap\@#{$bp-name} {
