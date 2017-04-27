@@ -53,7 +53,7 @@ This is the main file where all the different components of OrionCSS are brought
 // @import "/02 - tools/tools.mytool";
 
 // Import  Framework Generic
-@import "../../node_modules/orioncss/03 - generic/generic.normalize";
+@import "../../node_modules/normalize.css/normalize.css";
 @import "../../node_modules/orioncss/03 - generic/generic.reset";
 @import "../../node_modules/orioncss/03 - generic/generic.box-sizing";
 // @import "/03 - generic/generic.mygeneric";

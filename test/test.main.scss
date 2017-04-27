@@ -19,6 +19,7 @@ This template is used for development purposes to compile OrionCSS
 
 @import "../01 - settings/*";
 @import "../02 - tools/*";
+@import "../node_modules/normalize.css/normalize";
 @import "../03 - generic/*";
 @import "../04 - elements/*";
 @import "../05 - objects/*";

@@ -18,5 +18,8 @@
     "gulp-sass-glob": "^1.0.8",
     "gulp-stylelint": "^3.9.0",
     "stylelint-scss": "^1.4.3"
+  },
+  "dependencies": {
+    "normalize.css": "^6.0.0"
   }
 }

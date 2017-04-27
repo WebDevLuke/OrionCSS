@@ -96,3 +96,15 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
+
+
+// RESET STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Remove default italics from address element
+*/
+
+address {
+	font-style: normal;
+}

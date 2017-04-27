@@ -53,7 +53,7 @@ OrionCSS in this way, you should use the 'sample.main.scss' file instead.
 @import "02 - tools/*";
 
 // Generic
-@import "../../node_modules/orioncss/03 - generic/generic.normalize";
+@import "../../node_modules/normalize.css/normalize";
 @import "../../node_modules/orioncss/03 - generic/generic.reset";
 @import "../../node_modules/orioncss/03 - generic/generic.box-sizing";
 @import "03 - generic/*";
