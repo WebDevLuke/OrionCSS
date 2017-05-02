@@ -2,7 +2,7 @@
 Orion Framework 
 Author: Luke Harrison
 Web: www.lukeharrison.net
-Github: https://github.com/WebDevLuke/Orion-Framework
+Github: https://github.com/WebDevLuke/OrionCSS
 Email: luke@lukeharrison.net
 */
 
@@ -17,11 +17,58 @@ This template is used for development purposes to compile OrionCSS
 // IMPORTS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
-@import "../01 - settings/*";
-@import "../02 - tools/*";
-@import "../node_modules/normalize.css/normalize";
-@import "../03 - generic/*";
-@import "../04 - elements/*";
-@import "../05 - objects/*";
-@import "../06 - components/*";
-@import "../07 - utilities/*";
+@import "../01 - settings/settings.breakpoints";
+@import "../01 - settings/settings.colors";
+@import "../01 - settings/settings.spacing";
+@import "../01 - settings/settings.typography";
+@import "../01 - settings/settings.widths";
+@import "../01 - settings/settings.grid-system";
+
+// Tools
+@import "../02 - tools/tools.clearfix";
+@import "../02 - tools/tools.color";
+@import "../02 - tools/tools.rem";
+@import "../02 - tools/tools.responsive-breakpoints";
+@import "../02 - tools/tools.spacing";
+
+// Import  Framework Generic
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../03 - generic/generic.reset";
+@import "../03 - generic/generic.box-sizing";
+
+// Elements
+@import "../04 - elements/elements.headings";
+@import "../04 - elements/elements.images";
+@import "../04 - elements/elements.links";
+@import "../04 - elements/elements.lists";
+@import "../04 - elements/elements.page";
+
+// Objects
+@import "../05 - objects/objects.box";
+@import "../05 - objects/objects.container";
+@import "../05 - objects/objects.cover";
+@import "../05 - objects/objects.expander";
+@import "../05 - objects/objects.layout";
+@import "../05 - objects/objects.list-bare";
+@import "../05 - objects/objects.list-inline";
+@import "../05 - objects/objects.media";
+@import "../05 - objects/objects.table";
+
+// Utilities
+@import "../07 - utilities/utilities.alignments";
+@import "../07 - utilities/utilities.backgrounds";
+@import "../07 - utilities/utilities.cursor";
+@import "../07 - utilities/utilities.display-hide";
+@import "../07 - utilities/utilities.fills";
+@import "../07 - utilities/utilities.floats";
+@import "../07 - utilities/utilities.heights";
+@import "../07 - utilities/utilities.hidden-visually";
+@import "../07 - utilities/utilities.margins";
+@import "../07 - utilities/utilities.nudges";
+@import "../07 - utilities/utilities.paddings";
+@import "../07 - utilities/utilities.position";
+@import "../07 - utilities/utilities.truncate";
+@import "../07 - utilities/utilities.typography";
+@import "../07 - utilities/utilities.user-select";
+@import "../07 - utilities/utilities.widths";
+@import "../07 - utilities/utilities.z-index";

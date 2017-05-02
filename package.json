@@ -1,11 +1,12 @@
 {
   "name": "orioncss",
   "version": "2.4.0",
-  "description": "OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.",
+  "description": "OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid ITCSS foundation on which to build your project.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebDevLuke/OrionCSS.git"
   },
+  "main": "sample.main.scss",
   "author": "Luke Harrison",
   "homepage": "http://www.lukeharrison.net",
   "license": "MIT",
@@ -13,13 +14,25 @@
     "url": "https://github.com/WebDevLuke/OrionCSS/issues"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-glob": "^1.0.8",
-    "gulp-stylelint": "^3.9.0",
-    "stylelint-scss": "^1.4.3"
+    "node-sass": "^4.5.2",
+    "onchange": "^3.2.1",
+    "stylelint": "^7.10.1",
+    "stylelint-scss": "^1.4.4"
   },
   "dependencies": {
     "normalize.css": "^6.0.0"
+  },
+  "keywords": [
+    "oocss",
+    "sass",
+    "bem",
+    "itcss",
+    "css"
+  ],
+  "scripts": {
+    "sass": "node-sass --output-style=expanded --precision=8.0 --source-map=true --output=test/ test/test.main.scss test/test.main.css",
+    "lint": "stylelint \"**/*.scss\" --syntax scss",
+    "build": "npm run sass && npm run lint",
+    "watch": "onchange '**/*.scss' -- npm run sass"
   }
 }

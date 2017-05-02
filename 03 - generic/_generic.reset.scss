@@ -7,9 +7,6 @@ An additional reset that sits on top of Normalize.css.
 */
 
 
-// GENERAL SPACING
-//--------------------------------------------------------------------------------------------------------------------------------------
-
 body,
 h1, h2, h3, h4, h5, h6,
 blockquote, p, pre,
@@ -44,15 +41,11 @@ table {
 }
 
 
-// RESET INPUTS
-//--------------------------------------------------------------------------------------------------------------------------------------
-
 /*
-Remove focus outline for inputs and buttons
+Remove outlines
 */
 
-button:focus,
-input:focus {
+*:focus {
 	outline:0;
 }
 

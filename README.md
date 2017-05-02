@@ -4,7 +4,7 @@
 
 [![CircleCI](https://circleci.com/gh/WebDevLuke/OrionCSS/tree/master.svg?style=shield)](https://circleci.com/gh/WebDevLuke/OrionCSS/tree/master)
 
-OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid OOCSS foundation on which to build your project.
+OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid ITCSS foundation on which to build your project.
 
 - **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) to organise its SASS and includes many useful object and utility classes out of the box. 
 - **Powerful Grid System** - OrionCSS includes a flexible and easy to use grid system which can be adapted for any size or scenario. 
