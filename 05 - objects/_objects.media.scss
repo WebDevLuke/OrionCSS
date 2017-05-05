@@ -176,6 +176,52 @@ and everything needs to stack up
 }
 
 
+// COLLAPSE MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Breaks the media object. For use if you want to toggle between a standard and media box layout
+*/
+
+.o-media--collapse {
+	> .o-media__image {
+		width:100%;
+	}
+	> .o-media__image,
+	> .o-media__body {
+		display:block;
+	}
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-media--collapse\@#{$bp-name} {
+			> .o-media__image {
+				width:100%;
+			}
+			> .o-media__image,
+			> .o-media__body {
+				display:block;
+			}
+		}
+	}
+}
+
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-media--collapse\@max-#{$bp-name} {
+			> .o-media__image {
+				width:100%;
+			}
+			> .o-media__image,
+			> .o-media__body {
+				display:block;
+			}
+		}
+	}
+}
+
+
 // SPACING VARIANT MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
