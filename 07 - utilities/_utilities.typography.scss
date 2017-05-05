@@ -14,10 +14,14 @@ Basic utility classes for typography.
 	font-weight:bold !important;
 }
 
+.u-normal {
+	font-weight:normal !important;
+}
 
 .u-underline {
 	text-decoration:underline !important;
 }
+
 .u-nowrap {
 	white-space:nowrap !important;
 }
@@ -46,6 +50,10 @@ Basic utility classes for typography.
 	@include bp(#{$bp-name}) {
 		.u-bold\@#{$bp-name} {
 			font-weight:bold !important;
+		}
+
+		.u-normal\@#{$bp-name} {
+			font-weight:normal !important;
 		}
 
 		.u-underline\@#{$bp-name} {
@@ -79,6 +87,10 @@ Basic utility classes for typography.
 	@include bpMax(#{$bp-name}) {
 		.u-bold\@max-#{$bp-name} {
 			font-weight:bold !important;
+		}
+
+		.u-normal\@max-#{$bp-name} {
+			font-weight:normal !important;
 		}
 
 		.u-nowrap\@max-#{$bp-name} {
