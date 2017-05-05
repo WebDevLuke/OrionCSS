@@ -22,7 +22,6 @@ individual column. Typically used with container object and width utilities to f
 [1] Allows us to use the layout object on any type of element.
 [2] We need to defensively reset any box-model properties.
 [3] Absorb amount equal to 15px on either side to account for their spacing
-[4] Set font-size to 0 to remove any spacing between individual inline-block columns
 */
 
 .o-layout {
@@ -34,24 +33,19 @@ individual column. Typically used with container object and width utilities to f
 	margin:0; /* [2] */
 	margin-left:rem(-$gutter / 2); /* [3] */
 	margin-right:rem(-$gutter / 2); /* [3] */
-	font-size:0; /* [4] */
 }
 
 /*
 [1] Required in order to combine fluid widths with fixed gutters.
-[2] Allows us to manipulate grids vertically, with text-level properties, etc...
-[3] Default item alignment is with the tops of each other, like most traditional grid/layout systems.
-[4] Restore proper font size, whilst still removing spacing between individual inline-block comments
+[2] Default item alignment is with the tops of each other, like most traditional grid/layout systems.
 */
 
 .o-layout__item { 
 	box-sizing:border-box; /* [1] */
-	display:inline-block; /* [2] */
-	vertical-align: top; /* [3] */
+	vertical-align: top; /* [2] */
 	width:100%;
 	padding-left:rem($gutter / 2);
 	padding-right:rem($gutter / 2);
-	font-size: 1rem; /* [4] */
 }
 
 
