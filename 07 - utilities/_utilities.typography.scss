@@ -32,6 +32,10 @@ Basic utility classes for typography.
 	font-weight:bold !important;
 }
 
+.u-uppercase {
+	text-transform:uppercase;
+}
+
 // Utility classes for type color
 // These are auto-generated based on data given in settings.colors.
 // Example: u-type-red 
@@ -70,6 +74,10 @@ Basic utility classes for typography.
 			font-weight:bold !important;
 		}
 
+		.u-uppercase\@#{$bp-name} {
+			text-transform:uppercase;
+		}
+
 		// Utility classes for type color
 		// These are auto-generated based on data given in settings.colors.
 		// Example: u-type-red@md
@@ -101,6 +109,10 @@ Basic utility classes for typography.
 		.u-strong\@max-#{$bp-name} {
 			font-size:1.111em !important;
 			font-weight:bold !important;
+		}
+
+		.u-uppercase\@max-#{$bp-name} {
+			text-transform:uppercase;
 		}
 
 		// Utility classes for type color
