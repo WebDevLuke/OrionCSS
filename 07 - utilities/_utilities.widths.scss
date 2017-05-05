@@ -75,7 +75,7 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@include create-widths($width-sets, \@max-#{$bp-name});
-		@include create-offsets($width-sets, \@#{$bp-name});
+		@include create-offsets($width-sets, \@max-#{$bp-name});
 	}
 }
 
