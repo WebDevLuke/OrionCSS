@@ -35,6 +35,12 @@ You can also use OrionCSS on it's own as a part of your own framework. To instal
 npm install orioncss --save
 ```
 
+Or to install it as a depedency using Bower, run the following command:
+
+```
+bower install orioncss --save
+```
+
 Next, you need to create the following directory structure in your project `sass` directory. This is where all your project's [ITCSS](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) layer files will sit.
 
 - `/01 - settings` - Used with preprocessors and contain font, colors definitions, etc.
