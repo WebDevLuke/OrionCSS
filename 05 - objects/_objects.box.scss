@@ -32,6 +32,9 @@ http://csswizardry.com/2011/10/the-island-object/
 
 /*
 Generates variants in padding size using data from settings.spacing
+
+In addition you can add the `o-box--spacing-balance` modifier to add 20% extra padding-bottom
+to better visually balance a box.
 */
 
 // Generate using settings.spacing
@@ -39,6 +42,9 @@ Generates variants in padding size using data from settings.spacing
 @each $sp-name, $sp-value in $spacing {
 	.o-box--spacing-#{$sp-name} {
 		padding:rem($sp-value);
+	}
+	.o-box--spacing-balance.o-box--spacing-#{$sp-name} {
+		padding-bottom:rem($sp-value + ($sp-value * 0.2));
 	}
 }
 
@@ -51,6 +57,9 @@ Generates variants in padding size using data from settings.spacing
 			.o-box--spacing-#{$sp-name}\@#{$bp-name} {
 				padding:rem($sp-value);
 			}
+			.o-box--spacing-balance.o-box--spacing-#{$sp-name}\@#{$bp-name} {
+				padding-bottom:rem($sp-value + ($sp-value * 0.2));
+			}
 		}
 	}
 }
@@ -62,6 +71,9 @@ Generates variants in padding size using data from settings.spacing
 		@each $sp-name, $sp-value in $spacing {
 			.o-box--spacing-#{$sp-name}\@max#{$bp-name} {
 				padding:rem($sp-value);
+			}
+			.o-box--spacing-balance.o-box--spacing-#{$sp-name}\@max-#{$bp-name} {
+				padding-bottom:rem($sp-value + ($sp-value * 0.2));
 			}
 		}
 	}
