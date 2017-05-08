@@ -9,6 +9,15 @@ Generates standard and responsive variants using spacing map located in settings
 responsive breakpoints located in settings.breakpoints.
 */
 
+
+// CATCH-ALL STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+[class*="u-nudge"] {
+	position:relative;
+}
+
+
 // NUDGE TOP
 //--------------------------------------------------------------------------------------------------------------------------------------
 
