@@ -46,8 +46,12 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 */
 
 [class*="o-list-inline--spacing-"] {
-	& .o-list-inline__item:last-child {
-		margin-right:0;
+	.o-list-inline__item:after {
+		content:"";
+		display:inline-block;
+	}
+	.o-list-inline__item:last-child:after {
+		display:none; /* [1] */
 	}
 }
 
@@ -55,8 +59,8 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 // Example: o-list-inline--spacing-small
 @each $sp-name, $sp-value in $spacing {
 	.o-list-inline--spacing-#{$sp-name} {
-		.o-list-inline__item {
-			margin-right: rem($sp-value);
+		.o-list-inline__item:after {
+			padding:0 rem($sp-value / 2);
 		}
 	}
 }
@@ -68,8 +72,8 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 	@include bp(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-list-inline--spacing-#{$sp-name}\@#{$bp-name} {
-				.o-list-inline__item {
-					margin-right: rem($sp-value);
+				.o-list-inline__item:after {
+					padding:0 rem($sp-value / 2);
 				}
 			}
 		}
@@ -82,8 +86,8 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-list-inline--spacing-#{$sp-name}\@max-#{$bp-name} {
-				.o-list-inline__item {
-					margin-right: rem($sp-value);
+				.o-list-inline__item:after {
+					padding:0 rem($sp-value / 2);
 				}
 			}
 		}
