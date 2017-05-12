@@ -44,7 +44,7 @@ to better visually balance a box.
 		padding:rem($sp-value);
 	}
 	.o-box--spacing-balance.o-box--spacing-#{$sp-name} {
-		padding-bottom:rem($sp-value + ($sp-value * 0.2));
+		padding-bottom:rem($sp-value + ($sp-value * 0.3));
 	}
 }
 
@@ -58,7 +58,7 @@ to better visually balance a box.
 				padding:rem($sp-value);
 			}
 			.o-box--spacing-balance.o-box--spacing-#{$sp-name}\@#{$bp-name} {
-				padding-bottom:rem($sp-value + ($sp-value * 0.2));
+				padding-bottom:rem($sp-value + ($sp-value * 0.3));
 			}
 		}
 	}
@@ -73,7 +73,7 @@ to better visually balance a box.
 				padding:rem($sp-value);
 			}
 			.o-box--spacing-balance.o-box--spacing-#{$sp-name}\@max-#{$bp-name} {
-				padding-bottom:rem($sp-value + ($sp-value * 0.2));
+				padding-bottom:rem($sp-value + ($sp-value * 0.3));
 			}
 		}
 	}

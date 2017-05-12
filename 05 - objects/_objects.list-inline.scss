@@ -135,3 +135,53 @@ Seperate individual list items with a specific character
 		content: "-";
 	}
 }
+
+// Changes delimiter once breakpoint is hit
+// Example o-list-inline--delimited-dash@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.o-list-inline--delimited-pipe\@#{$bp-name} {
+			.o-list-inline__item:after {
+				content: "|";
+			}
+		}
+
+		.o-list-inline--delimited-comma\@#{$bp-name} {
+			.o-list-inline__item:after {
+				padding-left:0;
+				content: ",";
+			}
+		}
+
+		.o-list-inline--delimited-dash\@#{$bp-name} {
+			.o-list-inline__item:after {
+				content: "-";
+			}
+		}
+	}
+}
+
+// Changes delimiter until breakpoint is hit
+// Example o-list-inline--delimited-dash@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.o-list-inline--delimited-pipe\@max-#{$bp-name} {
+			.o-list-inline__item:after {
+				content: "|";
+			}
+		}
+
+		.o-list-inline--delimited-comma\@max-#{$bp-name} {
+			.o-list-inline__item:after {
+				padding-left:0;
+				content: ",";
+			}
+		}
+
+		.o-list-inline--delimited-dash\@max-#{$bp-name} {
+			.o-list-inline__item:after {
+				content: "-";
+			}
+		}
+	}
+}
