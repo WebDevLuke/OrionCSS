@@ -103,17 +103,12 @@ Seperate individual list items with a specific character
 */
 
 /*
-[1] Remove the default arbitory whitespace between text and delimiter.
-[2] Remove the last list items delimiter.
+[1] Remove the last list items delimiter.
 */
 
 [class*="o-list-inline--delimited-"] {
-	font-size: 0; /* [1] */
-	.o-list-inline__item {
-		font-size: 1rem; /* [1] */
-	}
 	.o-list-inline__item:last-child:after {
-		display:none; /* [2] */
+		display:none; /* [1] */
 	}
 }
 
