@@ -69,7 +69,7 @@ to better visually balance a box.
 @each $bp-name, $bp-value in $breakpoints {
 	@include bpMax(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
-			.o-box--spacing-#{$sp-name}\@max#{$bp-name} {
+			.o-box--spacing-#{$sp-name}\@max-#{$bp-name} {
 				padding:rem($sp-value);
 			}
 			.o-box--spacing-balance.o-box--spacing-#{$sp-name}\@max-#{$bp-name} {
