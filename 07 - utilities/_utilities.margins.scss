@@ -9,6 +9,118 @@ Generates standard and responsive variants using spacing map located in settings
 responsive breakpoints located in settings.breakpoints.
 */
 
+
+// MARGIN
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Example: u-margin-small
+@each $sp-name, $sp-value in $spacing {
+	.u-margin-#{$sp-name} {
+		margin:rem($sp-value) !important;
+	}
+}
+
+// Changes margin when breakpoint is hit
+// Example: u-margin-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-margin-#{$sp-name}\@#{$bp-name} {
+				margin:rem($sp-value) !important;
+			}
+		}
+	}
+}
+
+// Changes margin until breakpoint is hit
+// Example: u-margin-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-margin-#{$sp-name}\@max-#{$bp-name} {
+				margin:rem($sp-value) !important;
+			}
+		}
+	}
+}
+
+
+// MARGIN HORIZONTAL
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Example: u-margin-horizontal-small
+@each $sp-name, $sp-value in $spacing {
+	.u-margin-horizontal-#{$sp-name} {
+		margin-left:rem($sp-value) !important;
+		margin-right:rem($sp-value) !important;
+	}
+}
+
+// Changes margin-horizontal when breakpoint is hit
+// Example: u-margin-horizontal-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-margin-horizontal-#{$sp-name}\@#{$bp-name} {
+				margin-left:rem($sp-value) !important;
+				margin-right:rem($sp-value) !important;
+			}
+		}
+	}
+}
+
+// Changes margin-horizontal until breakpoint is hit
+// Example: u-margin-horizontal-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-margin-horizontal-#{$sp-name}\@max-#{$bp-name} {
+				margin-left:rem($sp-value) !important;
+				margin-right:rem($sp-value) !important;
+			}
+		}
+	}
+}
+
+
+// MARGIN VERTICAL
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Example: u-margin-vertical-small
+@each $sp-name, $sp-value in $spacing {
+	.u-margin-vertical-#{$sp-name} {
+		margin-top:rem($sp-value) !important;
+		margin-bottom:rem($sp-value) !important;
+	}
+}
+
+// Changes margin-vertical when breakpoint is hit
+// Example: u-margin-vertical-small@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-margin-vertical-#{$sp-name}\@#{$bp-name} {
+				margin-top:rem($sp-value) !important;
+				margin-bottom:rem($sp-value) !important;
+			}
+		}
+	}
+}
+
+// Changes margin-vertical until breakpoint is hit
+// Example: u-margin-vertical-small@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-margin-vertical-#{$sp-name}\@max-#{$bp-name} {
+				margin-top:rem($sp-value) !important;
+				margin-bottom:rem($sp-value) !important;
+			}
+		}
+	}
+}
+
+
 // MARGIN TOP
 //--------------------------------------------------------------------------------------------------------------------------------------
 
