@@ -41,25 +41,14 @@ table {
 	border-spacing: 0;
 }
 
-
-/*
-Remove outlines
-*/
-
-*:focus {
-	outline:0;
-}
-
 /*
 [1] Remove firefox blur on invalid elements
-[2] Removes outline on IE, Edge
 */
 
 input:invalid,
 select:invalid,
 textarea:invalid {
 	box-shadow:none; /* [1] */
-	outline:none; /* [2] */
 }
 
 /*

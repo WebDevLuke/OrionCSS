@@ -27,7 +27,7 @@ http://csswizardry.com/2011/10/the-island-object/
 }
 
 
-// SIZE MODIFIERS
+// SPACING MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
@@ -74,6 +74,59 @@ to better visually balance a box.
 			}
 			.o-box--spacing-balance.o-box--spacing-#{$sp-name}\@max-#{$bp-name} {
 				padding-bottom:rem($sp-value + ($sp-value * 0.3));
+			}
+		}
+	}
+}
+
+
+// SIZE MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Generates fixed width and height variants using data from settings.spacing
+*/
+
+// Generate using settings.spacing
+// Example: o-box--width-tiny
+// Example: o-box--height-tiny
+@each $sp-name, $sp-value in $spacing {
+	.o-box--width-#{$sp-name} {
+		width:rem($sp-value);
+	}	
+	.o-box--height-#{$sp-name} {
+		height:rem($sp-value);
+	}
+}
+
+// Create responsive variants using settings.breakpoints
+// Changes padding when breakpoint is hit
+// Example: o-box--width-tiny@md
+// Example: o-box--height-tiny@md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-box--width-#{$sp-name}\@#{$bp-name} {
+				width:rem($sp-value);
+			}
+			.o-box--height-#{$sp-name}\@#{$bp-name} {
+				height:rem($sp-value);
+			}
+		}
+	}
+}
+
+// Changes padding until breakpoint is hit
+// Example: o-box--width-tiny@max-md
+// Example: o-box--height-tiny@max-md
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.o-box--width-#{$sp-name}\@max-#{$bp-name} {
+				width:rem($sp-value);
+			}
+			.o-box--height-#{$sp-name}\@max-#{$bp-name} {
+				height:rem($sp-value);
 			}
 		}
 	}
