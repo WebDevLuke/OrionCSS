@@ -39,8 +39,8 @@ a certain layout for any other purpose, build that display property into the com
 
 // Changes display when breakpoint is hit
 // Example: .u-hide@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.u-hide\@#{$bp-name} {
 			display:none !important;
 		}
@@ -68,8 +68,8 @@ a certain layout for any other purpose, build that display property into the com
 
 // Changes display until breakpoint is hit
 // Example: .u-hide@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.u-hide\@max-#{$bp-name} {
 			display:none !important;
 		}

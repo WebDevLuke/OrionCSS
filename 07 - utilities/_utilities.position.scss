@@ -28,8 +28,8 @@ Simple utility classes to add position properties to elements
 
 // Changes position when breakpoint is hit
 // Example: .u-position-relative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.u-position-relative\@#{$bp-name} {
 			position:relative !important;
 		}
@@ -46,8 +46,8 @@ Simple utility classes to add position properties to elements
 
 // Changes position until breakpoint is hit
 // Example: .u-position-relative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.u-position-relative\@max-#{$bp-name} {
 			position:relative !important;
 		}

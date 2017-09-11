@@ -23,8 +23,8 @@ Background utility classes. These are auto-generated based on data given in sett
 
 // Changes background-color when breakpoint is hit
 // Example: u-background-red@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $color-name, $color-value in $colors {
 			.u-background-#{$color-name}\@#{$bp-name} {
 				background-color:$color-value !important;
@@ -35,8 +35,8 @@ Background utility classes. These are auto-generated based on data given in sett
 
 // Changes background-color until breakpoint is hit
 // Example: u-background-red@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $color-name, $color-value in $colors {
 			.u-background-#{$color-name}\@max-#{$bp-name} {
 				background-color:$color-value !important;

@@ -35,8 +35,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes top when breakpoint is hit
 // Example: u-nudge-top-small@md
 // Example: u-nudge-top-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-top-#{$sp-name}\@#{$bp-name} {
 				top:rem($sp-value) !important;
@@ -51,8 +51,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes top until breakpoint is hit
 // Example: u-nudge-top-small@max-md
 // Example: u-nudge-top-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-top-#{$sp-name}\@max-#{$bp-name} {
 				top:rem($sp-value) !important;
@@ -82,8 +82,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes right when breakpoint is hit
 // Example: u-nudge-right-small@md
 // Example: u-nudge-right-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-right-#{$sp-name}\@#{$bp-name} {
 				right:rem($sp-value) !important;
@@ -98,8 +98,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes right until breakpoint is hit
 // Example: u-nudge-right-small@max-md
 // Example: u-nudge-right-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-right-#{$sp-name}\@max-#{$bp-name} {
 				right:rem($sp-value) !important;
@@ -129,8 +129,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes bottom when breakpoint is hit
 // Example: u-nudge-bottom-small@md
 // Example: u-nudge-bottom-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-bottom-#{$sp-name}\@#{$bp-name} {
 				bottom:rem($sp-value) !important;
@@ -145,8 +145,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes bottom until breakpoint is hit
 // Example: u-nudge-bottom-small@max-md
 // Example: u-nudge-bottom-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-bottom-#{$sp-name}\@max-#{$bp-name} {
 				bottom:rem($sp-value) !important;
@@ -176,8 +176,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes left when breakpoint is hit
 // Example: u-nudge-left-small@md
 // Example: u-nudge-left-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-left-#{$sp-name}\@#{$bp-name} {
 				left:rem($sp-value) !important;
@@ -192,8 +192,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes left until breakpoint is hit
 // Example: u-nudge-left-small@max-md
 // Example: u-nudge-left-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-nudge-left-#{$sp-name}\@max-#{$bp-name} {
 				left:rem($sp-value) !important;

@@ -54,8 +54,8 @@ Basic utility classes for aligning elements horizontally or vertically.
 
 // Changes alignment when breakpoint is hit
 // Example: .u-align-left@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.u-align-left\@#{$bp-name} {
 			text-align:left !important;
 		}
@@ -98,8 +98,8 @@ Basic utility classes for aligning elements horizontally or vertically.
 
 // Changes alignment until breakpoint is hit
 // Example: .u-align-left@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.u-align-left\@max-#{$bp-name} {
 			text-align:left !important;
 		}

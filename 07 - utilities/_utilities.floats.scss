@@ -35,8 +35,8 @@ Utility class for floats
 
 // Changes float when breakpoint is hit
 // Example: .u-float-left@md
-@each $bp-name, $bp-value in $breakpoints	{
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints	{
+	@include mq(#{$bp-name}) {
 		.u-float-left\@#{$bp-name} {
 			float:left !important;
 		}
@@ -61,8 +61,8 @@ Utility class for floats
 
 // Changes float until breakpoint is hit
 // Example: .u-float-left@max-md
-@each $bp-name, $bp-value in $breakpoints	{
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints	{
+	@include mq($until: #{$bp-name}) {
 		.u-float-left\@max-#{$bp-name} {
 			float:left !important;
 		}

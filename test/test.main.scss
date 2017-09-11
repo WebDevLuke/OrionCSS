@@ -25,14 +25,14 @@ This template is used for development purposes to compile OrionCSS
 @import "../01 - settings/settings.grid-system";
 
 // Tools
+@import "../node_modules/sass-mq/mq";
 @import "../02 - tools/tools.clearfix";
 @import "../02 - tools/tools.color";
 @import "../02 - tools/tools.rem";
-@import "../02 - tools/tools.responsive-breakpoints";
 @import "../02 - tools/tools.spacing";
 
 // Import  Framework Generic
-@import "../../node_modules/normalize.css/normalize.css";
+@import "../node_modules/normalize.css/normalize.css";
 @import "../03 - generic/generic.reset";
 @import "../03 - generic/generic.box-sizing";
 

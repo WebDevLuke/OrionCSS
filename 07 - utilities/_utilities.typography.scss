@@ -14,6 +14,10 @@ Basic utility classes for typography.
 	font-weight:bold !important;
 }
 
+.u-italic {
+	font-style:italic !important;
+}
+
 .u-normal {
 	font-weight:normal !important;
 }
@@ -50,10 +54,14 @@ Basic utility classes for typography.
 
 // Changes type properties when breakpoint is hit
 // Example: .u-bold@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.u-bold\@#{$bp-name} {
 			font-weight:bold !important;
+		}
+
+		.u-italic\@#{$bp-name} {
+			font-style:italic !important;
 		}
 
 		.u-normal\@#{$bp-name} {
@@ -91,10 +99,14 @@ Basic utility classes for typography.
 
 // Changes type properties until breakpoint is hit
 // Example: .u-bold@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.u-bold\@max-#{$bp-name} {
 			font-weight:bold !important;
+		}
+
+		.u-italic\@max-#{$bp-name} {
+			font-style:italic !important;
 		}
 
 		.u-normal\@max-#{$bp-name} {

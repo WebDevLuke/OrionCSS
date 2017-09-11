@@ -183,12 +183,12 @@ Here we introduce breakpoint classes which have been automatically created by SA
 Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. We also introduce offset classes which can push a column across a container and a basic hide utility class.
 
 ## Breakpoint Mixins
-When writing SASS, you also have access to breakpoint mixins which allow you to easily generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`.
+When writing SASS, you also have access to [sass-mq](https://github.com/sass-mq/sass-mq) which allow you to easily generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`. 
 
 Create a min-width mobile-first breakpoint:-
 
 ```
-@include bp(md) {
+@include mq(md) {
   .myelement {
     property:value;
   }
@@ -196,7 +196,7 @@ Create a min-width mobile-first breakpoint:-
 
 .myelement {
   property:value;
-  @include bp(md) {
+  @include mq(md) {
     property:value;
   }
 }
@@ -205,7 +205,7 @@ Create a min-width mobile-first breakpoint:-
 Create a max-width desktop-first breakpoint:-
 
 ```
-@include bpMax(md) {
+@include mq($until: md) {
   .myelement {
     property:value;
   }
@@ -213,7 +213,7 @@ Create a max-width desktop-first breakpoint:-
 
 .myelement {
   property:value;
-  @include bpMax(md) {
+  @include mq($until: md) {
     property:value;
   }
 }
@@ -222,7 +222,7 @@ Create a max-width desktop-first breakpoint:-
 Create a breakpoint which only triggers inbetween 2 breakpoints:-
 
 ```
-@include bpBetween(md, lg) {
+@include mq(md, lg) {
   .myelement {
     property:value;
   }
@@ -230,11 +230,13 @@ Create a breakpoint which only triggers inbetween 2 breakpoints:-
 
 .myelement {
   property:value;
-  @include bpBetween(md, lg) {
+  @include mq(md, lg) {
     property:value;
   }
 }
 ```
+
+Full documentation on the usage of sass-mq can be found [here](https://github.com/sass-mq/sass-mq).
 
 
 ## Spacing Modifiers
@@ -263,7 +265,7 @@ $spacing: (
 Using the SASS loop below, spacing variants of the `margin-bottom` modifier would be generated aswell as one for each breakpoint defined in `/01 - settings/_settings.breakpoints.scss`.
 
 ```sh
-@include bp(#{$bp-name}) {
+@include mq(#{$bp-name}) {
   @each $sp-name, $sp-value in $spacing {
     .u-margin-bottom-#{$sp-name}\@#{$bp-name} {
       margin-bottom:rem($sp-value) !important;

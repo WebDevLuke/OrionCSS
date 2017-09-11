@@ -36,8 +36,8 @@ Simple utility classes to tweak z-index
 
 // Changes z-index when breakpoint is hit
 // Example: .u-z-index-tiny@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.u-z-index-hidden\@#{$bp-name} {
 			z-index:-1 !important;
 		}
@@ -66,8 +66,8 @@ Simple utility classes to tweak z-index
 
 // Changes z-index until breakpoint is hit
 // Example: .u-z-index-tiny@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.u-z-index-hidden\@max-#{$bp-name} {
 			z-index:-1 !important;
 		}

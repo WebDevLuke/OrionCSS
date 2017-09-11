@@ -68,8 +68,8 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 // Create responsive variants using settings.breakpoints
 // Changes padding once breakpoint is hit
 // Example o-list-inline--spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-list-inline--spacing-#{$sp-name}\@#{$bp-name} {
 				.o-list-inline__item:after {
@@ -82,8 +82,8 @@ Adds padding between each item. Can also be used in conjunction with delimited m
 
 // Changes padding until breakpoint is hit
 // Example o-list-inline--spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-list-inline--spacing-#{$sp-name}\@max-#{$bp-name} {
 				.o-list-inline__item:after {
@@ -133,8 +133,8 @@ Seperate individual list items with a specific character
 
 // Changes delimiter once breakpoint is hit
 // Example o-list-inline--delimited-dash@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.o-list-inline--delimited-pipe\@#{$bp-name} {
 			.o-list-inline__item:after {
 				content: "|";
@@ -158,8 +158,8 @@ Seperate individual list items with a specific character
 
 // Changes delimiter until breakpoint is hit
 // Example o-list-inline--delimited-dash@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.o-list-inline--delimited-pipe\@max-#{$bp-name} {
 			.o-list-inline__item:after {
 				content: "|";

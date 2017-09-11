@@ -51,8 +51,8 @@ to better visually balance a box.
 // Create responsive variants using settings.breakpoints
 // Changes padding when breakpoint is hit
 // Example: o-box--spacing-tiny@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-box--spacing-#{$sp-name}\@#{$bp-name} {
 				padding:rem($sp-value);
@@ -66,8 +66,8 @@ to better visually balance a box.
 
 // Changes padding until breakpoint is hit
 // Example: o-box--spacing-tiny@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-box--spacing-#{$sp-name}\@max-#{$bp-name} {
 				padding:rem($sp-value);
@@ -103,8 +103,8 @@ Generates fixed width and height variants using data from settings.spacing
 // Changes padding when breakpoint is hit
 // Example: o-box--width-tiny@md
 // Example: o-box--height-tiny@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-box--width-#{$sp-name}\@#{$bp-name} {
 				width:rem($sp-value);
@@ -119,8 +119,8 @@ Generates fixed width and height variants using data from settings.spacing
 // Changes padding until breakpoint is hit
 // Example: o-box--width-tiny@max-md
 // Example: o-box--height-tiny@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until:#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-box--width-#{$sp-name}\@max-#{$bp-name} {
 				width:rem($sp-value);

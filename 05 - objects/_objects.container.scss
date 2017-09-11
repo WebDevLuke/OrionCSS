@@ -49,8 +49,8 @@ Modifiers to tweak the containers outer spacing.
 // Create responsive variants using settings.breakpoints
 // Changes outer spacing when breakpoint is hit
 // Example: o-container--spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-container--spacing-#{$sp-name}\@#{$bp-name} {
 				padding-left:rem($sp-value);
@@ -63,8 +63,8 @@ Modifiers to tweak the containers outer spacing.
 // Create responsive variants using settings.breakpoints
 // Changes outer spacing until breakpoint is hit
 // Example: o-container--spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-container--spacing-#{$sp-name}\@max-#{$bp-name} {
 				padding-left:rem($sp-value);

@@ -24,8 +24,8 @@ settings.colors.
 
 // Changes fill when breakpoint is hit
 // Example: u-fill-red@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $color-name, $color-value in $colors {
 			.u-fill-#{$color-name}\@#{$bp-name} {
 				fill:$color-value !important;
@@ -36,8 +36,8 @@ settings.colors.
 
 // Changes fill until breakpoint is hit
 // Example: u-fill-red@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $color-name, $color-value in $colors {
 			.u-fill-#{$color-name}\@max-#{$bp-name} {
 				fill:$color-value !important;

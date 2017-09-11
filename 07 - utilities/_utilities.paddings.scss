@@ -22,8 +22,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding when breakpoint is hit
 // Example: u-padding-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-#{$sp-name}\@#{$bp-name} {
 				padding:rem($sp-value) !important;
@@ -34,8 +34,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding until breakpoint is hit
 // Example: u-padding-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-#{$sp-name}\@max-#{$bp-name} {
 				padding:rem($sp-value) !important;
@@ -58,8 +58,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-horizontal when breakpoint is hit
 // Example: u-padding-horizontal-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-horizontal-#{$sp-name}\@#{$bp-name} {
 				padding-left:rem($sp-value) !important;
@@ -71,8 +71,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-horizontal until breakpoint is hit
 // Example: u-padding-horizontal-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-horizontal-#{$sp-name}\@max-#{$bp-name} {
 				padding-left:rem($sp-value) !important;
@@ -96,8 +96,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-vertical when breakpoint is hit
 // Example: u-padding-vertical-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-vertical-#{$sp-name}\@#{$bp-name} {
 				padding-top:rem($sp-value) !important;
@@ -109,8 +109,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-vertical until breakpoint is hit
 // Example: u-padding-vertical-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-vertical-#{$sp-name}\@max-#{$bp-name} {
 				padding-top:rem($sp-value) !important;
@@ -133,8 +133,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-top when breakpoint is hit
 // Example: u-padding-top-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-top-#{$sp-name}\@#{$bp-name} {
 				padding-top:rem($sp-value) !important;
@@ -145,8 +145,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-top until breakpoint is hit
 // Example: u-padding-top-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-top-#{$sp-name}\@max-#{$bp-name} {
 				padding-top:rem($sp-value) !important;
@@ -168,8 +168,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-right when breakpoint is hit
 // Example: u-padding-right-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-right-#{$sp-name}\@#{$bp-name} {
 				padding-right:rem($sp-value) !important;
@@ -180,8 +180,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-right until breakpoint is hit
 // Example: u-padding-right-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-right-#{$sp-name}\@max-#{$bp-name} {
 				padding-right:rem($sp-value) !important;
@@ -203,8 +203,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-bottom when breakpoint is hit
 // Example: u-padding-bottom-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-bottom-#{$sp-name}\@#{$bp-name} {
 				padding-bottom:rem($sp-value) !important;
@@ -215,8 +215,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-bottom until breakpoint is hit
 // Example: u-padding-bottom-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-bottom-#{$sp-name}\@max-#{$bp-name} {
 				padding-bottom:rem($sp-value) !important;
@@ -238,8 +238,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-left when breakpoint is hit
 // Example: u-padding-left-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-left-#{$sp-name}\@#{$bp-name} {
 				padding-left:rem($sp-value) !important;
@@ -250,8 +250,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes padding-left until breakpoint is hit
 // Example: u-padding-left-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-padding-left-#{$sp-name}\@max-#{$bp-name} {
 				padding-left:rem($sp-value) !important;

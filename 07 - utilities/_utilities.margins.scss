@@ -22,8 +22,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes margin when breakpoint is hit
 // Example: u-margin-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-#{$sp-name}\@#{$bp-name} {
 				margin:rem($sp-value) !important;
@@ -34,8 +34,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes margin until breakpoint is hit
 // Example: u-margin-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-#{$sp-name}\@max-#{$bp-name} {
 				margin:rem($sp-value) !important;
@@ -58,8 +58,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes margin-horizontal when breakpoint is hit
 // Example: u-margin-horizontal-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-horizontal-#{$sp-name}\@#{$bp-name} {
 				margin-left:rem($sp-value) !important;
@@ -71,8 +71,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes margin-horizontal until breakpoint is hit
 // Example: u-margin-horizontal-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-horizontal-#{$sp-name}\@max-#{$bp-name} {
 				margin-left:rem($sp-value) !important;
@@ -96,8 +96,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes margin-vertical when breakpoint is hit
 // Example: u-margin-vertical-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-vertical-#{$sp-name}\@#{$bp-name} {
 				margin-top:rem($sp-value) !important;
@@ -109,8 +109,8 @@ responsive breakpoints located in settings.breakpoints.
 
 // Changes margin-vertical until breakpoint is hit
 // Example: u-margin-vertical-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-vertical-#{$sp-name}\@max-#{$bp-name} {
 				margin-top:rem($sp-value) !important;
@@ -138,8 +138,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes top when breakpoint is hit
 // Example: u-margin-top-small@md
 // Example: u-margin-top-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-top-#{$sp-name}\@#{$bp-name} {
 				margin-top:rem($sp-value) !important;
@@ -154,8 +154,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes top until breakpoint is hit
 // Example: u-margin-top-small@max-md
 // Example: u-margin-top-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-top-#{$sp-name}\@max-#{$bp-name} {
 				margin-top:rem($sp-value) !important;
@@ -185,8 +185,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes right when breakpoint is hit
 // Example: u-margin-right-small@md
 // Example: u-margin-right-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-right-#{$sp-name}\@#{$bp-name} {
 				margin-right:rem($sp-value) !important;
@@ -201,8 +201,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes right until breakpoint is hit
 // Example: u-margin-right-small@max-md
 // Example: u-margin-right-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-right-#{$sp-name}\@max-#{$bp-name} {
 				margin-right:rem($sp-value) !important;
@@ -232,8 +232,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes bottom when breakpoint is hit
 // Example: u-margin-bottom-small@md
 // Example: u-margin-bottom-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-bottom-#{$sp-name}\@#{$bp-name} {
 				margin-bottom:rem($sp-value) !important;
@@ -248,8 +248,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes bottom until breakpoint is hit
 // Example: u-margin-bottom-small@max-md
 // Example: u-margin-bottom-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-bottom-#{$sp-name}\@max-#{$bp-name} {
 				margin-bottom:rem($sp-value) !important;
@@ -279,8 +279,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes left when breakpoint is hit
 // Example: u-margin-left-small@md
 // Example: u-margin-left-small-negative@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-left-#{$sp-name}\@#{$bp-name} {
 				margin-left:rem($sp-value) !important;
@@ -295,8 +295,8 @@ responsive breakpoints located in settings.breakpoints.
 // Changes left until breakpoint is hit
 // Example: u-margin-left-small@max-md
 // Example: u-margin-left-small-negative@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.u-margin-left-#{$sp-name}\@max-#{$bp-name} {
 				margin-left:rem($sp-value) !important;

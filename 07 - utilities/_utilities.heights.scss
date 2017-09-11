@@ -20,8 +20,8 @@ Utility classes for heights
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 // Example: u-full-height@xlg
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.u-full-height\@#{$bp-name} {
 			height:100% !important;
 			max-height:100% !important;
@@ -30,8 +30,8 @@ Utility classes for heights
 }
 
 // Example: u-full-height@max-xlg
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.u-full-height\@max-#{$bp-name} {
 			height:100% !important;
 			max-height:100% !important;

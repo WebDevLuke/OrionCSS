@@ -45,10 +45,10 @@ OrionCSS in this way, you should use the 'sample.main.scss' file instead.
 @import "01 - settings/*";
 
 // Tools
+@import "../../node_modules/sass-mq/mq";
 @import "../../node_modules/orioncss/02 - tools/tools.clearfix";
 @import "../../node_modules/orioncss/02 - tools/tools.color";
 @import "../../node_modules/orioncss/02 - tools/tools.rem";
-@import "../../node_modules/orioncss/02 - tools/tools.responsive-breakpoints";
 @import "../../node_modules/orioncss/02 - tools/tools.spacing";
 @import "02 - tools/*";
 

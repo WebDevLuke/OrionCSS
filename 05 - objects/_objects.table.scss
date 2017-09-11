@@ -42,8 +42,8 @@ Adds some spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -60,8 +60,8 @@ Adds some spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {
@@ -99,8 +99,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--horizontal-spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--horizontal-spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -118,8 +118,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--horizontal-spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--horizontal-spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {
@@ -155,8 +155,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--vertical-spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--vertical-spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -174,8 +174,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--vertical-spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--vertical-spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {
@@ -210,8 +210,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--right-spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--right-spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -228,8 +228,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--right-spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--right-spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {
@@ -263,8 +263,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--left-spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--left-spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -281,8 +281,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--left-spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--left-spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {
@@ -316,8 +316,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--top-spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--top-spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -334,8 +334,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--top-spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--top-spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {
@@ -369,8 +369,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing when breakpoint is hit
 // Example: o-table--bottom-spacing-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--bottom-spacing-#{$sp-name}\@#{$bp-name} {
 				td, th {
@@ -387,8 +387,8 @@ Adds some horizontal spacing between cells
 // Generate using settings.spacing
 // Change spacing until breakpoint is hit
 // Example: o-table--bottom-spacing-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-table--bottom-spacing-#{$sp-name}\@max-#{$bp-name} {
 				td, th {

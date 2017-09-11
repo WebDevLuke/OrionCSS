@@ -80,8 +80,8 @@ Change the vertical alignment of flag contents. Default: middle.
 // Create responsive variants using settings.breakpoints
 // Changes vertical alignment once breakpoint is hit
 // Example: o-media--top@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.o-media--top\@#{$bp-name} {
 			> .o-media__image,
 			> .o-media__body {
@@ -105,8 +105,8 @@ Change the vertical alignment of flag contents. Default: middle.
 
 // Changes vertical alignment until breakpoint is hit
 // Example: o-media--top@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.o-media--top\@max-#{$bp-name} {
 			> .o-media__image,
 			> .o-media__body {
@@ -150,8 +150,8 @@ and everything needs to stack up
 // Create responsive variants using settings.breakpoints
 // Changes width and max width when breakpoint is hit
 // Example: o-media--fixed-image-small@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-media--fixed-image-#{$sp-name}\@#{$bp-name} .o-media__image {
 				width:rem($sp-value);
@@ -164,8 +164,8 @@ and everything needs to stack up
 // Create responsive variants using settings.breakpoints
 // Changes width and max width until breakpoint is hit
 // Example: o-media--fixed-image-small@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-media--fixed-image-#{$sp-name}\@-max#{$bp-name} .o-media__image {
 				width:rem($sp-value);
@@ -193,8 +193,8 @@ Breaks the media object. For use if you want to toggle between a standard and me
 	}
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		.o-media--collapse\@#{$bp-name} {
 			> .o-media__image {
 				width:100%;
@@ -207,8 +207,8 @@ Breaks the media object. For use if you want to toggle between a standard and me
 	}
 }
 
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		.o-media--collapse\@max-#{$bp-name} {
 			> .o-media__image {
 				width:100%;
@@ -246,8 +246,8 @@ Alter the spacing in between image and text
 // Create responsive variants using settings.breakpoints
 // Changes padding once breakpoint is hit
 // Example o-media--spacing@md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bp(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-media--spacing-#{$sp-name}\@#{$bp-name} {
 				& > .o-media__image {
@@ -265,8 +265,8 @@ Alter the spacing in between image and text
 // Create responsive variants using settings.breakpoints
 // Changes padding until breakpoint is hit
 // Example o-media--spacing@max-md
-@each $bp-name, $bp-value in $breakpoints {
-	@include bpMax(#{$bp-name}) {
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
 		@each $sp-name, $sp-value in $spacing {
 			.o-media--spacing-#{$sp-name}\@max-#{$bp-name} {
 				& > .o-media__image {
