@@ -1,5 +1,5 @@
 /*
-OrionCSS 
+OrionCSS
 Author: Luke Harrison
 Web: www.lukeharrison.net
 Github: https://github.com/WebDevLuke/OrionCSS
@@ -11,7 +11,7 @@ Email: luke@lukeharrison.net
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-This is the main file where all the different components of OrionCSS are brought together. Remember to append 
+This is the main file where all the different components of OrionCSS are brought together. Remember to append
 @import declarations to the correct layer as you create new partials otherwise your code won't be included.
 */
 
@@ -68,15 +68,15 @@ This is the main file where all the different components of OrionCSS are brought
 // @import "/04 - elements/elements.myelement";
 
 // Objects
-@import "../../node_modules/orioncss/05 - objects/objects.box";
-@import "../../node_modules/orioncss/05 - objects/objects.container";
-@import "../../node_modules/orioncss/05 - objects/objects.cover";
-@import "../../node_modules/orioncss/05 - objects/objects.expander";
-@import "../../node_modules/orioncss/05 - objects/objects.layout";
-@import "../../node_modules/orioncss/05 - objects/objects.list-bare";
-@import "../../node_modules/orioncss/05 - objects/objects.list-inline";
-@import "../../node_modules/orioncss/05 - objects/objects.media";
-@import "../../node_modules/orioncss/05 - objects/objects.table";
+// @import "../../node_modules/orioncss/05 - objects/objects.box";
+// @import "../../node_modules/orioncss/05 - objects/objects.container";
+// @import "../../node_modules/orioncss/05 - objects/objects.cover";
+// @import "../../node_modules/orioncss/05 - objects/objects.expander";
+// @import "../../node_modules/orioncss/05 - objects/objects.layout";
+// @import "../../node_modules/orioncss/05 - objects/objects.list-bare";
+// @import "../../node_modules/orioncss/05 - objects/objects.list-inline";
+// @import "../../node_modules/orioncss/05 - objects/objects.media";
+// @import "../../node_modules/orioncss/05 - objects/objects.table";
 // @import "/05 - objects/objects.myobject";
 
 // Components
@@ -84,21 +84,21 @@ This is the main file where all the different components of OrionCSS are brought
 // @import "/06 - components/components.mycomponent";
 
 // Utilities
-@import "../../node_modules/orioncss/07 - utilities/utilities.alignments";
-@import "../../node_modules/orioncss/07 - utilities/utilities.backgrounds";
-@import "../../node_modules/orioncss/07 - utilities/utilities.cursor";
-@import "../../node_modules/orioncss/07 - utilities/utilities.display-hide";
-@import "../../node_modules/orioncss/07 - utilities/utilities.fills";
-@import "../../node_modules/orioncss/07 - utilities/utilities.floats";
-@import "../../node_modules/orioncss/07 - utilities/utilities.heights";
-@import "../../node_modules/orioncss/07 - utilities/utilities.hidden-visually";
-@import "../../node_modules/orioncss/07 - utilities/utilities.margins";
-@import "../../node_modules/orioncss/07 - utilities/utilities.nudges";
-@import "../../node_modules/orioncss/07 - utilities/utilities.paddings";
-@import "../../node_modules/orioncss/07 - utilities/utilities.position";
-@import "../../node_modules/orioncss/07 - utilities/utilities.truncate";
-@import "../../node_modules/orioncss/07 - utilities/utilities.typography";
-@import "../../node_modules/orioncss/07 - utilities/utilities.user-select";
-@import "../../node_modules/orioncss/07 - utilities/utilities.widths";
-@import "../../node_modules/orioncss/07 - utilities/utilities.z-index";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.alignments";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.backgrounds";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.cursor";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.display-hide";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.fills";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.floats";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.heights";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.hidden-visually";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.margins";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.nudges";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.paddings";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.position";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.truncate";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.typography";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.user-select";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.widths";
+// @import "../../node_modules/orioncss/07 - utilities/utilities.z-index";
 // @import "/07 - utilities/utilities.myutility";

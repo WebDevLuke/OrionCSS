@@ -40,9 +40,13 @@ Basic utility classes for typography.
 	text-transform:uppercase;
 }
 
+.u-lowercase {
+	text-transform:lowercase;
+}
+
 // Utility classes for type color
 // These are auto-generated based on data given in settings.colors.
-// Example: u-type-red 
+// Example: u-type-red
 @each $color-name, $color-value in $colors {
 	.u-type-#{$color-name} {
 		color:$color-value !important;
@@ -86,6 +90,10 @@ Basic utility classes for typography.
 			text-transform:uppercase;
 		}
 
+		.u-lowercase\@#{$bp-name} {
+			text-transform:lowercase;
+		}
+
 		// Utility classes for type color
 		// These are auto-generated based on data given in settings.colors.
 		// Example: u-type-red@md
@@ -125,6 +133,10 @@ Basic utility classes for typography.
 
 		.u-uppercase\@max-#{$bp-name} {
 			text-transform:uppercase;
+		}
+
+		.u-lowercase\@max-#{$bp-name} {
+			text-transform:lowercase;
 		}
 
 		// Utility classes for type color

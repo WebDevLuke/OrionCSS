@@ -6,8 +6,8 @@
 
 OrionCSS is a SASS framework which is simple, easy to use and scalable. It provides you with a solid ITCSS foundation on which to build your project.
 
-- **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) to organise its SASS and includes many useful object and utility classes out of the box. 
-- **Powerful Grid System** - OrionCSS includes a flexible and easy to use grid system which can be adapted for any size or scenario. 
+- **ITCSS Powered** - OrionCSS uses the popular OOCSS methodology [ITCSS](http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528) to organise its SASS and includes many useful object and utility classes out of the box.
+- **Powerful Grid System** - OrionCSS includes a flexible and easy to use grid system which can be adapted for any size or scenario.
 - **Easily Manage Breakpoints** - Manage your media query breakpoints in one file which then automatically filters into the rest of the framework.
 - **Complimented by OrionBP** - Use with [OrionBP](https://github.com/WebDevLuke/Orion-Framework), a simple front-end boilerplate for projects using OrionCSS. It includes a suite of powerful Gulp tasks allowing you to compile, compress and concatenate your SASS, JS and image assets. [(More Info)](#using-with-orion-framework)
 
@@ -53,7 +53,7 @@ Next, you need to create the following directory structure in your project `sass
 
 Now you've set up your directories, copy `/node_modules/orioncss/sample.main.scss` into your `sass` directory and rename it `main.scss`. This is where everything is imported and is the place which tells your favourite SASS build tool what to include in the compiled `main.css` stylesheet.
 
-As you work on your project, you will need to add any new scss partials you create to `main.scss` as otherwise they won't be imported. Typically, a more developed `main.scss` may resemble the following:
+As you work on your project, in `main.scss`, you will need comment in any object or utility partial you use in order to include them in the import. Don't forget to also add imports for any new sass partials you create as otherwise they won't be included. Typically, a more developed `main.scss` may resemble the following:
 
 ```
 // Objects
@@ -137,7 +137,7 @@ individual column.
 For width-sets, the default classes generated are halves, thirds, fourths, fifths and twelves, with the last to mimic a 12 column grid system.
 
 ```
-$width-sets: 2, 3, 4, 5, 12 !default; 
+$width-sets: 2, 3, 4, 5, 12 !default;
 ```
 
 By default, these settings can be found in `/node_modules/orioncss/01 - settings/_settings.widths.scss`.
@@ -183,7 +183,7 @@ Here we introduce breakpoint classes which have been automatically created by SA
 Here is an advanced example of how we can combine breakpoint classes to significantly alter our columns as we increase our browser resolution. We also introduce offset classes which can push a column across a container and a basic hide utility class.
 
 ## Breakpoint Mixins
-When writing SASS, you also have access to [sass-mq](https://github.com/sass-mq/sass-mq) which allow you to easily generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`. 
+When writing SASS, you also have access to [sass-mq](https://github.com/sass-mq/sass-mq) which allow you to easily generate media queries using the data entered in `/01 - settings/_settings.breakpoints.scss`.
 
 Create a min-width mobile-first breakpoint:-
 

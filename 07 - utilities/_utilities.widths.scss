@@ -80,21 +80,36 @@ conjunction with the grid system object 'o-layout', but can be used with anythin
 }
 
 
-// FULL WIDTH UTILITY
+// FULL & MAX WIDTH UTILITIES
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-A more semantic full width utility for use with things like images etc
+Fixed & 100% max-width sizings for control the widths of groups of elements, images etc.
+Numbers are based on values in settings.spacing
 */
+
+// Example: u-max-width-small
+@each $sp-name, $sp-value in $spacing {
+	.u-max-width-#{$sp-name} {
+		max-width:rem($sp-value * 10) !important;
+	}
+}
 
 .u-full-width {
 	width:100% !important;
 	max-width:100% !important;
 }
 
-// Example: u-full-width@xlg
+// Changes max-width when breakpoint is hit
+// Example: u-max-width-small@md
+// Example: u-full-width@md
 @each $bp-name, $bp-value in $mq-breakpoints {
 	@include mq(#{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-max-width-#{$sp-name}\@#{$bp-name} {
+				max-width:rem($sp-value * 10) !important;
+			}
+		}
 		.u-full-width\@#{$bp-name} {
 			width:100% !important;
 			max-width:100% !important;
@@ -102,9 +117,16 @@ A more semantic full width utility for use with things like images etc
 	}
 }
 
-// Example: u-full-width@max-xlg
+// Changes max-width until breakpoint is hit
+// Example: u-max-width-small@max-md
+// Example: u-full-width@md
 @each $bp-name, $bp-value in $mq-breakpoints {
 	@include mq($until: #{$bp-name}) {
+		@each $sp-name, $sp-value in $spacing {
+			.u-max-width-#{$sp-name}\@max-#{$bp-name} {
+				max-width:rem($sp-value * 10) !important;
+			}
+		}
 		.u-full-width\@max-#{$bp-name} {
 			width:100% !important;
 			max-width:100% !important;
