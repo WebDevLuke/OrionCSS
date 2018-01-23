@@ -37,13 +37,12 @@ individual column. Typically used with container object and width utilities to f
 
 /*
 [1] Required in order to combine fluid widths with fixed gutters.
-[2] Default item alignment is with the tops of each other, like most traditional grid/layout systems.
 */
 
 .o-layout__item { 
 	box-sizing:border-box; /* [1] */
-	vertical-align: top; /* [2] */
 	width:100%;
+	vertical-align: top;
 	padding-left:rem($gutter / 2);
 	padding-right:rem($gutter / 2);
 }
@@ -146,6 +145,25 @@ Flush removes the gutter between layout items.
 			padding-right:0;
 		}
 	}
+}
+
+// INLINE MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Modifier to disable layout__item default width so they can be inline
+*/ 
+
+.o-layout--inline .o-layout__item {
+	width:auto;
+}
+
+/*
+Makes a layout item fill all avaiable space
+*/
+
+.o-layout__item--fill {
+	flex-grow:1;
 }
 
 

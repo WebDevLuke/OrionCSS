@@ -14,12 +14,16 @@ Basic utility classes for typography.
 	font-weight:bold !important;
 }
 
-.u-italic {
-	font-style:italic !important;
-}
-
 .u-normal {
 	font-weight:normal !important;
+}
+
+.u-lighter {
+	font-weight:lighter !important;
+}
+
+.u-italic {
+	font-style:italic !important;
 }
 
 .u-underline {
@@ -64,12 +68,16 @@ Basic utility classes for typography.
 			font-weight:bold !important;
 		}
 
-		.u-italic\@#{$bp-name} {
-			font-style:italic !important;
-		}
-
 		.u-normal\@#{$bp-name} {
 			font-weight:normal !important;
+		}
+
+		.u-lighter\@#{$bp-name} {
+			font-weight:lighter !important;
+		}
+
+		.u-italic\@#{$bp-name} {
+			font-style:italic !important;
 		}
 
 		.u-underline\@#{$bp-name} {
@@ -113,12 +121,12 @@ Basic utility classes for typography.
 			font-weight:bold !important;
 		}
 
-		.u-italic\@max-#{$bp-name} {
-			font-style:italic !important;
+		.u-lighter\@max-#{$bp-name} {
+			font-weight:lighter !important;
 		}
 
-		.u-normal\@max-#{$bp-name} {
-			font-weight:normal !important;
+		.u-italic\@max-#{$bp-name} {
+			font-style:italic !important;
 		}
 
 		.u-nowrap\@max-#{$bp-name} {

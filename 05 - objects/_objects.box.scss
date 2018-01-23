@@ -79,6 +79,16 @@ to better visually balance a box.
 	}
 }
 
+.o-box--vertical {
+	padding-left:0;
+	padding-right:0;
+}
+
+.o-box--horizontal {
+	padding-top:0;
+	padding-bottom:0;
+}
+
 
 // SIZE MODIFIERS
 //--------------------------------------------------------------------------------------------------------------------------------------
