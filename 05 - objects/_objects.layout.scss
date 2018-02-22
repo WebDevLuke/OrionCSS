@@ -39,7 +39,7 @@ individual column. Typically used with container object and width utilities to f
 [1] Required in order to combine fluid widths with fixed gutters.
 */
 
-.o-layout__item { 
+.o-layout__item {
 	box-sizing:border-box; /* [1] */
 	width:100%;
 	vertical-align: top;
@@ -53,7 +53,7 @@ individual column. Typically used with container object and width utilities to f
 
 /*
 Tweak the spacing between individual columns
-*/ 
+*/
 
 // Generate using settings.spacing
 // Example o-layout--spacing-small
@@ -110,7 +110,7 @@ Tweak the spacing between individual columns
 
 /*
 Flush removes the gutter between layout items.
-*/ 
+*/
 
 /*
 [1] Remove negative margins as we no longer have to absorb any paddings from columns
@@ -152,10 +152,26 @@ Flush removes the gutter between layout items.
 
 /*
 Modifier to disable layout__item default width so they can be inline
-*/ 
+*/
 
 .o-layout--inline .o-layout__item {
 	width:auto;
+}
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
+		.o-layout--inline\@#{$bp-name} .o-layout__item {
+			width:auto;
+		}
+	}
+}
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until:#{$bp-name}) {
+		.o-layout--inline\@max-#{$bp-name} .o-layout__item {
+			width:auto;
+		}
+	}
 }
 
 /*
@@ -164,6 +180,22 @@ Makes a layout item fill all avaiable space
 
 .o-layout__item--fill {
 	flex-grow:1;
+}
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
+		.o-layout__item--fill\@#{$bp-name} {
+			flex-grow:1;
+		}
+	}
+}
+
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until:#{$bp-name}) {
+		.o-layout__item--fill\@max-#{$bp-name} {
+			flex-grow:1;
+		}
+	}
 }
 
 
@@ -256,7 +288,7 @@ Modifiers to change the vertical alignment of the whole layout or just individua
 
 .o-layout__item--top {
 	align-self:flex-start;
-} 
+}
 
 .o-layout--bottom {
 	align-items:flex-end;
@@ -274,7 +306,7 @@ Modifiers to change the vertical alignment of the whole layout or just individua
 	align-self:center;
 }
 
-// Columns are align to match their baseline 
+// Columns are align to match their baseline
 .o-layout--baseline {
 	align-items:baseline;
 }
@@ -313,7 +345,7 @@ Modifiers to change the vertical alignment of the whole layout or just individua
 			align-self:center;
 		}
 
-		// Columns are align to match their baseline 
+		// Columns are align to match their baseline
 		.o-layout--baseline\@#{$bp-name} {
 			align-items:baseline;
 		}
@@ -354,7 +386,7 @@ Modifiers to change the vertical alignment of the whole layout or just individua
 			align-self:center;
 		}
 
-		// Columns are align to match their baseline 
+		// Columns are align to match their baseline
 		.o-layout--baseline\@max-#{$bp-name} {
 			align-items:baseline;
 		}
@@ -362,6 +394,104 @@ Modifiers to change the vertical alignment of the whole layout or just individua
 		.o-layout__item--baseline\@max-#{$bp-name} {
 			align-self:baseline;
 		}
+	}
+}
+
+
+// HORIZONTAL ALIGNMENT MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Modifiers to change the horizontal alignment of the whole layout or just individual columns
+*/
+
+// Default vertical alignment
+.o-layout--left {
+	justify-content:flex-start;
+}
+
+.o-layout__item--left {
+	justify-self:flex-start;
+}
+
+.o-layout--right {
+	justify-content:flex-end;
+}
+
+.o-layout__item--right {
+	justify-self:flex-end;
+}
+
+.o-layout--center {
+	justify-content:center;
+}
+
+.o-layout__item--center {
+	justify-self:center;
+}
+
+// Changes vertical-alignment when breakpoint is hit
+// Example: .o-layout--center@md
+// Example: .o-layout__item--center@md
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq(#{$bp-name}) {
+		// Default vertical alignment
+		.o-layout--left\@#{$bp-name} {
+			justify-content:flex-start;
+		}
+
+		.o-layout__item--left\@#{$bp-name} {
+			justify-self:flex-start;
+		}
+
+		.o-layout--right\@#{$bp-name} {
+			justify-content:flex-end;
+		}
+
+		.o-layout__item--right\@#{$bp-name} {
+			justify-self:flex-end;
+		}
+
+		.o-layout--center\@#{$bp-name} {
+			justify-content:center;
+		}
+
+		.o-layout__item--center\@#{$bp-name} {
+			justify-self:center;
+		}
+	}
+}
+
+// Changes vertical-alignment until breakpoint is hit
+// Example: .o-layout--center@max-md
+// Example: .o-layout__item--center@max-md
+@each $bp-name, $bp-value in $mq-breakpoints {
+	@include mq($until: #{$bp-name}) {
+		// Default vertical alignment
+		.o-layout--left\@max-#{$bp-name} {
+			justify-content:flex-start;
+		}
+
+		.o-layout__item--left\@max-#{$bp-name} {
+			justify-self:flex-start;
+		}
+
+		.o-layout--right\@max-#{$bp-name} {
+			justify-content:flex-end;
+		}
+
+		.o-layout__item--right\@max-#{$bp-name} {
+			justify-self:flex-end;
+		}
+
+		.o-layout--center\@max-#{$bp-name} {
+			justify-content:center;
+		}
+
+		.o-layout__item--center\@max-#{$bp-name} {
+			justify-self:center;
+		}
+
 	}
 }
 

@@ -35,14 +35,16 @@ http://csswizardry.com/2013/05/the-flag-object/
 	width: auto;
 }
 
-.o-media__image, .o-media__body {
+.o-media__image,
+.o-media__body {
 	display: table-cell;
 	vertical-align: middle;
 }
 
 .o-media__image {
 	width:rem(1px); /* [1] */
-	img {
+	img,
+	svg {
 		display: block;
 		max-width: none;
 	}
