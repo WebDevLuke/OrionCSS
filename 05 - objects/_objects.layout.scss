@@ -154,13 +154,13 @@ Flush removes the gutter between layout items.
 Modifier to disable layout__item default width so they can be inline
 */
 
-.o-layout--inline .o-layout__item {
+.o-layout--inline > .o-layout__item {
 	width:auto;
 }
 
 @each $bp-name, $bp-value in $mq-breakpoints {
 	@include mq(#{$bp-name}) {
-		.o-layout--inline\@#{$bp-name} .o-layout__item {
+		.o-layout--inline\@#{$bp-name} > .o-layout__item {
 			width:auto;
 		}
 	}
@@ -168,7 +168,7 @@ Modifier to disable layout__item default width so they can be inline
 
 @each $bp-name, $bp-value in $mq-breakpoints {
 	@include mq($until:#{$bp-name}) {
-		.o-layout--inline\@max-#{$bp-name} .o-layout__item {
+		.o-layout--inline\@max-#{$bp-name} > .o-layout__item {
 			width:auto;
 		}
 	}
